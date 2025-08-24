@@ -1,6 +1,13 @@
 import type { Config } from "@stencil/core";
 import { reactOutputTarget } from "@stencil/react-output-target";
-import tailwind from "stencil-tailwind-plugin";
+import tailwind, {
+  setPluginConfigurationDefaults,
+  tailwindHMR,
+} from "stencil-tailwind-plugin";
+
+setPluginConfigurationDefaults({
+  tailwindCssPath: "./src/style.css",
+});
 
 export const config: Config = {
   namespace: "ui-webc",
@@ -29,12 +36,10 @@ export const config: Config = {
   testing: {
     browserHeadless: "shell",
   },
-  plugins: [
-    tailwind({
-      tailwindCssPath: "./src/style.css",
-    }),
-  ],
+  plugins: [tailwind(), tailwindHMR()],
   devServer: {
     reloadStrategy: "pageReload",
+    initialLoadUrl: "/lab/output/",
+    root: ".",
   },
 };

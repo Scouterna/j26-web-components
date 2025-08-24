@@ -37,20 +37,38 @@
   ],
   "scripts": {
     "build": "stencil build",
-    "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "dev": "rimraf lab/output && pnpm run lab:tailwind && concurrently --names docs,sten \"pnpm run lab:generate\" \"pnpm run lab:server\"",
+    "lab:tailwind": "tailwindcss -i ./lab/style.css -o ./lab/output/style.css",
+    "lab:generate": "node lab/generate-lab.mts",
+    "lab:server": "stencil build --dev --watch --serve"
   },
   "devDependencies": {
+    "@mdx-js/mdx": "^3.1.0",
+    "@scouterna/ui-tailwind-theme": "workspace:^",
     "@stencil/core": "^4.27.1",
     "@stencil/react-output-target": "^1.2.0",
+    "@tailwindcss/cli": "^4.1.12",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.5",
+    "@types/react-dom": "^19.1.7",
+    "chokidar": "^4.0.3",
+    "concurrently": "^9.2.0",
+    "esbuild": "^0.25.9",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
+    "mdx-bundler": "^10.1.1",
     "puppeteer": "^24.3.0",
-    "@scouterna/ui-tailwind-theme": "workspace:^"
+    "react-dom": "^19.1.1",
+    "rimraf": "^6.0.1",
+    "tailwindcss": "^4.1.12"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.3.1"
+  }
 }
