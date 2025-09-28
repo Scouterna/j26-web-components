@@ -123,7 +123,11 @@ importers:
         specifier: ^5.9.2
         version: 5.9.2
 
-  packages/ui-tailwind-theme: {}
+  packages/ui-tailwind-theme:
+    devDependencies:
+      '@scouterna/design-tokens':
+        specifier: workspace:^
+        version: link:../design-tokens
 
   packages/ui-webc:
     dependencies:

@@ -2,14 +2,21 @@
   "name": "@scouterna/ui-tailwind-theme",
   "version": "0.0.0",
   "description": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "exports": {
+    "./*": "./dist/*"
   },
   "files": [
-    "theme.css"
+    "dist/"
   ],
+  "scripts": {
+    "build": "node generate-theme.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
-  "packageManager": "pnpm@10.7.0"
+  "packageManager": "pnpm@10.7.0",
+  "devDependencies": {
+    "@scouterna/design-tokens": "workspace:^"
+  }
 }

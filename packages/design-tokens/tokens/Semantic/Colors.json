@@ -3,13 +3,13 @@
     "text": {
       "caution": {
         "base": {
-          "$value": "{orange.700}",
+          "$value": "{color.orange.700}",
           "$type": "color",
           "$description": "Used to convey caution or warnings."
         },
         "bold": {
           "base": {
-            "$value": "{orange.50}",
+            "$value": "{color.orange.50}",
             "$type": "color",
             "$description": "Used when text is placed on a bold background."
           }
@@ -17,13 +17,13 @@
       },
       "danger": {
         "base": {
-          "$value": "{red.700}",
+          "$value": "{color.red.700}",
           "$type": "color",
           "$description": "Used to convey errors or destructive actions."
         },
         "bold": {
           "base": {
-            "$value": "{red.50}",
+            "$value": "{color.red.50}",
             "$type": "color",
             "$description": "Used when text is placed on a bold background."
           }
@@ -31,25 +31,25 @@
       },
       "positive": {
         "base": {
-          "$value": "{green.700}",
+          "$value": "{color.green.700}",
           "$type": "color",
           "$description": "Used to convey success or positive actions."
         },
         "bold": {
           "base": {
-            "$value": "{green.50}",
+            "$value": "{color.green.50}",
             "$type": "color",
             "$description": "Used when text is placed on a bold background."
           }
         }
       },
       "brand": {
-        "$value": "{blue.700}",
+        "$value": "{color.blue.700}",
         "$type": "color",
         "$description": "Should be used sparingly, mostly for large display text meant to attract attention."
       },
       "base": {
-        "$value": "{neutral.800}",
+        "$value": "{color.neutral.800}",
         "$type": "color",
         "$description": "Use this for most text."
       }
@@ -57,13 +57,13 @@
     "background": {
       "danger": {
         "base": {
-          "$value": "{red.100}",
+          "$value": "{color.red.100}",
           "$type": "color",
           "$description": ""
         },
         "bold": {
           "base": {
-            "$value": "{red.700}",
+            "$value": "{color.red.700}",
             "$type": "color",
             "$description": ""
           }
@@ -71,13 +71,13 @@
       },
       "positive": {
         "base": {
-          "$value": "{green.100}",
+          "$value": "{color.green.100}",
           "$type": "color",
           "$description": ""
         },
         "bold": {
           "base": {
-            "$value": "{green.700}",
+            "$value": "{color.green.700}",
             "$type": "color",
             "$description": ""
           }
@@ -85,13 +85,13 @@
       },
       "caution": {
         "base": {
-          "$value": "{orange.100}",
+          "$value": "{color.orange.100}",
           "$type": "color",
           "$description": ""
         },
         "bold": {
           "base": {
-            "$value": "{orange.700}",
+            "$value": "{color.orange.700}",
             "$type": "color",
             "$description": ""
           }

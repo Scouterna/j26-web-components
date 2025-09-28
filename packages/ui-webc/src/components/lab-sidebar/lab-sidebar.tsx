@@ -37,31 +37,29 @@ export class LabSidebar {
         class={`
           h-full
           flex flex-col gap-2
-          w-64 p-4
+          w-48 p-2
           border-r border-gray-300
         `}
       >
-        <div class="pl-2">
-          <ul
-            class={`
-              space-y-1
-            `}
-          >
-            {Object.entries(this.groupedPages).map(([group, pages]) => (
-              <li key={group} class="pl-1">
-                <h2 class="text-xs font-bold text-gray-900 mb-1">{group}</h2>
-                <ul
-                  class={`
-                    border-l border-gray-300
-                    space-y-1
-                  `}
-                >
-                  {this.getItems(pages)}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul
+          class={`
+            space-y-1
+          `}
+        >
+          {Object.entries(this.groupedPages).map(([group, pages]) => (
+            <li key={group} class="pl-1">
+              <h2 class="text-xs font-bold text-gray-900 mb-1">{group}</h2>
+              <ul
+                class={`
+                  border-l border-gray-300
+                  space-y-1
+                `}
+              >
+                {this.getItems(pages)}
+              </ul>
+            </li>
+          ))}
+        </ul>
       </aside>
     );
   }
