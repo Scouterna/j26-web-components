@@ -83,7 +83,7 @@ export class LabSidebar {
               rounded-md
             `,
             isActive
-              ? "bg-gray-200 font-medium"
+              ? "bg-gray-100 font-medium"
               : "hover:text-gray-900 hover:bg-gray-100",
           )}
         >

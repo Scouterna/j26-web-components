@@ -1,5 +1,6 @@
 {
   "tailwindCSS.experimental.configFile": {
-    "packages/docs/src/styles/global.css": "packages/docs/**"
+    "packages/docs/src/styles/global.css": "packages/docs/**",
+    "packages/ui-webc/src/style.css": "packages/ui-webc/**"
   }
 }
