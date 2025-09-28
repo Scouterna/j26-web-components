@@ -1,0 +1,12 @@
+{
+  "tokenSetOrder": [
+    "Global/Base Colors",
+    "Semantic/Colors"
+  ],
+  "activeThemes": [],
+  "activeSets": [
+    "Semantic/Colors",
+    "Global/Base Colors",
+    "Global"
+  ]
+}

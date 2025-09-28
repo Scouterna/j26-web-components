@@ -1,0 +1,26 @@
+{
+  "name": "@scouterna/design-tokens",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "exports": {
+    "./*": "./dist/*"
+  },
+  "files": [
+    "dist/"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "node build-tokens.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.7.0",
+  "devDependencies": {
+    "style-dictionary": "^5.0.4"
+  },
+  "dependencies": {
+    "glob": "^11.0.3"
+  }
+}
