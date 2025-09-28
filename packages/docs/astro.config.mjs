@@ -8,7 +8,12 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   integrations: [
     starlight({
-      title: "My Docs",
+      title: "Scouterna UI",
+      logo: {
+        src: "./src/assets/logo.svg",
+        replacesTitle: true,
+        alt: "Scouterna",
+      },
       customCss: [
         "@scouterna/design-tokens/tokens.css",
         "./src/styles/global.css",
@@ -17,7 +22,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/withastro/starlight",
+          href: "https://github.com/Scouterna/j26-web-components",
         },
       ],
       sidebar: [
@@ -34,7 +39,7 @@ export default defineConfig({
         },
         {
           label: "Design System",
-          autogenerate: { directory: "design-system" },
+          items: [{ label: "Design Tokens", link: "/design-system/tokens" }],
         },
       ],
     }),
