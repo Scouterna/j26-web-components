@@ -2,11 +2,16 @@ import type { Config } from "@stencil/core";
 import { reactOutputTarget } from "@stencil/react-output-target";
 import tailwind, {
   setPluginConfigurationDefaults,
+  tailwindGlobal,
   tailwindHMR,
 } from "stencil-tailwind-plugin";
 
 setPluginConfigurationDefaults({
   tailwindCssPath: "./src/style.css",
+  minify: false,
+  enableDebug: true,
+  optimise: true,
+  stripComments: false,
 });
 
 export const config: Config = {

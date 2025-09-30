@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Page } from "./components/lab-sidebar/types";
+import { ButtonProps } from "./components/scout-button/scout-button";
 export { Page } from "./components/lab-sidebar/types";
+export { ButtonProps } from "./components/scout-button/scout-button";
 export namespace Components {
     interface LabLayout {
     }
@@ -35,6 +37,11 @@ export namespace Components {
         "middle": string;
         "test": { name: string };
     }
+    interface ScoutButton {
+        "color": ButtonProps["color"];
+        "size": ButtonProps["size"];
+        "variant": ButtonProps["variant"];
+    }
 }
 declare global {
     interface HTMLLabLayoutElement extends Components.LabLayout, HTMLStencilElement {
@@ -55,10 +62,17 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLScoutButtonElement extends Components.ScoutButton, HTMLStencilElement {
+    }
+    var HTMLScoutButtonElement: {
+        prototype: HTMLScoutButtonElement;
+        new (): HTMLScoutButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "lab-layout": HTMLLabLayoutElement;
         "lab-sidebar": HTMLLabSidebarElement;
         "my-component": HTMLMyComponentElement;
+        "scout-button": HTMLScoutButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -89,10 +103,16 @@ declare namespace LocalJSX {
         "middle"?: string;
         "test"?: { name: string };
     }
+    interface ScoutButton {
+        "color"?: ButtonProps["color"];
+        "size"?: ButtonProps["size"];
+        "variant"?: ButtonProps["variant"];
+    }
     interface IntrinsicElements {
         "lab-layout": LabLayout;
         "lab-sidebar": LabSidebar;
         "my-component": MyComponent;
+        "scout-button": ScoutButton;
     }
 }
 export { LocalJSX as JSX };
@@ -102,6 +122,7 @@ declare module "@stencil/core" {
             "lab-layout": LocalJSX.LabLayout & JSXBase.HTMLAttributes<HTMLLabLayoutElement>;
             "lab-sidebar": LocalJSX.LabSidebar & JSXBase.HTMLAttributes<HTMLLabSidebarElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "scout-button": LocalJSX.ScoutButton & JSXBase.HTMLAttributes<HTMLScoutButtonElement>;
         }
     }
 }

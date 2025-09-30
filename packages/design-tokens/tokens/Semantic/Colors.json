@@ -30,17 +30,17 @@
         }
       },
       "positive": {
-        "base": {
-          "$value": "{color.green.700}",
-          "$type": "color",
-          "$description": "Used to convey success or positive actions."
-        },
         "bold": {
           "base": {
             "$value": "{color.green.50}",
             "$type": "color",
             "$description": "Used when text is placed on a bold background."
           }
+        },
+        "base": {
+          "$value": "{color.green.700}",
+          "$type": "color",
+          "$description": "Used to convey success or positive actions."
         }
       },
       "brand": {
@@ -95,6 +95,23 @@
             "$type": "color",
             "$description": ""
           }
+        }
+      },
+      "brand": {
+        "base": {
+          "$value": "{color.blue.700}",
+          "$type": "color",
+          "$description": ""
+        },
+        "hovered": {
+          "$value": "{color.blue.800}",
+          "$type": "color",
+          "$description": ""
+        },
+        "pressed": {
+          "$value": "{color.blue.900}",
+          "$type": "color",
+          "$description": ""
         }
       }
     }
