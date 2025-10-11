@@ -1,4 +1,5 @@
 import { Component, h, Prop } from "@stencil/core";
+import { format } from "../../utils/utils";
 
 @Component({
   tag: "my-component",
@@ -21,23 +22,11 @@ export class MyComponent {
    */
   @Prop() last: string;
 
-  @Prop() test: { name: string };
-
   private getText(): string {
-    return (
-      (this.first || "") +
-      (this.middle ? ` ${this.middle}` : "") +
-      (this.last ? ` ${this.last}` : "")
-    );
+    return format(this.first, this.middle, this.last);
   }
 
   render() {
-    return (
-      <div class="text-adventurerorange">
-        Hello, World! I'm {this.getText()}
-        <br />
-        Also, {this.test?.name}
-      </div>
-    );
+    return <div>Hello, Worzldzzz! I'm {this.getText()}</div>;
   }
 }

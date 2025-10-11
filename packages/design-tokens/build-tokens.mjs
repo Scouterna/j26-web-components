@@ -2,7 +2,7 @@ import { globSync } from "glob";
 import StyleDictionary from "style-dictionary";
 
 const source = globSync("./tokens/**/*.json", {
-  ignore: ["**/**/$*.json"],
+  ignore: ["**/**/$*.json", "Misc.json"],
 });
 
 const sd = new StyleDictionary({

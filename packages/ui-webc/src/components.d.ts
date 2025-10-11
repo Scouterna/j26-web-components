@@ -5,23 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Page } from "./components/lab-sidebar/types";
-import { ButtonProps } from "./components/scout-button/scout-button";
-export { Page } from "./components/lab-sidebar/types";
-export { ButtonProps } from "./components/scout-button/scout-button";
 export namespace Components {
-    interface LabLayout {
-    }
-    interface LabSidebar {
-        /**
-          * @default ""
-         */
-        "currentPage": string;
-        /**
-          * @default {}
-         */
-        "pages": Record<string, Page>;
-    }
     interface MyComponent {
         /**
           * The first name
@@ -35,59 +19,20 @@ export namespace Components {
           * The middle name
          */
         "middle": string;
-        "test": { name: string };
-    }
-    interface ScoutButton {
-        "color": ButtonProps["color"];
-        "size": ButtonProps["size"];
-        "variant": ButtonProps["variant"];
     }
 }
 declare global {
-    interface HTMLLabLayoutElement extends Components.LabLayout, HTMLStencilElement {
-    }
-    var HTMLLabLayoutElement: {
-        prototype: HTMLLabLayoutElement;
-        new (): HTMLLabLayoutElement;
-    };
-    interface HTMLLabSidebarElement extends Components.LabSidebar, HTMLStencilElement {
-    }
-    var HTMLLabSidebarElement: {
-        prototype: HTMLLabSidebarElement;
-        new (): HTMLLabSidebarElement;
-    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
-    interface HTMLScoutButtonElement extends Components.ScoutButton, HTMLStencilElement {
-    }
-    var HTMLScoutButtonElement: {
-        prototype: HTMLScoutButtonElement;
-        new (): HTMLScoutButtonElement;
-    };
     interface HTMLElementTagNameMap {
-        "lab-layout": HTMLLabLayoutElement;
-        "lab-sidebar": HTMLLabSidebarElement;
         "my-component": HTMLMyComponentElement;
-        "scout-button": HTMLScoutButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface LabLayout {
-    }
-    interface LabSidebar {
-        /**
-          * @default ""
-         */
-        "currentPage"?: string;
-        /**
-          * @default {}
-         */
-        "pages"?: Record<string, Page>;
-    }
     interface MyComponent {
         /**
           * The first name
@@ -101,28 +46,16 @@ declare namespace LocalJSX {
           * The middle name
          */
         "middle"?: string;
-        "test"?: { name: string };
-    }
-    interface ScoutButton {
-        "color"?: ButtonProps["color"];
-        "size"?: ButtonProps["size"];
-        "variant"?: ButtonProps["variant"];
     }
     interface IntrinsicElements {
-        "lab-layout": LabLayout;
-        "lab-sidebar": LabSidebar;
         "my-component": MyComponent;
-        "scout-button": ScoutButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "lab-layout": LocalJSX.LabLayout & JSXBase.HTMLAttributes<HTMLLabLayoutElement>;
-            "lab-sidebar": LocalJSX.LabSidebar & JSXBase.HTMLAttributes<HTMLLabSidebarElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "scout-button": LocalJSX.ScoutButton & JSXBase.HTMLAttributes<HTMLScoutButtonElement>;
         }
     }
 }

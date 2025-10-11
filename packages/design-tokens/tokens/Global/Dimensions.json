@@ -1,0 +1,174 @@
+{
+  "spacing": {
+    "base": {
+      "$value": "4px",
+      "$type": "dimension",
+      "$description": ""
+    },
+    "1": {
+      "$value": "{spacing.base}*1",
+      "$type": "dimension",
+      "$description": "0.25rem = 4px"
+    },
+    "2": {
+      "$value": "{spacing.base}*2",
+      "$type": "dimension",
+      "$description": "0.5rem = 8px"
+    },
+    "3": {
+      "$value": "{spacing.base}*3",
+      "$type": "dimension",
+      "$description": "0.75rem = 12px"
+    },
+    "4": {
+      "$value": "{spacing.base}*4",
+      "$type": "dimension",
+      "$description": "1rem = 16px"
+    },
+    "5": {
+      "$value": "{spacing.base}*5",
+      "$type": "dimension",
+      "$description": "1.25rem = 20px"
+    },
+    "6": {
+      "$value": "{spacing.base}*6",
+      "$type": "dimension",
+      "$description": "1.5rem = 24px"
+    },
+    "7": {
+      "$value": "{spacing.base}*7",
+      "$type": "dimension",
+      "$description": "1.75rem = 28px"
+    },
+    "8": {
+      "$value": "{spacing.base}*8",
+      "$type": "dimension",
+      "$description": "2rem = 32px"
+    },
+    "10": {
+      "$value": "{spacing.base}*10",
+      "$type": "dimension",
+      "$description": "2.5rem = 40px"
+    },
+    "11": {
+      "$value": "{spacing.base}*11",
+      "$type": "dimension",
+      "$description": "2.75rem = 44px"
+    },
+    "12": {
+      "$value": "{spacing.base}*12",
+      "$type": "dimension",
+      "$description": "3rem = 48px"
+    },
+    "14": {
+      "$value": "{spacing.base}*14",
+      "$type": "dimension",
+      "$description": "3.5rem = 56px"
+    },
+    "16": {
+      "$value": "{spacing.base}*16",
+      "$type": "dimension",
+      "$description": "4rem = 64px"
+    },
+    "17": {
+      "$value": "{spacing.base}*17",
+      "$type": "dimension",
+      "$description": "4.25rem = 68px"
+    },
+    "18": {
+      "$value": "{spacing.base}*18",
+      "$type": "dimension",
+      "$description": "4.5rem = 72px"
+    },
+    "20": {
+      "$value": "{spacing.base}*20",
+      "$type": "dimension",
+      "$description": "5rem = 80px"
+    },
+    "24": {
+      "$value": "{spacing.base}*24",
+      "$type": "dimension",
+      "$description": "6rem = 96px"
+    },
+    "28": {
+      "$value": "{spacing.base}*28",
+      "$type": "dimension",
+      "$description": "7rem = 112px"
+    },
+    "32": {
+      "$value": "{spacing.base}*32",
+      "$type": "dimension",
+      "$description": "8rem = 128px"
+    },
+    "36": {
+      "$value": "{spacing.base}*36",
+      "$type": "dimension",
+      "$description": "9rem = 144px"
+    },
+    "40": {
+      "$value": "{spacing.base}*40",
+      "$type": "dimension",
+      "$description": "10rem = 160px"
+    },
+    "48": {
+      "$value": "{spacing.base}*48",
+      "$type": "dimension",
+      "$description": "12rem = 192px"
+    },
+    "52": {
+      "$value": "{spacing.base}*52",
+      "$type": "dimension",
+      "$description": "13rem = 208px"
+    },
+    "56": {
+      "$value": "{spacing.base}*56",
+      "$type": "dimension",
+      "$description": "14rem = 224px"
+    },
+    "60": {
+      "$value": "{spacing.base}*60",
+      "$type": "dimension",
+      "$description": "15rem = 240px"
+    },
+    "64": {
+      "$value": "{spacing.base}*64",
+      "$type": "dimension",
+      "$description": "16rem = 256px"
+    },
+    "72": {
+      "$value": "{spacing.base}*72",
+      "$type": "dimension",
+      "$description": "18rem = 288px"
+    },
+    "80": {
+      "$value": "{spacing.base}*80",
+      "$type": "dimension",
+      "$description": "20rem = 320px"
+    },
+    "96": {
+      "$value": "{spacing.base}*96",
+      "$type": "dimension",
+      "$description": "24rem = 384px"
+    },
+    "180": {
+      "$value": "{spacing.base}*180",
+      "$type": "dimension",
+      "$description": "45rem = 720px"
+    },
+    "195": {
+      "$value": "{spacing.base}*195",
+      "$type": "dimension",
+      "$description": "48.75rem = 780px"
+    },
+    "212": {
+      "$value": "{spacing.base}*212",
+      "$type": "dimension",
+      "$description": "53rem = 848px"
+    },
+    "380": {
+      "$value": "{spacing.base}*380",
+      "$type": "dimension",
+      "$description": "95rem = 1520px"
+    }
+  }
+}

@@ -44,9 +44,11 @@
         }
       },
       "brand": {
-        "$value": "{color.blue.700}",
-        "$type": "color",
-        "$description": "Should be used sparingly, mostly for large display text meant to attract attention."
+        "base": {
+          "$value": "{color.blue.700}",
+          "$type": "color",
+          "$description": "Should be used sparingly, mostly for large display text meant to attract attention."
+        }
       },
       "base": {
         "$value": "{color.neutral.800}",
@@ -112,6 +114,23 @@
           "$value": "{color.blue.900}",
           "$type": "color",
           "$description": ""
+        },
+        "subtle": {
+          "base": {
+            "$value": "{color.blue.700}",
+            "$type": "color",
+            "$description": ""
+          },
+          "hovered": {
+            "$value": "{color.blue.50}",
+            "$type": "color",
+            "$description": ""
+          },
+          "pressed": {
+            "$value": "{color.blue.100}",
+            "$type": "color",
+            "$description": ""
+          }
         }
       }
     }

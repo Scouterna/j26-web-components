@@ -1,0 +1,11 @@
+{
+  "misc": {
+    "color": {
+      "annotations": {
+        "$value": "#ff00ff",
+        "$type": "color",
+        "$description": ""
+      }
+    }
+  }
+}

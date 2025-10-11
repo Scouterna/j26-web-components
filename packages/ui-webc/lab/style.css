@@ -1,6 +1,0 @@
-@import "tailwindcss";
-@import "@scouterna/ui-tailwind-theme/theme.css";
-
-@source "./template";
-
-@plugin "@tailwindcss/typography";
