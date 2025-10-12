@@ -1,0 +1,10 @@
+:host {
+  display: inline-flex;
+}
+
+/* Add your component styles here using design tokens */
+/* Example design token usage:
+   - Spacing: var(--spacing-1) through var(--spacing-12)
+   - Colors: var(--color-background-brand-base), var(--color-text-brand-base), etc.
+   - Border radius: var(--spacing-2)
+*/

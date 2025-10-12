@@ -1,0 +1,239 @@
+---
+import hljs from 'highlight.js/lib/core';
+import xml from 'highlight.js/lib/languages/xml';
+
+hljs.registerLanguage('xml', xml);
+hljs.registerLanguage('html', xml);
+
+interface Props {
+  code?: string;
+  title?: string;
+}
+
+const { code, title } = Astro.props;
+const previewId = `preview-${Math.random().toString(36).substr(2, 9)}`;
+
+let highlightedCode = '';
+if (code) {
+  const result = hljs.highlight(code, { language: 'html' });
+  highlightedCode = result.value;
+}
+---
+
+<div class="component-preview-container">
+  {title && <h4 class="preview-title">{title}</h4>}
+
+  <div class="preview-tabs">
+    <button class="tab-button active" data-tab="preview" data-preview-id={previewId}>
+      Preview
+    </button>
+    {code && (
+      <button class="tab-button" data-tab="code" data-preview-id={previewId}>
+        Code
+      </button>
+    )}
+  </div>
+
+  <div class="tab-content">
+    <div class="tab-pane active" data-pane="preview" data-preview-id={previewId}>
+      <div class="preview-area">
+        <slot />
+      </div>
+    </div>
+
+    {code && (
+      <div class="tab-pane" data-pane="code" data-preview-id={previewId}>
+        <div class="code-area">
+          <button class="copy-button" data-code={code}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
+          <pre><code class="hljs language-html" set:html={highlightedCode}></code></pre>
+        </div>
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .component-preview-container {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2.5rem 0;
+    background: var(--sl-color-black);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .preview-title {
+    margin: 0;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .preview-tabs {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+    background: var(--sl-color-gray-6);
+    height: 48px;
+  }
+
+  .tab-button {
+    padding: 0 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--sl-color-gray-2);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tab-button:hover {
+    color: var(--sl-color-white);
+  }
+
+  .tab-button.active {
+    color: var(--sl-color-white);
+  }
+
+  .tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--sl-color-accent);
+  }
+
+  .tab-content {
+    position: relative;
+  }
+
+  .tab-pane {
+    display: none;
+  }
+
+  .tab-pane.active {
+    display: block;
+  }
+
+  .preview-area {
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    background: var(--sl-color-black);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .code-area {
+    position: relative;
+    background: white;
+  }
+
+  .code-area pre {
+    margin: 0;
+    padding: 1.5rem;
+    overflow-x: auto;
+    background: transparent;
+  }
+
+  .code-area code {
+    font-family: var(--__sl-font-mono);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    display: block;
+  }
+
+  .code-area .hljs {
+    background: transparent !important;
+    padding: 0;
+  }
+
+  .copy-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    background: var(--sl-color-gray-5);
+    border: 1px solid var(--sl-color-gray-4);
+    border-radius: 6px;
+    color: var(--sl-color-gray-2);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .copy-button:hover {
+    background: var(--sl-color-gray-4);
+    color: var(--sl-color-white);
+  }
+
+  .copy-button:active {
+    transform: scale(0.95);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Tab switching
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const tab = button.dataset.tab;
+        const previewId = button.dataset.previewId;
+        const container = button.closest('.component-preview-container');
+
+        // Update buttons
+        container?.querySelectorAll('.tab-button').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.tab === tab);
+        });
+
+        // Update panes
+        container?.querySelectorAll('.tab-pane').forEach(pane => {
+          if (pane.dataset.previewId === previewId) {
+            pane.classList.toggle('active', pane.dataset.pane === tab);
+          }
+        });
+      });
+    });
+
+    // Copy functionality
+    document.querySelectorAll('.copy-button').forEach(button => {
+      button.addEventListener('click', async () => {
+        const code = button.dataset.code;
+        if (code) {
+          await navigator.clipboard.writeText(code);
+
+          // Visual feedback
+          const originalHTML = button.innerHTML;
+          button.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          `;
+
+          setTimeout(() => {
+            button.innerHTML = originalHTML;
+          }, 2000);
+        }
+      });
+    });
+  });
+</script>

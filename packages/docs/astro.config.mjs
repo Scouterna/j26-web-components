@@ -17,7 +17,21 @@ export default defineConfig({
       customCss: [
         "@scouterna/design-tokens/tokens.css",
         "./src/styles/global.css",
+        "./src/styles/components.css",
+        "./src/styles/highlight.css",
       ],
+      head: [
+        {
+          tag: 'script',
+          attrs: {
+            src: '/component-loader.js',
+            type: 'module',
+          },
+        },
+      ],
+      components: {
+        Head: './src/components/ComponentLoader.astro',
+      },
       social: [
         {
           icon: "github",
@@ -34,6 +48,10 @@ export default defineConfig({
           ],
         },
         {
+          label: "Components",
+          autogenerate: { directory: "components" },
+        },
+        {
           label: "Reference",
           autogenerate: { directory: "reference" },
         },
@@ -47,5 +65,19 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      watch: {
+        // Watch the ui-webc source files for faster HMR
+        ignored: ['!**/node_modules/@scouterna/ui-webc/**'],
+      },
+      fs: {
+        // Allow serving files from the monorepo root
+        allow: ['../..'],
+      },
+    },
+    optimizeDeps: {
+      // Don't pre-bundle the components so changes are picked up faster
+      exclude: ['@scouterna/ui-webc'],
+    },
   },
 });
