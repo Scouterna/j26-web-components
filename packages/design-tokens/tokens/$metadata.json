@@ -9,8 +9,8 @@
   "activeSets": [
     "Semantic/Colors",
     "Global/Base Colors",
+    "Global/Dimensions",
     "Misc",
-    "Global",
-    "Global/Dimensions"
+    "Global"
   ]
 }

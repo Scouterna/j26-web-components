@@ -1,10 +1,5 @@
 {
   "spacing": {
-    "base": {
-      "$value": "4px",
-      "$type": "dimension",
-      "$description": ""
-    },
     "1": {
       "$value": "{spacing.base}*1",
       "$type": "dimension",
@@ -169,6 +164,11 @@
       "$value": "{spacing.base}*380",
       "$type": "dimension",
       "$description": "95rem = 1520px"
+    },
+    "base": {
+      "$value": "4px",
+      "$type": "dimension",
+      "$description": ""
     }
   }
 }

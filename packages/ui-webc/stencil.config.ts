@@ -1,9 +1,11 @@
 import type { Config } from "@stencil/core";
 import { postcss } from "@stencil-community/postcss";
+import postcssImport from "postcss-import";
 
 import postcssPresetEnv from "postcss-preset-env";
 export const config: Config = {
   namespace: "ui-webc",
+  globalStyle: "src/global/global.css",
   outputTargets: [
     {
       type: "dist",
@@ -26,7 +28,7 @@ export const config: Config = {
   },
   plugins: [
     postcss({
-      plugins: [postcssPresetEnv()],
+      plugins: [postcssImport(), postcssPresetEnv()],
     }),
   ],
 };

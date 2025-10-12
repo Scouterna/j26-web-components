@@ -15,6 +15,18 @@
           }
         }
       },
+      "brand": {
+        "base": {
+          "$value": "{color.blue.700}",
+          "$type": "color",
+          "$description": "Should be used sparingly, mostly for large display text meant to attract attention."
+        },
+        "inverse": {
+          "$value": "{color.white}",
+          "$type": "color",
+          "$description": ""
+        }
+      },
       "danger": {
         "base": {
           "$value": "{color.red.700}",
@@ -43,13 +55,6 @@
           "$description": "Used to convey success or positive actions."
         }
       },
-      "brand": {
-        "base": {
-          "$value": "{color.blue.700}",
-          "$type": "color",
-          "$description": "Should be used sparingly, mostly for large display text meant to attract attention."
-        }
-      },
       "base": {
         "$value": "{color.neutral.800}",
         "$type": "color",
@@ -68,7 +73,51 @@
             "$value": "{color.red.700}",
             "$type": "color",
             "$description": ""
+          },
+          "hovered": {
+            "$value": "{color.red.800}",
+            "$type": "color",
+            "$description": ""
+          },
+          "pressed": {
+            "$value": "{color.red.900}",
+            "$type": "color",
+            "$description": ""
           }
+        }
+      },
+      "brand": {
+        "subtle": {
+          "hovered": {
+            "$value": "{color.blue.50}",
+            "$type": "color",
+            "$description": ""
+          },
+          "pressed": {
+            "$value": "{color.blue.100}",
+            "$type": "color",
+            "$description": ""
+          },
+          "base": {
+            "$value": "{color.blue.700}",
+            "$type": "color",
+            "$description": ""
+          }
+        },
+        "hovered": {
+          "$value": "{color.blue.800}",
+          "$type": "color",
+          "$description": ""
+        },
+        "pressed": {
+          "$value": "{color.blue.900}",
+          "$type": "color",
+          "$description": ""
+        },
+        "base": {
+          "$value": "{color.blue.700}",
+          "$type": "color",
+          "$description": ""
         }
       },
       "positive": {
@@ -80,6 +129,16 @@
         "bold": {
           "base": {
             "$value": "{color.green.700}",
+            "$type": "color",
+            "$description": ""
+          },
+          "hovered": {
+            "$value": "{color.green.800}",
+            "$type": "color",
+            "$description": ""
+          },
+          "pressed": {
+            "$value": "{color.green.900}",
             "$type": "color",
             "$description": ""
           }
@@ -96,38 +155,14 @@
             "$value": "{color.orange.700}",
             "$type": "color",
             "$description": ""
-          }
-        }
-      },
-      "brand": {
-        "base": {
-          "$value": "{color.blue.700}",
-          "$type": "color",
-          "$description": ""
-        },
-        "hovered": {
-          "$value": "{color.blue.800}",
-          "$type": "color",
-          "$description": ""
-        },
-        "pressed": {
-          "$value": "{color.blue.900}",
-          "$type": "color",
-          "$description": ""
-        },
-        "subtle": {
-          "base": {
-            "$value": "{color.blue.700}",
-            "$type": "color",
-            "$description": ""
           },
           "hovered": {
-            "$value": "{color.blue.50}",
+            "$value": "{color.orange.800}",
             "$type": "color",
             "$description": ""
           },
           "pressed": {
-            "$value": "{color.blue.100}",
+            "$value": "{color.orange.900}",
             "$type": "color",
             "$description": ""
           }

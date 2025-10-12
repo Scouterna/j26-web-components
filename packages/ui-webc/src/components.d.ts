@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Variant } from "./components/scout-button/scout-button";
+export { Variant } from "./components/scout-button/scout-button";
 export namespace Components {
     interface MyComponent {
         /**
@@ -20,6 +22,21 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface ScoutButton {
+        "icon"?: string;
+        /**
+          * @default "button"
+         */
+        "type": "button" | "submit" | "reset";
+        /**
+          * @default "outlined"
+         */
+        "variant": Variant;
+    }
+}
+export interface ScoutButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutButtonElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +45,26 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLScoutButtonElementEventMap {
+        "scoutClick": void;
+    }
+    interface HTMLScoutButtonElement extends Components.ScoutButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutButtonElementEventMap>(type: K, listener: (this: HTMLScoutButtonElement, ev: ScoutButtonCustomEvent<HTMLScoutButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutButtonElementEventMap>(type: K, listener: (this: HTMLScoutButtonElement, ev: ScoutButtonCustomEvent<HTMLScoutButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLScoutButtonElement: {
+        prototype: HTMLScoutButtonElement;
+        new (): HTMLScoutButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "scout-button": HTMLScoutButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +82,21 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface ScoutButton {
+        "icon"?: string;
+        "onScoutClick"?: (event: ScoutButtonCustomEvent<void>) => void;
+        /**
+          * @default "button"
+         */
+        "type"?: "button" | "submit" | "reset";
+        /**
+          * @default "outlined"
+         */
+        "variant"?: Variant;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "scout-button": ScoutButton;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +104,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "scout-button": LocalJSX.ScoutButton & JSXBase.HTMLAttributes<HTMLScoutButtonElement>;
         }
     }
 }

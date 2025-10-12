@@ -1,4 +1,4 @@
-import "../../design-tokens/dist/tokens.css";
+import "../src/global/global.css";
 
 // import { defineCustomElements } from "../loader/index.js";
 

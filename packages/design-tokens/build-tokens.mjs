@@ -1,5 +1,6 @@
 import { globSync } from "glob";
 import StyleDictionary from "style-dictionary";
+import { fixCalc } from "./fix-calc.mjs";
 
 const source = globSync("./tokens/**/*.json", {
   ignore: ["**/**/$*.json", "Misc.json"],
@@ -10,6 +11,11 @@ const sd = new StyleDictionary({
   platforms: {
     css: {
       transformGroup: "css",
+      options: {
+        formatting: {
+          commentPosition: "above",
+        },
+      },
       files: [
         {
           format: "css/variables",
@@ -33,3 +39,5 @@ const sd = new StyleDictionary({
 });
 
 await sd.buildAllPlatforms();
+
+await fixCalc("dist/tokens.css");
