@@ -11,13 +11,13 @@ type TokenValueLeaf = {
   key: string;
   $value: string;
   $description?: string;
-  original: {
+  original?: {
     $value: string;
   };
 };
 
 type TokenRecord = {
-  [key: string]: TokenRecord | TokenValueLeaf;
+  [key: string]: TokenRecord | TokenValueLeaf | unknown;
 };
 
 /**
@@ -27,7 +27,7 @@ function getValueLeafs(obj: TokenRecord) {
   let leafs: TokenValueLeaf[] = [];
 
   for (const [key, value] of Object.entries(obj)) {
-    if (typeof value === "object" && "$value" in value) {
+    if (value && typeof value === "object" && "$value" in value) {
       leafs.push(value as TokenValueLeaf);
     } else if (typeof value === "object") {
       leafs = leafs.concat(getValueLeafs(value as TokenRecord));
@@ -60,8 +60,14 @@ function removeAliasTags(value: string) {
           {categoryName}
         </AnchorHeading>
 
-        <div class="not-content flex flex-col gap-4 divide-y divide-gray-200">
-          {valueLeafs.map(value => (
+        <div class="not-content flex flex-col gap-4 divide-y divide-gray-200 mt-8 ">
+          {valueLeafs.map(value => {
+
+            if (!value?.original?.$value) {
+              console.log(value)
+            }
+
+            return (
             <div class="flex pb-4 gap-4">
               <div class="flex-1">
                 <code
@@ -78,12 +84,13 @@ function removeAliasTags(value: string) {
                     style={`background-color: ${value.$value}`}
                   />
                   <div class="font-mono text-sm px-px">
-                    {removeAliasTags(value.original.$value)}
+                    {removeAliasTags(value.original?.$value ?? value.$value)}
                   </div>
                 </div>
               </div>
             </div>
-          ))}
+          )
+          })}
         </div>
       </div>
     )
