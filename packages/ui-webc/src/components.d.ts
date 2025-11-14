@@ -8,6 +8,12 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Variant } from "./components/scout-button/scout-button";
 export { Variant } from "./components/scout-button/scout-button";
 export namespace Components {
+    interface BoxComponent {
+        /**
+          * The variant of the component
+         */
+        "variant"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -39,6 +45,12 @@ export interface ScoutButtonCustomEvent<T> extends CustomEvent<T> {
     target: HTMLScoutButtonElement;
 }
 declare global {
+    interface HTMLBoxComponentElement extends Components.BoxComponent, HTMLStencilElement {
+    }
+    var HTMLBoxComponentElement: {
+        prototype: HTMLBoxComponentElement;
+        new (): HTMLBoxComponentElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -63,11 +75,18 @@ declare global {
         new (): HTMLScoutButtonElement;
     };
     interface HTMLElementTagNameMap {
+        "box-component": HTMLBoxComponentElement;
         "my-component": HTMLMyComponentElement;
         "scout-button": HTMLScoutButtonElement;
     }
 }
 declare namespace LocalJSX {
+    interface BoxComponent {
+        /**
+          * The variant of the component
+         */
+        "variant"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -95,6 +114,7 @@ declare namespace LocalJSX {
         "variant"?: Variant;
     }
     interface IntrinsicElements {
+        "box-component": BoxComponent;
         "my-component": MyComponent;
         "scout-button": ScoutButton;
     }
@@ -103,6 +123,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "box-component": LocalJSX.BoxComponent & JSXBase.HTMLAttributes<HTMLBoxComponentElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "scout-button": LocalJSX.ScoutButton & JSXBase.HTMLAttributes<HTMLScoutButtonElement>;
         }

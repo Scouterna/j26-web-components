@@ -31,4 +31,11 @@ export const config: Config = {
       plugins: [postcssImport(), postcssPresetEnv()],
     }),
   ],
+  devServer: {
+    reloadStrategy: "pageReload",
+    openBrowser: false,
+  },
+  // Enable faster incremental builds in watch mode
+  watchIgnoredRegex: /node_modules|dist|\.cache/,
+  buildEs5: false, // Skip ES5 builds for faster compilation
 };

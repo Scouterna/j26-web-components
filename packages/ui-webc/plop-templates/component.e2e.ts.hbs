@@ -1,0 +1,25 @@
+import { newE2EPage } from '@stencil/core/testing';
+
+describe('{{name}}', () => {
+  it('renders', async () => {
+    const page = await newE2EPage();
+
+    await page.setContent('<{{name}}></{{name}}>');
+    const element = await page.find('{{name}}');
+    expect(element).toHaveClass('hydrated');
+  });
+
+  it('renders with exampleProp', async () => {
+    const page = await newE2EPage();
+
+    await page.setContent('<{{name}}></{{name}}>');
+    const component = await page.find('{{name}}');
+    const element = await page.find('{{name}} >>> div');
+
+    component.setProperty('exampleProp', 'test value');
+    await page.waitForChanges();
+
+    const paragraph = await element.find('p:last-child');
+    expect(paragraph.textContent).toEqual('test value');
+  });
+});

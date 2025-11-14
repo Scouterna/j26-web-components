@@ -3,8 +3,27 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "dev": "pnpm tokens:build && pnpm components:build && pnpm -r --parallel --filter=\"@scouterna/design-tokens\" --filter=\"@scouterna/ui-webc\" --filter=\"docs\" dev",
+    "dev:components": "pnpm tokens:build && pnpm --filter @scouterna/ui-webc dev",
+    "build": "pnpm -r --filter @scouterna/design-tokens --filter @scouterna/ui-webc build",
+    "build:all": "pnpm -r --filter @scouterna/design-tokens --filter @scouterna/ui-webc --filter docs build",
+    "tokens:build": "pnpm --filter @scouterna/design-tokens build",
+    "components:build": "pnpm --filter @scouterna/ui-webc build",
+    "docs:dev": "pnpm --filter docs dev",
+    "docs:build": "pnpm --filter docs build",
+    "docs:preview": "pnpm --filter docs preview",
+    "test": "pnpm --filter @scouterna/ui-webc test",
+    "test:watch": "pnpm --filter @scouterna/ui-webc test.watch",
+    "test:e2e": "pnpm --filter @scouterna/ui-webc test.e2e",
     "lint": "biome check",
-    "lint:fix": "biome check --write"
+    "lint:fix": "biome check --write",
+    "format": "biome format --write .",
+    "plop": "pnpm --filter @scouterna/ui-webc plop",
+    "generate": "pnpm --filter @scouterna/ui-webc generate",
+    "storybook": "pnpm tokens:build && pnpm -r --parallel --filter=\"@scouterna/design-tokens\" --filter=\"@scouterna/ui-webc\" dev",
+    "clean": "pnpm -r exec rm -rf node_modules dist .turbo .stencil .astro && rm -rf node_modules",
+    "clean:install": "pnpm clean && pnpm install",
+    "clean:build": "pnpm -r exec rm -rf dist .turbo .stencil .astro && pnpm build:all"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",

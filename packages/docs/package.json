@@ -13,8 +13,10 @@
     "@astrojs/starlight": "^0.36.0",
     "@astrojs/starlight-tailwind": "^4.0.1",
     "@scouterna/design-tokens": "workspace:^",
+    "@scouterna/ui-webc": "workspace:^",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.6.1",
+    "highlight.js": "^11.11.1",
     "sharp": "^0.34.2",
     "tailwindcss": "^4.1.13"
   }
