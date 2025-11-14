@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/starlight": "^0.36.0",
     "@astrojs/starlight-tailwind": "^4.0.1",
+    "@fontsource-variable/source-sans-3": "^5.2.9",
     "@scouterna/design-tokens": "workspace:^",
     "@scouterna/ui-webc": "workspace:^",
     "@tailwindcss/vite": "^4.1.13",

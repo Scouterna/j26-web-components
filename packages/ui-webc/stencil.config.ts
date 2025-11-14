@@ -6,6 +6,9 @@ import postcssPresetEnv from "postcss-preset-env";
 export const config: Config = {
   namespace: "ui-webc",
   globalStyle: "src/global/global.css",
+  extras: {
+    addGlobalStyleToComponents: true,
+  },
   outputTargets: [
     {
       type: "dist",

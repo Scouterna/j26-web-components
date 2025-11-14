@@ -9,7 +9,7 @@ button {
   gap: var(--spacing-3);
   height: var(--spacing-10);
   padding: 0 var(--spacing-4);
-  font-size: 17px;
+  font: var(--type-body-base);
   border-radius: var(--spacing-2);
   border: 1px solid transparent;
   cursor: pointer;

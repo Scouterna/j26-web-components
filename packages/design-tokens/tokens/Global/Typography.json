@@ -1,0 +1,189 @@
+{
+  "type": {
+    "body": {
+      "base": {
+        "$value": {
+          "fontFamilies": [
+            "{fontfamily.sans}"
+          ],
+          "fontSizes": "{fontsize.base}",
+          "fontWeights": "400",
+          "lineHeights": "1.5"
+        },
+        "$type": "typography",
+        "$description": ""
+      },
+      "sm": {
+        "$value": {
+          "fontFamilies": [
+            "{fontfamily.sans}"
+          ],
+          "fontSizes": "{fontsize.sm}",
+          "fontWeights": "400",
+          "lineHeights": "1.5"
+        },
+        "$type": "typography",
+        "$description": ""
+      },
+      "lg": {
+        "$value": {
+          "fontFamilies": [
+            "{fontfamily.sans}"
+          ],
+          "fontSizes": "{fontsize.lg}",
+          "fontWeights": "400",
+          "lineHeights": "1.5"
+        },
+        "$type": "typography",
+        "$description": ""
+      },
+      "xl": {
+        "$value": {
+          "fontFamilies": [
+            "{fontfamily.sans}"
+          ],
+          "fontSizes": "{fontsize.xl}",
+          "fontWeights": "400",
+          "lineHeights": "1.5"
+        },
+        "$type": "typography",
+        "$description": ""
+      },
+      "2xl": {
+        "$value": {
+          "fontFamilies": [
+            "{fontfamily.sans}"
+          ],
+          "fontSizes": "{fontsize.2xl}",
+          "fontWeights": "400",
+          "lineHeights": "1.5"
+        },
+        "$type": "typography",
+        "$description": ""
+      }
+    },
+    "heading": {
+      "xl": {
+        "$value": {
+          "fontSizes": "{fontsize.6xl}",
+          "fontWeights": "600",
+          "lineHeights": "1.2",
+          "fontFamilies": [
+            "{fontfamily.sans}"
+          ]
+        },
+        "$type": "typography",
+        "$description": ""
+      },
+      "lg": {
+        "$value": {
+          "fontFamilies": [
+            "Source Sans 3"
+          ],
+          "fontSizes": "{fontsize.5xl}",
+          "fontWeights": "600",
+          "lineHeights": "1.2"
+        },
+        "$type": "typography",
+        "$description": ""
+      },
+      "base": {
+        "$value": {
+          "fontFamilies": [
+            "Source Sans 3"
+          ],
+          "lineHeights": "1.2",
+          "fontSizes": "{fontsize.4xl}",
+          "fontWeights": "600"
+        },
+        "$type": "typography",
+        "$description": ""
+      },
+      "sm": {
+        "$value": {
+          "fontFamilies": [
+            "Source Sans 3"
+          ],
+          "lineHeights": "1.2",
+          "fontSizes": "{fontsize.3xl}",
+          "fontWeights": "600"
+        },
+        "$type": "typography",
+        "$description": ""
+      },
+      "xs": {
+        "$value": {
+          "fontFamilies": [
+            "Source Sans 3"
+          ],
+          "fontSizes": "{fontsize.2xl}",
+          "fontWeights": "600",
+          "lineHeights": "1.2"
+        },
+        "$type": "typography",
+        "$description": ""
+      }
+    }
+  },
+  "fontsize": {
+    "xs": {
+      "$value": "{fontsize.base}*0.75",
+      "$type": "fontSizes",
+      "$description": ""
+    },
+    "3xl": {
+      "$value": "{fontsize.base}*1.875",
+      "$type": "fontSizes",
+      "$description": ""
+    },
+    "4xl": {
+      "$value": "{fontsize.base}*2.25",
+      "$type": "fontSizes",
+      "$description": ""
+    },
+    "2xl": {
+      "$value": "{fontsize.base}*1.5",
+      "$type": "fontSizes",
+      "$description": ""
+    },
+    "base": {
+      "$value": "16px",
+      "$type": "fontSizes",
+      "$description": ""
+    },
+    "lg": {
+      "$value": "{fontsize.base}*1.125",
+      "$type": "fontSizes",
+      "$description": ""
+    },
+    "xl": {
+      "$value": "{fontsize.base}*1.25",
+      "$type": "fontSizes",
+      "$description": ""
+    },
+    "6xl": {
+      "$value": "{fontsize.base}*3.75",
+      "$type": "fontSizes",
+      "$description": ""
+    },
+    "5xl": {
+      "$value": "{fontsize.base}*3",
+      "$type": "fontSizes",
+      "$description": ""
+    },
+    "sm": {
+      "$value": "{fontsize.base}*0.875",
+      "$type": "fontSizes",
+      "$description": ""
+    }
+  },
+  "fontfamily": {
+    "sans": {
+      "$value": [
+        "Source Sans 3"
+      ],
+      "$type": "fontFamilies",
+      "$description": ""
+    }
+  }
+}

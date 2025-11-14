@@ -3,8 +3,11 @@ import { readFile, writeFile } from "node:fs/promises";
 const varRegex = /(?<prefix>^\s*--[^:]+:\s*)(?<value>[^;]+?)(?<suffix>\s*;)/gm;
 const operatorRegex = /(?:\s\+\s|\s-\s|\/|\*)/;
 
-export async function fixCalc(filePath) {
-  const content = await readFile(filePath, "utf-8");
+/**
+ * Fixes CSS variable definitions that use arithmetic without `calc()`.
+ */
+export async function fixCalc(cssPath) {
+  const content = await readFile(cssPath, "utf-8");
 
   const fixedContent = content.replace(
     varRegex,
@@ -17,5 +20,5 @@ export async function fixCalc(filePath) {
     },
   );
 
-  await writeFile(filePath, fixedContent);
+  await writeFile(cssPath, fixedContent);
 }

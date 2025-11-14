@@ -14,6 +14,10 @@
       "import": "./dist/ui-webc/ui-webc.esm.js",
       "require": "./dist/ui-webc/ui-webc.cjs.js"
     },
+    "./dist/*": {
+      "import": "./dist/*",
+      "require": "./dist/*"
+    },
     "./loader": {
       "types": "./loader/index.d.ts",
       "import": "./loader/index.js",
@@ -42,7 +46,7 @@
     "dev": "stencil build --watch --serve",
     "storybook": "storybook dev -p 6006 --no-open",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
+    "test:watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "plop": "plop"
   },

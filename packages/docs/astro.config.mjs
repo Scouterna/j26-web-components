@@ -15,6 +15,7 @@ export default defineConfig({
         alt: "Scouterna",
       },
       customCss: [
+        "@fontsource-variable/source-sans-3",
         "@scouterna/design-tokens/tokens.css",
         "./src/styles/global.css",
         "./src/styles/components.css",
@@ -22,15 +23,15 @@ export default defineConfig({
       ],
       head: [
         {
-          tag: 'script',
+          tag: "script",
           attrs: {
-            src: '/component-loader.js',
-            type: 'module',
+            src: "/component-loader.js",
+            type: "module",
           },
         },
       ],
       components: {
-        Head: './src/components/ComponentLoader.astro',
+        Head: "./src/components/ComponentLoader.astro",
       },
       social: [
         {
@@ -68,16 +69,16 @@ export default defineConfig({
     server: {
       watch: {
         // Watch the ui-webc source files for faster HMR
-        ignored: ['!**/node_modules/@scouterna/ui-webc/**'],
+        ignored: ["!**/node_modules/@scouterna/ui-webc/**"],
       },
       fs: {
         // Allow serving files from the monorepo root
-        allow: ['../..'],
+        allow: ["../.."],
       },
     },
     optimizeDeps: {
       // Don't pre-bundle the components so changes are picked up faster
-      exclude: ['@scouterna/ui-webc'],
+      exclude: ["@scouterna/ui-webc"],
     },
   },
 });

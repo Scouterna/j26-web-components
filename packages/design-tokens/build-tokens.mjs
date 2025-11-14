@@ -1,6 +1,7 @@
 import { globSync } from "glob";
 import StyleDictionary from "style-dictionary";
 import { fixCalc } from "./fix-calc.mjs";
+import { fixType } from "./fix-type.mjs";
 
 const source = globSync("./tokens/**/*.json", {
   ignore: ["**/**/$*.json", "Misc.json"],
@@ -8,6 +9,9 @@ const source = globSync("./tokens/**/*.json", {
 
 const sd = new StyleDictionary({
   source,
+  log: {
+    verbosity: "verbose",
+  },
   platforms: {
     css: {
       transformGroup: "css",
@@ -40,4 +44,5 @@ const sd = new StyleDictionary({
 
 await sd.buildAllPlatforms();
 
-await fixCalc("dist/tokens.css");
+await fixCalc("./dist/tokens.css");
+await fixType("./dist/tokens.css", "./dist/tokens.js");
