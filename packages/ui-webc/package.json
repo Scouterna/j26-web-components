@@ -16,20 +16,16 @@
     },
     "./dist/*": {
       "import": "./dist/*",
-      "require": "./dist/*"
+      "types": "./dist/*"
+    },
+    "./components/*": {
+      "import": "./dist/components/*.js",
+      "types": "./dist/components/*.d.ts"
     },
     "./loader": {
-      "types": "./loader/index.d.ts",
       "import": "./loader/index.js",
-      "require": "./loader/index.cjs"
-    },
-    "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
-    },
-    "./box-component": {
-      "import": "./dist/components/box-component.js",
-      "types": "./dist/components/box-component.d.ts"
+      "require": "./loader/index.cjs",
+      "types": "./loader/index.d.ts"
     }
   },
   "repository": {
@@ -52,6 +48,7 @@
   },
   "dependencies": {
     "@scouterna/design-tokens": "workspace:^",
+    "@stencil/react-output-target": "^1.2.0",
     "class-variance-authority": "^0.7.1",
     "normalize.css": "^8.0.1"
   },

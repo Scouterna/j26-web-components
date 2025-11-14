@@ -23,7 +23,7 @@ export async function fixType(cssPath, jsPath) {
   content = content.replace(typeVarRegex, "");
   content = content.replace(
     fontFamilySansRegex,
-    '$1"Source Sans 3 Variable"$3',
+    '$1"Source Sans 3 Variable", sans-serif$3',
   );
 
   const newLines = [];

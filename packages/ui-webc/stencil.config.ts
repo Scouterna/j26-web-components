@@ -1,4 +1,5 @@
 import type { Config } from "@stencil/core";
+import { reactOutputTarget } from "@stencil/react-output-target";
 import { postcss } from "@stencil-community/postcss";
 import postcssImport from "postcss-import";
 
@@ -10,6 +11,10 @@ export const config: Config = {
     addGlobalStyleToComponents: true,
   },
   outputTargets: [
+    reactOutputTarget({
+      // Relative path to where the React components will be generated
+      outDir: "../ui-react/lib/components/stencil-generated/",
+    }),
     {
       type: "dist",
       esmLoaderPath: "../loader",
