@@ -1,6 +1,9 @@
 @import '../../../design-tokens/dist/tokens.css';
 @import '../../node_modules/normalize.css/normalize.css';
 
+@import './button.css';
+@import './typography.css';
+
 :root {
   font-family: "Source Sans 3 Variable", sans-serif;
   font-optical-sizing: auto;

@@ -34,10 +34,6 @@ export namespace Components {
         "variant": Variant;
     }
 }
-export interface ScoutBottomBarItemCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLScoutBottomBarItemElement;
-}
 export interface ScoutButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutButtonElement;
@@ -49,18 +45,7 @@ declare global {
         prototype: HTMLScoutBottomBarElement;
         new (): HTMLScoutBottomBarElement;
     };
-    interface HTMLScoutBottomBarItemElementEventMap {
-        "scoutClick": void;
-    }
     interface HTMLScoutBottomBarItemElement extends Components.ScoutBottomBarItem, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLScoutBottomBarItemElementEventMap>(type: K, listener: (this: HTMLScoutBottomBarItemElement, ev: ScoutBottomBarItemCustomEvent<HTMLScoutBottomBarItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLScoutBottomBarItemElementEventMap>(type: K, listener: (this: HTMLScoutBottomBarItemElement, ev: ScoutBottomBarItemCustomEvent<HTMLScoutBottomBarItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLScoutBottomBarItemElement: {
         prototype: HTMLScoutBottomBarItemElement;
@@ -97,7 +82,6 @@ declare namespace LocalJSX {
         "href"?: string;
         "icon": string;
         "label": string;
-        "onScoutClick"?: (event: ScoutBottomBarItemCustomEvent<void>) => void;
         /**
           * @default "button"
          */

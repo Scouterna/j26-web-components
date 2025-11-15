@@ -1,0 +1,59 @@
+.scout-type-body-base {
+  font: var(--type-body-base);
+}
+
+.scout-type-body-sm {
+  font: var(--type-body-sm);
+}
+
+.scout-type-body-lg {
+  font: var(--type-body-lg);
+}
+
+.scout-type-body-xl {
+  font: var(--type-body-xl);
+}
+
+.scout-type-body-2xl {
+  font: var(--type-body-2xl);
+}
+
+.scout-type-heading-xl {
+  font: var(--type-heading-xl);
+}
+
+.scout-type-heading-lg {
+  font: var(--type-heading-lg);
+}
+
+.scout-type-heading-base {
+  font: var(--type-heading-base);
+}
+
+.scout-type-heading-sm {
+  font: var(--type-heading-sm);
+}
+
+.scout-type-heading-xs {
+  font: var(--type-heading-xs);
+}
+
+.scout-type-label-base {
+  font: var(--type-label-base);
+}
+
+.scout-type-label-2xl {
+  font: var(--type-label-2xl);
+}
+
+.scout-type-label-lg {
+  font: var(--type-label-lg);
+}
+
+.scout-type-label-sm {
+  font: var(--type-label-sm);
+}
+
+.scout-type-label-xl {
+  font: var(--type-label-xl);
+}

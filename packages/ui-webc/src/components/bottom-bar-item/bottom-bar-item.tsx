@@ -1,4 +1,4 @@
-import { Component, Event, type EventEmitter, h, Prop } from "@stencil/core";
+import { Component, h, Prop } from "@stencil/core";
 import clsx from "clsx";
 
 export type ItemType = "button" | "link";
@@ -16,8 +16,6 @@ export class BottomBarItem {
   @Prop() label!: string;
   @Prop() active?: boolean;
 
-  @Event({ bubbles: true, composed: true }) scoutClick: EventEmitter<void>;
-
   render() {
     const Tag = this.type === "link" ? "a" : "button";
 
@@ -29,14 +27,7 @@ export class BottomBarItem {
         : {};
 
     return (
-      <Tag
-        class={clsx("button", this.active && "active")}
-        {...props}
-        onClick={() => {
-          console.log("Hi!");
-          this.scoutClick.emit();
-        }}
-      >
+      <Tag class={clsx("button", this.active && "active")} {...props}>
         <span class="icon" innerHTML={this.icon} />
         <span class="label">{this.label}</span>
       </Tag>
