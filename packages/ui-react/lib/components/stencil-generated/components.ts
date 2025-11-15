@@ -7,10 +7,34 @@
 
 /* eslint-disable */
 
+import { ScoutBottomBarItem as ScoutBottomBarItemElement, defineCustomElement as defineScoutBottomBarItem } from "@scouterna/ui-webc/dist/components/scout-bottom-bar-item.js";
+import { ScoutBottomBar as ScoutBottomBarElement, defineCustomElement as defineScoutBottomBar } from "@scouterna/ui-webc/dist/components/scout-bottom-bar.js";
 import { ScoutButton as ScoutButtonElement, defineCustomElement as defineScoutButton } from "@scouterna/ui-webc/dist/components/scout-button.js";
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
 import React from 'react';
+
+export type ScoutBottomBarEvents = NonNullable<unknown>;
+
+export const ScoutBottomBar: StencilReactComponent<ScoutBottomBarElement, ScoutBottomBarEvents> = /*@__PURE__*/ createComponent<ScoutBottomBarElement, ScoutBottomBarEvents>({
+    tagName: 'scout-bottom-bar',
+    elementClass: ScoutBottomBarElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as ScoutBottomBarEvents,
+    defineCustomElement: defineScoutBottomBar
+});
+
+export type ScoutBottomBarItemEvents = { onScoutClick: EventName<CustomEvent<void>> };
+
+export const ScoutBottomBarItem: StencilReactComponent<ScoutBottomBarItemElement, ScoutBottomBarItemEvents> = /*@__PURE__*/ createComponent<ScoutBottomBarItemElement, ScoutBottomBarItemEvents>({
+    tagName: 'scout-bottom-bar-item',
+    elementClass: ScoutBottomBarItemElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: { onScoutClick: 'scoutClick' } as ScoutBottomBarItemEvents,
+    defineCustomElement: defineScoutBottomBarItem
+});
 
 export type ScoutButtonEvents = { onScoutClick: EventName<CustomEvent<void>> };
 

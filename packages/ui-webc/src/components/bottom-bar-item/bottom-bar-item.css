@@ -1,0 +1,38 @@
+:host {
+  display: flex;
+  flex: 1;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: var(--color-text-base);
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--color-neutral-50);
+}
+
+.button.active {
+  background-color: var(--color-blue-50);
+  color: var(--color-blue-500);
+}
+
+.button .icon {
+  width: var(--spacing-6);
+  height: var(--spacing-6);
+}
+
+.button .label {
+  font: var(--type-label-sm);
+}
+
+a {
+  text-decoration: none;
+}

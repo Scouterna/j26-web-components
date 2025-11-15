@@ -12,7 +12,6 @@
   "type": "module",
   "scripts": {
     "build": "node build-tokens.mjs",
-    "watch": "node --watch build-tokens.mjs",
     "dev": "node --watch build-tokens.mjs"
   },
   "keywords": [],

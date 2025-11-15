@@ -5,9 +5,23 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 import { Variant } from "./components/button/button";
+export { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 export { Variant } from "./components/button/button";
 export namespace Components {
+    interface ScoutBottomBar {
+    }
+    interface ScoutBottomBarItem {
+        "active"?: boolean;
+        "href"?: string;
+        "icon": string;
+        "label": string;
+        /**
+          * @default "button"
+         */
+        "type": ItemType;
+    }
     interface ScoutButton {
         "icon"?: string;
         /**
@@ -20,11 +34,38 @@ export namespace Components {
         "variant": Variant;
     }
 }
+export interface ScoutBottomBarItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutBottomBarItemElement;
+}
 export interface ScoutButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutButtonElement;
 }
 declare global {
+    interface HTMLScoutBottomBarElement extends Components.ScoutBottomBar, HTMLStencilElement {
+    }
+    var HTMLScoutBottomBarElement: {
+        prototype: HTMLScoutBottomBarElement;
+        new (): HTMLScoutBottomBarElement;
+    };
+    interface HTMLScoutBottomBarItemElementEventMap {
+        "scoutClick": void;
+    }
+    interface HTMLScoutBottomBarItemElement extends Components.ScoutBottomBarItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutBottomBarItemElementEventMap>(type: K, listener: (this: HTMLScoutBottomBarItemElement, ev: ScoutBottomBarItemCustomEvent<HTMLScoutBottomBarItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutBottomBarItemElementEventMap>(type: K, listener: (this: HTMLScoutBottomBarItemElement, ev: ScoutBottomBarItemCustomEvent<HTMLScoutBottomBarItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLScoutBottomBarItemElement: {
+        prototype: HTMLScoutBottomBarItemElement;
+        new (): HTMLScoutBottomBarItemElement;
+    };
     interface HTMLScoutButtonElementEventMap {
         "scoutClick": void;
     }
@@ -43,10 +84,25 @@ declare global {
         new (): HTMLScoutButtonElement;
     };
     interface HTMLElementTagNameMap {
+        "scout-bottom-bar": HTMLScoutBottomBarElement;
+        "scout-bottom-bar-item": HTMLScoutBottomBarItemElement;
         "scout-button": HTMLScoutButtonElement;
     }
 }
 declare namespace LocalJSX {
+    interface ScoutBottomBar {
+    }
+    interface ScoutBottomBarItem {
+        "active"?: boolean;
+        "href"?: string;
+        "icon": string;
+        "label": string;
+        "onScoutClick"?: (event: ScoutBottomBarItemCustomEvent<void>) => void;
+        /**
+          * @default "button"
+         */
+        "type"?: ItemType;
+    }
     interface ScoutButton {
         "icon"?: string;
         "onScoutClick"?: (event: ScoutButtonCustomEvent<void>) => void;
@@ -60,6 +116,8 @@ declare namespace LocalJSX {
         "variant"?: Variant;
     }
     interface IntrinsicElements {
+        "scout-bottom-bar": ScoutBottomBar;
+        "scout-bottom-bar-item": ScoutBottomBarItem;
         "scout-button": ScoutButton;
     }
 }
@@ -67,6 +125,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "scout-bottom-bar": LocalJSX.ScoutBottomBar & JSXBase.HTMLAttributes<HTMLScoutBottomBarElement>;
+            "scout-bottom-bar-item": LocalJSX.ScoutBottomBarItem & JSXBase.HTMLAttributes<HTMLScoutBottomBarItemElement>;
             "scout-button": LocalJSX.ScoutButton & JSXBase.HTMLAttributes<HTMLScoutButtonElement>;
         }
     }

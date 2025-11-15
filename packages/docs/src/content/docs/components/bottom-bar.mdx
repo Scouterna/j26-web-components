@@ -1,0 +1,38 @@
+---
+title: Bottom bar
+description: A bottom bar component for navigation and actions
+---
+
+import ComponentPreview from '../../../components/ComponentPreview.astro';
+import ComponentGrid from '../../../components/ComponentGrid.astro';
+
+import CalendarIcon from 'iconoir/icons/calendar.svg?raw';
+import MapIcon from 'iconoir/icons/map.svg?raw';
+import BonfireIcon from 'iconoir/icons/bonfire.svg?raw';
+import MoreHorizIcon from 'iconoir/icons/more-horiz.svg?raw';
+
+## Examples
+
+### Default
+
+<ComponentPreview>
+  <scout-bottom-bar>
+    <scout-bottom-bar-item
+      icon={CalendarIcon}
+      label="Kalender"
+    />
+    <scout-bottom-bar-item
+      icon={MapIcon}
+      label="Karta"
+      active
+    />
+    <scout-bottom-bar-item
+      icon={BonfireIcon}
+      label="Aktiviteter"
+    />
+    <scout-bottom-bar-item
+      icon={MoreHorizIcon}
+      label="Mer"
+    />
+  </scout-bottom-bar>
+</ComponentPreview>

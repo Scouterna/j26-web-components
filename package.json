@@ -3,7 +3,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "pnpm tokens:build && pnpm components:build && pnpm -r --parallel --filter=\"@scouterna/design-tokens\" --filter=\"@scouterna/ui-webc\" --filter=\"docs\" dev",
+    "dev": "pnpm tokens:build && pnpm components:build && pnpm -r --parallel --filter=\"@scouterna/ui-webc\" --filter=\"docs\" dev",
     "dev:components": "pnpm tokens:build && pnpm --filter @scouterna/ui-webc dev",
     "build": "pnpm -r --filter @scouterna/design-tokens --filter @scouterna/ui-webc build",
     "build:all": "pnpm -r --filter @scouterna/design-tokens --filter @scouterna/ui-webc --filter docs build",
