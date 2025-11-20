@@ -20,7 +20,6 @@
     "format": "biome format --write .",
     "plop": "pnpm --filter @scouterna/ui-webc plop",
     "generate": "pnpm --filter @scouterna/ui-webc generate",
-    "storybook": "pnpm tokens:build && pnpm -r --parallel --filter=\"@scouterna/design-tokens\" --filter=\"@scouterna/ui-webc\" dev",
     "clean": "pnpm -r exec rm -rf node_modules dist .turbo .stencil .astro && rm -rf node_modules",
     "clean:install": "pnpm clean && pnpm install",
     "clean:build": "pnpm -r exec rm -rf dist .turbo .stencil .astro && pnpm build:all"
