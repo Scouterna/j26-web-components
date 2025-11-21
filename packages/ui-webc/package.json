@@ -2,7 +2,7 @@
   "name": "@scouterna/ui-webc",
   "version": "0.2.1",
   "type": "module",
-  "description": "Stencil Component Starter",
+  "description": "Scouterna Design System Web Components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
