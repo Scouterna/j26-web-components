@@ -2,6 +2,9 @@ import { Component, Event, type EventEmitter, h, Prop } from "@stencil/core";
 
 export type Variant = "primary" | "outlined" | "text" | "caution" | "danger";
 
+/**
+ * A simple button component.
+ */
 @Component({
   tag: "scout-button",
   styleUrl: "button.css",

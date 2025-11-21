@@ -22,6 +22,9 @@ export namespace Components {
          */
         "type": ItemType;
     }
+    /**
+     * A simple button component.
+     */
     interface ScoutButton {
         "icon"?: string;
         /**
@@ -54,6 +57,9 @@ declare global {
     interface HTMLScoutButtonElementEventMap {
         "scoutClick": void;
     }
+    /**
+     * A simple button component.
+     */
     interface HTMLScoutButtonElement extends Components.ScoutButton, HTMLStencilElement {
         addEventListener<K extends keyof HTMLScoutButtonElementEventMap>(type: K, listener: (this: HTMLScoutButtonElement, ev: ScoutButtonCustomEvent<HTMLScoutButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -87,6 +93,9 @@ declare namespace LocalJSX {
          */
         "type"?: ItemType;
     }
+    /**
+     * A simple button component.
+     */
     interface ScoutButton {
         "icon"?: string;
         "onScoutClick"?: (event: ScoutButtonCustomEvent<void>) => void;
@@ -111,6 +120,9 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "scout-bottom-bar": LocalJSX.ScoutBottomBar & JSXBase.HTMLAttributes<HTMLScoutBottomBarElement>;
             "scout-bottom-bar-item": LocalJSX.ScoutBottomBarItem & JSXBase.HTMLAttributes<HTMLScoutBottomBarItemElement>;
+            /**
+             * A simple button component.
+             */
             "scout-button": LocalJSX.ScoutButton & JSXBase.HTMLAttributes<HTMLScoutButtonElement>;
         }
     }

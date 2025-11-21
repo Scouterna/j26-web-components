@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A simple button component.
+
 ## Properties
 
 | Property  | Attribute | Description | Type                                                         | Default      |

@@ -30,6 +30,10 @@ export const config: Config = {
       type: "www",
       serviceWorker: null, // disable service workers
     },
+    {
+      type: "docs-json",
+      file: "dist/custom-elements.json",
+    },
   ],
   testing: {
     browserHeadless: "shell",
