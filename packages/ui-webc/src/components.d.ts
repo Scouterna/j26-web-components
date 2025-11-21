@@ -21,11 +21,24 @@ export namespace Components {
      * used outside of a bottom bar.
      */
     interface ScoutBottomBarItem {
+        /**
+          * Whether the item is currently active. Should be set to true when the item represents the current page.
+         */
         "active"?: boolean;
+        /**
+          * An optional link to navigate to when the item is clicked. Only used when `type` is set to "link".
+         */
         "href"?: string;
+        /**
+          * An icon to display above the label. Must be an SVG string.
+         */
         "icon": string;
+        /**
+          * The label to display below the icon.
+         */
         "label": string;
         /**
+          * The type of the bottom bar item, either a button or a link.
           * @default "button"
          */
         "type": ItemType;
@@ -34,12 +47,16 @@ export namespace Components {
      * A simple button component.
      */
     interface ScoutButton {
+        /**
+          * An optional icon to display alongside the button text. Must be an SVG string.
+         */
         "icon"?: string;
         /**
           * @default "button"
          */
         "type": "button" | "submit" | "reset";
         /**
+          * The variant primarily affects the color of the button.
           * @default "outlined"
          */
         "variant": Variant;
@@ -123,12 +140,25 @@ declare namespace LocalJSX {
      * used outside of a bottom bar.
      */
     interface ScoutBottomBarItem {
+        /**
+          * Whether the item is currently active. Should be set to true when the item represents the current page.
+         */
         "active"?: boolean;
+        /**
+          * An optional link to navigate to when the item is clicked. Only used when `type` is set to "link".
+         */
         "href"?: string;
+        /**
+          * An icon to display above the label. Must be an SVG string.
+         */
         "icon": string;
+        /**
+          * The label to display below the icon.
+         */
         "label": string;
         "onScoutClick"?: (event: ScoutBottomBarItemCustomEvent<void>) => void;
         /**
+          * The type of the bottom bar item, either a button or a link.
           * @default "button"
          */
         "type"?: ItemType;
@@ -137,6 +167,9 @@ declare namespace LocalJSX {
      * A simple button component.
      */
     interface ScoutButton {
+        /**
+          * An optional icon to display alongside the button text. Must be an SVG string.
+         */
         "icon"?: string;
         "onScoutClick"?: (event: ScoutButtonCustomEvent<void>) => void;
         /**
@@ -144,6 +177,7 @@ declare namespace LocalJSX {
          */
         "type"?: "button" | "submit" | "reset";
         /**
+          * The variant primarily affects the color of the button.
           * @default "outlined"
          */
         "variant"?: Variant;
