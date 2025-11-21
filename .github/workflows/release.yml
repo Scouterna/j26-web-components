@@ -34,9 +34,15 @@ jobs:
         run: pnpm install
 
       - name: Create Release Pull Request or Publish to npm
+        id: changesets
         uses: changesets/action@v1
         with:
           publish: pnpm publish --recursive
+          createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ""
+
+      - name: Deploy Storybook to GitHub Pages
+        uses: ./.github/workflows/deploy-github-pages.yml
+        if: steps.changesets.outputs.published == 'true'
