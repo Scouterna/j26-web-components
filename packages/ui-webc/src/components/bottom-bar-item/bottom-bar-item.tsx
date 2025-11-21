@@ -13,11 +13,31 @@ export type ItemType = "button" | "link";
   shadow: true,
 })
 export class ScoutBottomBarItem {
+  /**
+   * The type of the bottom bar item, either a button or a link.
+   */
   @Prop() type: ItemType = "button";
+
+  /**
+   * An optional link to navigate to when the item is clicked. Only used when
+   * `type` is set to "link".
+   */
   @Prop() href?: string;
 
+  /**
+   * An icon to display above the label. Must be an SVG string.
+   */
   @Prop() icon!: string;
+
+  /**
+   * The label to display below the icon.
+   */
   @Prop() label!: string;
+
+  /**
+   * Whether the item is currently active. Should be set to true when the item
+   * represents the current page.
+   */
   @Prop() active?: boolean;
 
   @Event()
