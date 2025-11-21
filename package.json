@@ -6,10 +6,12 @@
     "dev": "pnpm run --parallel dev",
     "build": "pnpm run --recursive build",
     "lint": "biome check",
-    "lint:fix": "biome check --write"
+    "lint:fix": "biome check --write",
+    "changeset": "changeset"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@changesets/cli": "^2.29.7",
     "@tailwindcss/postcss": "^4.1.12",
     "stencil-tailwind-plugin": "^2.0.5",
     "tailwindcss": "^4.1.12"
