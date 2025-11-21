@@ -1,5 +1,12 @@
 # @scouterna/ui-react
 
+## 0.2.4
+
+### Patch Changes
+
+- Updated dependencies [cc2cbee]
+  - @scouterna/ui-webc@0.2.4
+
 ## 0.2.3
 
 ### Patch Changes
