@@ -11,6 +11,7 @@ permissions:
   id-token: write # Required for OIDC
   contents: write
   pull-requests: write
+  issues: write
 
 jobs:
   release:
@@ -41,9 +42,11 @@ jobs:
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
+        uses: changesets/action@v1
         with:
           publish: pnpm publish --recursive --no-git-checks
+          commit: "chore: update versions"
+          title: "chore: update versions"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ""
