@@ -43,6 +43,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ""
 
+      - name: Log outputs
+        run: |
+          echo "Outputs: ${{ toJson(steps.changesets.outputs) }}"
+
       - name: Deploy Storybook to GitHub Pages
         uses: ./.github/workflows/deploy-github-pages.yml
         if: steps.changesets.outputs.published == 'true'
