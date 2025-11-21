@@ -9,8 +9,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run tsc",
-    "tsc": "tsc -p . --outDir ./dist"
+    "build": "tsc --outDir ./dist",
+    "dev": "tsc --watch --outDir ./dist"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,5 @@
 {
   "files.associations": {
-    "*.css": "css"
+    "*.css": "css" // Avoid CSS files being detected as Tailwind-flavored CSS
   }
 }
