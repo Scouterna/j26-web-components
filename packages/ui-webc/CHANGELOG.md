@@ -1,5 +1,11 @@
 # @scouterna/ui-webc
 
+## 0.2.10
+
+### Patch Changes
+
+- [`d3c69bf`](https://github.com/Scouterna/j26-web-components/commit/d3c69bfd83f1c461440c38c6e1a61a63883c869f) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Dummy change.
+
 ## 0.2.9
 
 ### Patch Changes
