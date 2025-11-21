@@ -7,16 +7,15 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
-permissions:
-  id-token: write # Required for OIDC
-  contents: write
-  pull-requests: write
-  issues: write
-
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+      issues: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v6
@@ -51,6 +50,6 @@ jobs:
         run: |
           echo "Outputs: ${{ toJson(steps.changesets.outputs) }}"
 
-      - name: Deploy Storybook to GitHub Pages
-        uses: ./.github/workflows/deploy-github-pages.yml
-        if: steps.changesets.outputs.published == 'true'
+  publish-storybook:
+    name: Publish Storybook
+    uses: ./.github/workflows/deploy-github-pages.yml
