@@ -12,7 +12,7 @@ export type ItemType = "button" | "link";
   styleUrl: "bottom-bar-item.css",
   shadow: true,
 })
-export class BottomBarItem {
+export class ScoutBottomBarItem {
   @Prop() type: ItemType = "button";
   @Prop() href?: string;
 

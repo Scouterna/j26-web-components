@@ -9,7 +9,7 @@ import { Component, h } from "@stencil/core";
   styleUrl: "bottom-bar.css",
   shadow: true,
 })
-export class BottomBar {
+export class ScoutBottomBar {
   render() {
     return (
       <nav class="container">

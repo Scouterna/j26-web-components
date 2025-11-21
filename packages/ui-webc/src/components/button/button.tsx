@@ -10,7 +10,7 @@ export type Variant = "primary" | "outlined" | "text" | "caution" | "danger";
   styleUrl: "button.css",
   shadow: true,
 })
-export class Button {
+export class ScoutButton {
   @Prop() type: "button" | "submit" | "reset" = "button";
 
   @Prop() variant: Variant = "outlined";

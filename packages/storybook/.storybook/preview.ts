@@ -23,7 +23,7 @@ const getComponentWebcName = (component: unknown): string | null => {
     "displayName" in component &&
     typeof component.displayName === "string"
   ) {
-    return `scout-${kebabCase(component.displayName)}`;
+    return kebabCase(component.displayName);
   }
 
   return null;
