@@ -13,8 +13,14 @@ export type Variant = "primary" | "outlined" | "text" | "caution" | "danger";
 export class ScoutButton {
   @Prop() type: "button" | "submit" | "reset" = "button";
 
+  /**
+   * The variant primarily affects the color of the button.
+   */
   @Prop() variant: Variant = "outlined";
 
+  /**
+   * An optional icon to display alongside the button text. Must be an SVG string.
+   */
   @Prop() icon?: string;
 
   @Event()
