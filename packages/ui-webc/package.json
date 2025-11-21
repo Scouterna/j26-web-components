@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stenciljs/component-starter.git"
+    "url": "https://github.com/Scouterna/j26-web-components.git"
   },
   "files": [
     "dist/",

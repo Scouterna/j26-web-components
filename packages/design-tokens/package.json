@@ -9,6 +9,10 @@
   "files": [
     "dist/"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Scouterna/j26-web-components.git"
+  },
   "type": "module",
   "scripts": {
     "build": "node build-tokens.mjs"
