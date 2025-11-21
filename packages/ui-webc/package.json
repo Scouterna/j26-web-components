@@ -14,6 +14,10 @@
       "import": "./dist/ui-webc/ui-webc.esm.js",
       "require": "./dist/ui-webc/ui-webc.cjs.js"
     },
+    "./style.css": {
+      "import": "./dist/ui-webc/ui-webc.css",
+      "require": "./dist/ui-webc/ui-webc.css"
+    },
     "./dist/*": {
       "import": "./dist/*",
       "types": "./dist/*"

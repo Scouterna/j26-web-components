@@ -57,7 +57,14 @@ export default definePreview({
     },
     options: {
       storySort: {
-        order: ["Basics", "Jamboree26", ["Bottom Bar", "Bottom Bar Item"]],
+        order: [
+          "Home",
+          "Setup – React",
+          "Setup – Web Components",
+          "Basics",
+          "Jamboree26",
+          ["Bottom Bar", "Bottom Bar Item"],
+        ],
       },
     },
   },

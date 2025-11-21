@@ -1,0 +1,66 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Setup - React" />
+
+# React setup guide
+
+This guide will help you get started with using the Scouterna Design System React
+components in your React project.
+
+## Install the packages
+
+You need to install both the Web Components package and the React wrapper
+package. The Web Components package is listed as a peer dependency of the React
+wrapper package. The versions of both packages should always match to ensure
+compatibility:
+```bash
+pnpm install @scouterna/ui-webc @scouterna/ui-react
+```
+
+## Usage
+
+Before you can use the React components, you need to load the styles for the
+components. This only has to be done once, probably in your main entry file:
+```js
+import '@scouterna/ui-webc/style.css';
+```
+
+Then you can start using the React components in your app:
+```js
+import { ScoutButton } from '@scouterna/ui-react';
+
+function MyApp() {
+  return (
+    <ScoutButton
+      variant="primary"
+      onScoutClick={() => alert('Button clicked!')}
+    >
+      Click me
+    </ScoutButton>
+  );
+}
+```
+
+## Design tokens
+
+The design tokens can be consumed either via CSS variables or through the
+Tailwind theme. Which you choose depends on your project setup.
+
+### CSS variables
+
+If you wish to use the design token CSS variables, install the design tokens package:
+```bash
+pnpm install @scouterna/design-tokens
+```
+
+Then import the CSS file somewhere in your project, probably in your main entry
+file:
+```js
+import '@scouterna/design-tokens/tokens.css';
+```
+
+This will make the design token CSS variables available globally in your project.
+
+### Tailwind theme
+
+More info coming soon...

@@ -131,7 +131,7 @@ importers:
   packages/ui-react:
     dependencies:
       '@scouterna/ui-webc':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../ui-webc
       '@stencil/react-output-target':
         specifier: ^1.2.0
