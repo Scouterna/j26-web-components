@@ -33,6 +33,9 @@ importers:
 
   packages/storybook:
     dependencies:
+      iconoir:
+        specifier: ^7.11.0
+        version: 7.11.0
       lodash.kebabcase:
         specifier: ^4.1.1
         version: 4.1.1

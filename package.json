@@ -3,7 +3,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "pnpm run --recursive dev",
+    "dev": "pnpm run --parallel dev",
     "build": "pnpm run --recursive build",
     "lint": "biome check",
     "lint:fix": "biome check --write"

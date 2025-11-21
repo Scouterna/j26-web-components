@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsc --outDir ./dist",
-    "dev": "tsc --watch --outDir ./dist"
+    "dev": "tsc --outDir ./dist --watch --preserveWatchOutput"
   },
   "keywords": [],
   "author": "",
