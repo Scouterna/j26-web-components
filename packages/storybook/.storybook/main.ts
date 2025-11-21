@@ -29,4 +29,5 @@ export default defineMain({
       ],
     } satisfies UserConfig);
   },
+  staticDirs: ["../public"],
 });
