@@ -10,8 +10,16 @@ import { Variant } from "./components/button/button";
 export { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 export { Variant } from "./components/button/button";
 export namespace Components {
+    /**
+     * The bottom bar component is used in the Jamboree26 app to provide
+     * navigation at the bottom of the screen.
+     */
     interface ScoutBottomBar {
     }
+    /**
+     * A bottom bar item used within the bottom bar for navigation. Should not be
+     * used outside of a bottom bar.
+     */
     interface ScoutBottomBarItem {
         "active"?: boolean;
         "href"?: string;
@@ -37,18 +45,41 @@ export namespace Components {
         "variant": Variant;
     }
 }
+export interface ScoutBottomBarItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutBottomBarItemElement;
+}
 export interface ScoutButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutButtonElement;
 }
 declare global {
+    /**
+     * The bottom bar component is used in the Jamboree26 app to provide
+     * navigation at the bottom of the screen.
+     */
     interface HTMLScoutBottomBarElement extends Components.ScoutBottomBar, HTMLStencilElement {
     }
     var HTMLScoutBottomBarElement: {
         prototype: HTMLScoutBottomBarElement;
         new (): HTMLScoutBottomBarElement;
     };
+    interface HTMLScoutBottomBarItemElementEventMap {
+        "scoutClick": void;
+    }
+    /**
+     * A bottom bar item used within the bottom bar for navigation. Should not be
+     * used outside of a bottom bar.
+     */
     interface HTMLScoutBottomBarItemElement extends Components.ScoutBottomBarItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutBottomBarItemElementEventMap>(type: K, listener: (this: HTMLScoutBottomBarItemElement, ev: ScoutBottomBarItemCustomEvent<HTMLScoutBottomBarItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutBottomBarItemElementEventMap>(type: K, listener: (this: HTMLScoutBottomBarItemElement, ev: ScoutBottomBarItemCustomEvent<HTMLScoutBottomBarItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLScoutBottomBarItemElement: {
         prototype: HTMLScoutBottomBarItemElement;
@@ -81,13 +112,22 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    /**
+     * The bottom bar component is used in the Jamboree26 app to provide
+     * navigation at the bottom of the screen.
+     */
     interface ScoutBottomBar {
     }
+    /**
+     * A bottom bar item used within the bottom bar for navigation. Should not be
+     * used outside of a bottom bar.
+     */
     interface ScoutBottomBarItem {
         "active"?: boolean;
         "href"?: string;
         "icon": string;
         "label": string;
+        "onScoutClick"?: (event: ScoutBottomBarItemCustomEvent<void>) => void;
         /**
           * @default "button"
          */
@@ -118,7 +158,15 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * The bottom bar component is used in the Jamboree26 app to provide
+             * navigation at the bottom of the screen.
+             */
             "scout-bottom-bar": LocalJSX.ScoutBottomBar & JSXBase.HTMLAttributes<HTMLScoutBottomBarElement>;
+            /**
+             * A bottom bar item used within the bottom bar for navigation. Should not be
+             * used outside of a bottom bar.
+             */
             "scout-bottom-bar-item": LocalJSX.ScoutBottomBarItem & JSXBase.HTMLAttributes<HTMLScoutBottomBarItemElement>;
             /**
              * A simple button component.

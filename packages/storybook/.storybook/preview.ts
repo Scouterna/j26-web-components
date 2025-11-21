@@ -1,15 +1,21 @@
-import type { Preview } from "@storybook/react-vite";
-
-import "@scouterna/ui-webc/dist/ui-webc/ui-webc.css";
-
 import { setCustomElementsManifest } from "@stencil/storybook-plugin";
+import { definePreview } from "@storybook/react-vite";
 import kebabCase from "lodash.kebabcase";
 import customElements from "../../ui-webc/dist/custom-elements.json";
-// This export isn't very nice, but @stencil/storybook-plugin doesn't expose this functionality
+import addonDocs from "@storybook/addon-docs";
+import addonA11y from "@storybook/addon-a11y";
+import addonVitest from "@storybook/addon-vitest";
+
+// This import isn't very nice, but @stencil/storybook-plugin doesn't expose this functionality
 import { parameters } from "../node_modules/@stencil/storybook-plugin/dist/entry-preview-argtypes";
 
+// Include styles to have our web components render correctly
+import "@scouterna/ui-webc/dist/ui-webc/ui-webc.css";
+
+// Register the custom elements manifest for Stencil integration
 setCustomElementsManifest(customElements);
 
+// Utility for converting our React component display names to web component tag names
 const getComponentWebcName = (component: unknown): string | null => {
   if (
     component &&
@@ -23,9 +29,11 @@ const getComponentWebcName = (component: unknown): string | null => {
   return null;
 };
 
-const preview: Preview = {
+export default definePreview({
+  addons: [addonDocs(), addonA11y(), addonVitest()],
   parameters: {
     docs: {
+      // Automatically extract argTypes and component descriptions from web components
       extractArgTypes: (component: unknown) => {
         const webcName = getComponentWebcName(component);
         if (!webcName) return null;
@@ -36,7 +44,8 @@ const preview: Preview = {
         if (!webcName) return null;
         return parameters.docs.extractComponentDescription(webcName);
       },
-    },
+      // biome-ignore lint/suspicious/noExplicitAny: We need to cast becuase these are internal APIs.
+    } as any,
     actions: {
       argTypesRegex: "^onScout.*",
     },
@@ -48,11 +57,9 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ["Basics", "Jamboree26"],
+        order: ["Basics", "Jamboree26", ["Bottom Bar", "Bottom Bar Item"]],
       },
     },
   },
   tags: ["autodocs"],
-};
-
-export default preview;
+});

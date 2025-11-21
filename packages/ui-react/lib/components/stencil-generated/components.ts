@@ -25,14 +25,14 @@ export const ScoutBottomBar: StencilReactComponent<ScoutBottomBarElement, ScoutB
     defineCustomElement: defineScoutBottomBar
 });
 
-export type ScoutBottomBarItemEvents = NonNullable<unknown>;
+export type ScoutBottomBarItemEvents = { onScoutClick: EventName<CustomEvent<void>> };
 
 export const ScoutBottomBarItem: StencilReactComponent<ScoutBottomBarItemElement, ScoutBottomBarItemEvents> = /*@__PURE__*/ createComponent<ScoutBottomBarItemElement, ScoutBottomBarItemEvents>({
     tagName: 'scout-bottom-bar-item',
     elementClass: ScoutBottomBarItemElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as ScoutBottomBarItemEvents,
+    events: { onScoutClick: 'scoutClick' } as ScoutBottomBarItemEvents,
     defineCustomElement: defineScoutBottomBarItem
 });
 

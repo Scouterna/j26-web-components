@@ -1,21 +1,18 @@
 import { ScoutBottomBarItem } from "@scouterna/ui-react";
-
-import type { Meta, StoryObj } from "@storybook/react-vite";
-
 import BonfireIcon from "iconoir/icons/bonfire.svg?raw";
+import preview from "#.storybook/preview";
 
-const meta = {
+const meta = preview.meta({
   title: "Jamboree26/Bottom Bar Item",
   component: ScoutBottomBarItem,
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof ScoutBottomBarItem>;
+});
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const BottomBarItem: Story = {
+export const BottomBarItem = meta.story({
   args: {
     icon: BonfireIcon,
     label: "Activities",
@@ -25,4 +22,4 @@ export const BottomBarItem: Story = {
       <ScoutBottomBarItem {...args} />
     </div>
   ),
-};
+});

@@ -3,6 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "imports": {
+    "#*": [
+      "./*",
+      "./*.ts",
+      "./*.tsx"
+    ]
+  },
   "scripts": {
     "build": "storybook build",
     "dev": "storybook dev -p 6006 --no-open"

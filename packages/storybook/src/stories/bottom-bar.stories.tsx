@@ -1,24 +1,21 @@
 import { ScoutBottomBar, ScoutBottomBarItem } from "@scouterna/ui-react";
-
-import type { Meta, StoryObj } from "@storybook/react-vite";
-
 import BonfireIcon from "iconoir/icons/bonfire.svg?raw";
 import CalendarIcon from "iconoir/icons/calendar.svg?raw";
 import MapIcon from "iconoir/icons/map.svg?raw";
 import MoreHorizIcon from "iconoir/icons/more-horiz.svg?raw";
+import preview from "#.storybook/preview";
 
-const meta = {
+const meta = preview.meta({
   title: "Jamboree26/Bottom Bar",
   component: ScoutBottomBar,
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof ScoutBottomBar>;
+});
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const BasicExample: Story = {
+export const BasicExample = meta.story({
   args: {},
   render: (args) => (
     <div style={{ maxWidth: "24rem", width: "100vw" }}>
@@ -30,4 +27,4 @@ export const BasicExample: Story = {
       </ScoutBottomBar>
     </div>
   ),
-};
+});
