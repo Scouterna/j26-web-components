@@ -7,6 +7,7 @@
     "build": "pnpm run --recursive build",
     "lint": "biome check",
     "lint:fix": "biome check --write",
+    "version": "changeset version && pnpm install --no-frozen-lockfile",
     "changeset": "changeset"
   },
   "devDependencies": {
