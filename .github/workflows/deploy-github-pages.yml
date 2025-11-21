@@ -12,21 +12,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout Repo
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
-      - uses: actions/setup-node@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
           cache: "pnpm"
 
-      - run: pnpm install
+      - name: Install Dependencies
+        run: pnpm install
 
-      - run: pnpm run build
+      - name: Build Packages
+        run: pnpm run build
+
+      - name: Build Storybook
+        working-directory: ./packages/storybook
+        run: pnpm run build
 
       - name: Upload Storybook to GitHub Pages
         id: deployment
