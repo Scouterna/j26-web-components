@@ -1,5 +1,13 @@
 # @scouterna/ui-react
 
+## 0.2.2
+
+### Patch Changes
+
+- bf498fd: Add package descriptions.
+- Updated dependencies [bf498fd]
+  - @scouterna/ui-webc@0.2.2
+
 ## 0.2.1
 
 ### Patch Changes
