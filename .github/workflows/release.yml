@@ -9,12 +9,13 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
   id-token: write # Required for OIDC
-  contents: read
+  contents: write
 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    environment: npm
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v6
