@@ -31,6 +31,13 @@ j26-web-components/
 └── pnpm-workspace.yaml   # Workspace configuration
 ```
 
+## Creating a new component
+
+From the root directory, run the plop generator and follow the prompts:
+```bash
+pnpm plop
+```
+
 ## Releasing
 
 This project uses [Changesets](https://github.com/changesets/changesets) to manage releases and changelogs.

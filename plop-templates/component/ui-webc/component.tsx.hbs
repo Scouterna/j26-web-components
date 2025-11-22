@@ -1,0 +1,14 @@
+import { Component, h } from "@stencil/core";
+
+@Component({
+  tag: "scout-{{name}}",
+  styleUrl: "{{name}}.css",
+  shadow: true,
+})
+export class Scout{{pascalCase name}} {
+  render() {
+    return (
+      <slot />
+    );
+  }
+}

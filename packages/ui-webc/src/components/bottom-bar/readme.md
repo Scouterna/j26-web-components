@@ -1,4 +1,4 @@
-# scout-button
+# scout-bottom-bar
 
 
 

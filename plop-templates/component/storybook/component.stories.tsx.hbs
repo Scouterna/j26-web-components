@@ -1,0 +1,19 @@
+import { Scout{{pascalCase name}} } from "@scouterna/ui-react";
+import preview from "#.storybook/preview";
+
+const meta = preview.meta({
+  title: "Uncategorized/{{titleCase name}}",
+  component: Scout{{pascalCase name}},
+  parameters: {
+    layout: "centered",
+  },
+});
+
+export default meta;
+
+export const BasicExample = meta.story({
+  args: {},
+  render: (args) => (
+    <Scout{{pascalCase name}} {...args} />
+  ),
+});
