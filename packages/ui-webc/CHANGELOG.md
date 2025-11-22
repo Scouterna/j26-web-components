@@ -1,5 +1,11 @@
 # @scouterna/ui-webc
 
+## 1.0.0
+
+### Minor Changes
+
+- [`765ab4e`](https://github.com/Scouterna/j26-web-components/commit/765ab4e1c574b0e429a46bed7b89060e510a8bd2) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Add accessible input and field component.
+
 ## 0.2.10
 
 ### Patch Changes
