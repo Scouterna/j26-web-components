@@ -6,7 +6,9 @@ import { Component, h } from "@stencil/core";
 @Component({
   tag: "scout-card",
   styleUrl: "card.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class ScoutCard {
   render() {

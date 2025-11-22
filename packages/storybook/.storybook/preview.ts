@@ -10,7 +10,8 @@ import customElements from "../../ui-webc/dist/custom-elements.json";
 import { parameters } from "../node_modules/@stencil/storybook-plugin/dist/entry-preview-argtypes";
 
 // Include styles to have our web components render correctly
-import "@scouterna/ui-webc/dist/ui-webc/ui-webc.css";
+import "@scouterna/ui-webc/style.css";
+import "@fontsource-variable/source-sans-3/index.css";
 
 // Register the custom elements manifest for Stencil integration
 setCustomElementsManifest(customElements);
@@ -63,6 +64,7 @@ export default definePreview({
           "Setup – Web Components",
           "Using icons",
           "Basics",
+          "Interaction",
           "Jamboree26",
           ["Bottom Bar", "Bottom Bar Item"],
         ],

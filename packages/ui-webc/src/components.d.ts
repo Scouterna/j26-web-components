@@ -7,8 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 import { Variant } from "./components/button/button";
+import { InputMode, InputType } from "./components/input/input";
 export { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 export { Variant } from "./components/button/button";
+export { InputMode, InputType } from "./components/input/input";
 export namespace Components {
     /**
      * The bottom bar component is used in the Jamboree26 app to provide
@@ -66,6 +68,45 @@ export namespace Components {
      */
     interface ScoutCard {
     }
+    interface ScoutField {
+        /**
+          * Help text shown below the field.
+         */
+        "helpText"?: string;
+        /**
+          * Label shown above the field.
+         */
+        "label": string;
+    }
+    interface ScoutInput {
+        /**
+          * Whether the input is disabled. Disabled inputs are not editable, excluded from tab order and are not validated.
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Input mode hints for devices with dynamic keyboards.
+         */
+        "inputmode"?: InputMode;
+        /**
+          * Regex pattern for input validation.
+         */
+        "pattern"?: string;
+        /**
+          * Type of input element. If you need a number input, read the accessibility section of this MDN article first: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/number#accessibility
+          * @default "text"
+         */
+        "type": InputType;
+        /**
+          * Custom validation function run on top of the implicit validation performed by the browser. Return a string with the validation message to mark the input as invalid, or null to mark it as valid.
+         */
+        "validate"?: (value: string) => string | null;
+        /**
+          * Value of the input element, in case you want to control it yourself.
+          * @default ""
+         */
+        "value": string;
+    }
 }
 export interface ScoutBottomBarItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -74,6 +115,10 @@ export interface ScoutBottomBarItemCustomEvent<T> extends CustomEvent<T> {
 export interface ScoutButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutButtonElement;
+}
+export interface ScoutInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutInputElement;
 }
 declare global {
     /**
@@ -136,11 +181,41 @@ declare global {
         prototype: HTMLScoutCardElement;
         new (): HTMLScoutCardElement;
     };
+    interface HTMLScoutFieldElement extends Components.ScoutField, HTMLStencilElement {
+    }
+    var HTMLScoutFieldElement: {
+        prototype: HTMLScoutFieldElement;
+        new (): HTMLScoutFieldElement;
+    };
+    interface HTMLScoutInputElementEventMap {
+        "scoutInputChange": {
+    value: string;
+    element: HTMLInputElement;
+  };
+        "scoutBlur": void;
+        "_fieldId": string;
+    }
+    interface HTMLScoutInputElement extends Components.ScoutInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutInputElementEventMap>(type: K, listener: (this: HTMLScoutInputElement, ev: ScoutInputCustomEvent<HTMLScoutInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutInputElementEventMap>(type: K, listener: (this: HTMLScoutInputElement, ev: ScoutInputCustomEvent<HTMLScoutInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLScoutInputElement: {
+        prototype: HTMLScoutInputElement;
+        new (): HTMLScoutInputElement;
+    };
     interface HTMLElementTagNameMap {
         "scout-bottom-bar": HTMLScoutBottomBarElement;
         "scout-bottom-bar-item": HTMLScoutBottomBarItemElement;
         "scout-button": HTMLScoutButtonElement;
         "scout-card": HTMLScoutCardElement;
+        "scout-field": HTMLScoutFieldElement;
+        "scout-input": HTMLScoutInputElement;
     }
 }
 declare namespace LocalJSX {
@@ -202,11 +277,61 @@ declare namespace LocalJSX {
      */
     interface ScoutCard {
     }
+    interface ScoutField {
+        /**
+          * Help text shown below the field.
+         */
+        "helpText"?: string;
+        /**
+          * Label shown above the field.
+         */
+        "label": string;
+    }
+    interface ScoutInput {
+        /**
+          * Whether the input is disabled. Disabled inputs are not editable, excluded from tab order and are not validated.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Input mode hints for devices with dynamic keyboards.
+         */
+        "inputmode"?: InputMode;
+        "onScoutBlur"?: (event: ScoutInputCustomEvent<void>) => void;
+        "onScoutInputChange"?: (event: ScoutInputCustomEvent<{
+    value: string;
+    element: HTMLInputElement;
+  }>) => void;
+        /**
+          * Internal event used for form field association.
+         */
+        "on_fieldId"?: (event: ScoutInputCustomEvent<string>) => void;
+        /**
+          * Regex pattern for input validation.
+         */
+        "pattern"?: string;
+        /**
+          * Type of input element. If you need a number input, read the accessibility section of this MDN article first: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/number#accessibility
+          * @default "text"
+         */
+        "type"?: InputType;
+        /**
+          * Custom validation function run on top of the implicit validation performed by the browser. Return a string with the validation message to mark the input as invalid, or null to mark it as valid.
+         */
+        "validate"?: (value: string) => string | null;
+        /**
+          * Value of the input element, in case you want to control it yourself.
+          * @default ""
+         */
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "scout-bottom-bar": ScoutBottomBar;
         "scout-bottom-bar-item": ScoutBottomBarItem;
         "scout-button": ScoutButton;
         "scout-card": ScoutCard;
+        "scout-field": ScoutField;
+        "scout-input": ScoutInput;
     }
 }
 export { LocalJSX as JSX };
@@ -231,6 +356,8 @@ declare module "@stencil/core" {
              * A general surface to hold various types of content.
              */
             "scout-card": LocalJSX.ScoutCard & JSXBase.HTMLAttributes<HTMLScoutCardElement>;
+            "scout-field": LocalJSX.ScoutField & JSXBase.HTMLAttributes<HTMLScoutFieldElement>;
+            "scout-input": LocalJSX.ScoutInput & JSXBase.HTMLAttributes<HTMLScoutInputElement>;
         }
     }
 }

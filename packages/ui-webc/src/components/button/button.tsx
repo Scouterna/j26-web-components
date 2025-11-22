@@ -8,7 +8,9 @@ export type Variant = "primary" | "outlined" | "text" | "caution" | "danger";
 @Component({
   tag: "scout-button",
   styleUrl: "button.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class ScoutButton {
   @Prop() type: "button" | "submit" | "reset" = "button";
@@ -23,8 +25,7 @@ export class ScoutButton {
    */
   @Prop() icon?: string;
 
-  @Event()
-  scoutClick: EventEmitter<void>;
+  @Event() scoutClick: EventEmitter<void>;
 
   render() {
     return (

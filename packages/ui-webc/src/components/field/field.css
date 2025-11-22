@@ -1,0 +1,26 @@
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font: var(--type-label-sm);
+  font-weight: 600;
+  color: var(--color-text-base);
+}
+
+.error-text {
+  font: var(--type-label-sm);
+  color: var(--color-text-danger-base);
+  margin: var(--spacing-1) 0 0 0;
+}
+
+.error-text:empty {
+  margin: 0;
+}
+
+.help-text {
+  font: var(--type-label-sm);
+  color: var(--color-gray-600);
+  margin: var(--spacing-1) 0 0 0;
+}

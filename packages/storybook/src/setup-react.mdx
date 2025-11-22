@@ -17,12 +17,20 @@ compatibility:
 pnpm install @scouterna/ui-webc @scouterna/ui-react
 ```
 
+You also need the Source Sans 3 Variable. The easiest way to include it is to
+get it from Fontsource:
+```bash
+pnpm install @fontsource-variable/source-sans-3
+```
+
 ## Usage
 
-Before you can use the React components, you need to load the styles for the
-components. This only has to be done once, probably in your main entry file:
+Before you can use the React components, you need to load the styles and fonts
+for the components. This only has to be done once, probably in your main entry
+file:
 ```js
 import '@scouterna/ui-webc/style.css';
+import "@fontsource-variable/source-sans-3/index.css";
 ```
 
 Then you can start using the React components in your app:

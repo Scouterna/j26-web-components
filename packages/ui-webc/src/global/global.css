@@ -1,5 +1,5 @@
 @import '../../../design-tokens/dist/tokens.css';
-@import '../../node_modules/normalize.css/normalize.css';
+@import './modern-normalize.css';
 
 @import './button.css';
 @import './typography.css';

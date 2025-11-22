@@ -53,8 +53,7 @@
     "@stencil/react-output-target": "^1.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "iconoir": "^7.11.0",
-    "normalize.css": "^8.0.1"
+    "iconoir": "^7.11.0"
   },
   "devDependencies": {
     "@stencil-community/postcss": "^2.2.0",

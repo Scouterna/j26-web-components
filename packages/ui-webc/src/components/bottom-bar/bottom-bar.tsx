@@ -7,7 +7,9 @@ import { Component, h } from "@stencil/core";
 @Component({
   tag: "scout-bottom-bar",
   styleUrl: "bottom-bar.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class ScoutBottomBar {
   render() {
