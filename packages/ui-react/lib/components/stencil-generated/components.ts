@@ -10,6 +10,7 @@
 import { ScoutBottomBarItem as ScoutBottomBarItemElement, defineCustomElement as defineScoutBottomBarItem } from "@scouterna/ui-webc/dist/components/scout-bottom-bar-item.js";
 import { ScoutBottomBar as ScoutBottomBarElement, defineCustomElement as defineScoutBottomBar } from "@scouterna/ui-webc/dist/components/scout-bottom-bar.js";
 import { ScoutButton as ScoutButtonElement, defineCustomElement as defineScoutButton } from "@scouterna/ui-webc/dist/components/scout-button.js";
+import { ScoutCard as ScoutCardElement, defineCustomElement as defineScoutCard } from "@scouterna/ui-webc/dist/components/scout-card.js";
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
 import React from 'react';
@@ -45,4 +46,15 @@ export const ScoutButton: StencilReactComponent<ScoutButtonElement, ScoutButtonE
     react: React,
     events: { onScoutClick: 'scoutClick' } as ScoutButtonEvents,
     defineCustomElement: defineScoutButton
+});
+
+export type ScoutCardEvents = NonNullable<unknown>;
+
+export const ScoutCard: StencilReactComponent<ScoutCardElement, ScoutCardEvents> = /*@__PURE__*/ createComponent<ScoutCardElement, ScoutCardEvents>({
+    tagName: 'scout-card',
+    elementClass: ScoutCardElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as ScoutCardEvents,
+    defineCustomElement: defineScoutCard
 });

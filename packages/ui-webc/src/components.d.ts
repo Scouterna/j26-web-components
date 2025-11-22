@@ -61,6 +61,11 @@ export namespace Components {
          */
         "variant": Variant;
     }
+    /**
+     * A general surface to hold various types of content.
+     */
+    interface ScoutCard {
+    }
 }
 export interface ScoutBottomBarItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -122,10 +127,20 @@ declare global {
         prototype: HTMLScoutButtonElement;
         new (): HTMLScoutButtonElement;
     };
+    /**
+     * A general surface to hold various types of content.
+     */
+    interface HTMLScoutCardElement extends Components.ScoutCard, HTMLStencilElement {
+    }
+    var HTMLScoutCardElement: {
+        prototype: HTMLScoutCardElement;
+        new (): HTMLScoutCardElement;
+    };
     interface HTMLElementTagNameMap {
         "scout-bottom-bar": HTMLScoutBottomBarElement;
         "scout-bottom-bar-item": HTMLScoutBottomBarItemElement;
         "scout-button": HTMLScoutButtonElement;
+        "scout-card": HTMLScoutCardElement;
     }
 }
 declare namespace LocalJSX {
@@ -182,10 +197,16 @@ declare namespace LocalJSX {
          */
         "variant"?: Variant;
     }
+    /**
+     * A general surface to hold various types of content.
+     */
+    interface ScoutCard {
+    }
     interface IntrinsicElements {
         "scout-bottom-bar": ScoutBottomBar;
         "scout-bottom-bar-item": ScoutBottomBarItem;
         "scout-button": ScoutButton;
+        "scout-card": ScoutCard;
     }
 }
 export { LocalJSX as JSX };
@@ -206,6 +227,10 @@ declare module "@stencil/core" {
              * A simple button component.
              */
             "scout-button": LocalJSX.ScoutButton & JSXBase.HTMLAttributes<HTMLScoutButtonElement>;
+            /**
+             * A general surface to hold various types of content.
+             */
+            "scout-card": LocalJSX.ScoutCard & JSXBase.HTMLAttributes<HTMLScoutCardElement>;
         }
     }
 }
