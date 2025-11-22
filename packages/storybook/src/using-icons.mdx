@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Using icons" />
+
+# Using icons
+
+We design around [Tabler Icons](https://tabler.io/icons). Regardless if you use
+the Web Component or React UI library, use the `@tabler/icons` package for
+icons. Icons are usually provided as raw SVG strings.
+
+## Example usage in React
+
+```jsx
+import { ScoutButton } from '@scouterna/ui-react';
+import IconHeart from '@tabler/icons/outline/heart.svg?raw';
+
+<ScoutButton
+  variant="primary"
+  icon={IconHeart}
+>
+  Like
+</ScoutButton>
+```

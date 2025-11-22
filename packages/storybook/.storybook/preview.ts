@@ -1,10 +1,10 @@
 import { setCustomElementsManifest } from "@stencil/storybook-plugin";
+import addonA11y from "@storybook/addon-a11y";
+import addonDocs from "@storybook/addon-docs";
+import addonVitest from "@storybook/addon-vitest";
 import { definePreview } from "@storybook/react-vite";
 import kebabCase from "lodash.kebabcase";
 import customElements from "../../ui-webc/dist/custom-elements.json";
-import addonDocs from "@storybook/addon-docs";
-import addonA11y from "@storybook/addon-a11y";
-import addonVitest from "@storybook/addon-vitest";
 
 // This import isn't very nice, but @stencil/storybook-plugin doesn't expose this functionality
 import { parameters } from "../node_modules/@stencil/storybook-plugin/dist/entry-preview-argtypes";
@@ -61,6 +61,7 @@ export default definePreview({
           "Home",
           "Setup – React",
           "Setup – Web Components",
+          "Using icons",
           "Basics",
           "Jamboree26",
           ["Bottom Bar", "Bottom Bar Item"],
