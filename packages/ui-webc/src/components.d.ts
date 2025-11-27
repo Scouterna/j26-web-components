@@ -8,9 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 import { Variant } from "./components/button/button";
 import { InputMode, InputType } from "./components/input/input";
+import { ItemType as ItemType1 } from "./components/list-view-item/list-view-item";
 export { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 export { Variant } from "./components/button/button";
 export { InputMode, InputType } from "./components/input/input";
+export { ItemType as ItemType1 } from "./components/list-view-item/list-view-item";
 export namespace Components {
     /**
      * The bottom bar component is used in the Jamboree26 app to provide
@@ -83,6 +85,8 @@ export namespace Components {
         "disabled": boolean;
         "label": string;
     }
+    interface ScoutDivider {
+    }
     interface ScoutField {
         /**
           * Help text shown below the field.
@@ -121,6 +125,17 @@ export namespace Components {
           * @default ""
          */
         "value": string;
+    }
+    interface ScoutListView {
+    }
+    interface ScoutListViewItem {
+        "icon"?: string;
+        "primary"?: string;
+        "secondary"?: string;
+        /**
+          * @default "button"
+         */
+        "type": ItemType1;
     }
     interface ScoutSwitch {
         /**
@@ -241,6 +256,12 @@ declare global {
         prototype: HTMLScoutCheckboxElement;
         new (): HTMLScoutCheckboxElement;
     };
+    interface HTMLScoutDividerElement extends Components.ScoutDivider, HTMLStencilElement {
+    }
+    var HTMLScoutDividerElement: {
+        prototype: HTMLScoutDividerElement;
+        new (): HTMLScoutDividerElement;
+    };
     interface HTMLScoutFieldElement extends Components.ScoutField, HTMLStencilElement {
     }
     var HTMLScoutFieldElement: {
@@ -269,6 +290,18 @@ declare global {
         prototype: HTMLScoutInputElement;
         new (): HTMLScoutInputElement;
     };
+    interface HTMLScoutListViewElement extends Components.ScoutListView, HTMLStencilElement {
+    }
+    var HTMLScoutListViewElement: {
+        prototype: HTMLScoutListViewElement;
+        new (): HTMLScoutListViewElement;
+    };
+    interface HTMLScoutListViewItemElement extends Components.ScoutListViewItem, HTMLStencilElement {
+    }
+    var HTMLScoutListViewItemElement: {
+        prototype: HTMLScoutListViewItemElement;
+        new (): HTMLScoutListViewItemElement;
+    };
     interface HTMLScoutSwitchElementEventMap {
         "scoutSwitchToggled": {
     toggled: boolean;
@@ -296,8 +329,11 @@ declare global {
         "scout-button": HTMLScoutButtonElement;
         "scout-card": HTMLScoutCardElement;
         "scout-checkbox": HTMLScoutCheckboxElement;
+        "scout-divider": HTMLScoutDividerElement;
         "scout-field": HTMLScoutFieldElement;
         "scout-input": HTMLScoutInputElement;
+        "scout-list-view": HTMLScoutListViewElement;
+        "scout-list-view-item": HTMLScoutListViewItemElement;
         "scout-switch": HTMLScoutSwitchElement;
     }
 }
@@ -383,6 +419,8 @@ declare namespace LocalJSX {
          */
         "on_fieldId"?: (event: ScoutCheckboxCustomEvent<string>) => void;
     }
+    interface ScoutDivider {
+    }
     interface ScoutField {
         /**
           * Help text shown below the field.
@@ -431,6 +469,17 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface ScoutListView {
+    }
+    interface ScoutListViewItem {
+        "icon"?: string;
+        "primary"?: string;
+        "secondary"?: string;
+        /**
+          * @default "button"
+         */
+        "type"?: ItemType1;
+    }
     interface ScoutSwitch {
         /**
           * Use this prop if you need to connect your switch with another element describing its use, other than the property label.
@@ -461,8 +510,11 @@ declare namespace LocalJSX {
         "scout-button": ScoutButton;
         "scout-card": ScoutCard;
         "scout-checkbox": ScoutCheckbox;
+        "scout-divider": ScoutDivider;
         "scout-field": ScoutField;
         "scout-input": ScoutInput;
+        "scout-list-view": ScoutListView;
+        "scout-list-view-item": ScoutListViewItem;
         "scout-switch": ScoutSwitch;
     }
 }
@@ -489,8 +541,11 @@ declare module "@stencil/core" {
              */
             "scout-card": LocalJSX.ScoutCard & JSXBase.HTMLAttributes<HTMLScoutCardElement>;
             "scout-checkbox": LocalJSX.ScoutCheckbox & JSXBase.HTMLAttributes<HTMLScoutCheckboxElement>;
+            "scout-divider": LocalJSX.ScoutDivider & JSXBase.HTMLAttributes<HTMLScoutDividerElement>;
             "scout-field": LocalJSX.ScoutField & JSXBase.HTMLAttributes<HTMLScoutFieldElement>;
             "scout-input": LocalJSX.ScoutInput & JSXBase.HTMLAttributes<HTMLScoutInputElement>;
+            "scout-list-view": LocalJSX.ScoutListView & JSXBase.HTMLAttributes<HTMLScoutListViewElement>;
+            "scout-list-view-item": LocalJSX.ScoutListViewItem & JSXBase.HTMLAttributes<HTMLScoutListViewItemElement>;
             "scout-switch": LocalJSX.ScoutSwitch & JSXBase.HTMLAttributes<HTMLScoutSwitchElement>;
         }
     }
