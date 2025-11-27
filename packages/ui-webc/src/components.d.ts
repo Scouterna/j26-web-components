@@ -8,9 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 import { Variant } from "./components/button/button";
 import { InputMode, InputType } from "./components/input/input";
+import { ItemType as ItemType1 } from "./components/list-view-item/list-view-item";
 export { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 export { Variant } from "./components/button/button";
 export { InputMode, InputType } from "./components/input/input";
+export { ItemType as ItemType1 } from "./components/list-view-item/list-view-item";
 export namespace Components {
     /**
      * The bottom bar component is used in the Jamboree26 app to provide
@@ -68,6 +70,8 @@ export namespace Components {
      */
     interface ScoutCard {
     }
+    interface ScoutDivider {
+    }
     interface ScoutField {
         /**
           * Help text shown below the field.
@@ -106,6 +110,17 @@ export namespace Components {
           * @default ""
          */
         "value": string;
+    }
+    interface ScoutListView {
+    }
+    interface ScoutListViewItem {
+        "icon"?: string;
+        "primary"?: string;
+        "secondary"?: string;
+        /**
+          * @default "button"
+         */
+        "type": ItemType1;
     }
 }
 export interface ScoutBottomBarItemCustomEvent<T> extends CustomEvent<T> {
@@ -181,6 +196,12 @@ declare global {
         prototype: HTMLScoutCardElement;
         new (): HTMLScoutCardElement;
     };
+    interface HTMLScoutDividerElement extends Components.ScoutDivider, HTMLStencilElement {
+    }
+    var HTMLScoutDividerElement: {
+        prototype: HTMLScoutDividerElement;
+        new (): HTMLScoutDividerElement;
+    };
     interface HTMLScoutFieldElement extends Components.ScoutField, HTMLStencilElement {
     }
     var HTMLScoutFieldElement: {
@@ -209,13 +230,28 @@ declare global {
         prototype: HTMLScoutInputElement;
         new (): HTMLScoutInputElement;
     };
+    interface HTMLScoutListViewElement extends Components.ScoutListView, HTMLStencilElement {
+    }
+    var HTMLScoutListViewElement: {
+        prototype: HTMLScoutListViewElement;
+        new (): HTMLScoutListViewElement;
+    };
+    interface HTMLScoutListViewItemElement extends Components.ScoutListViewItem, HTMLStencilElement {
+    }
+    var HTMLScoutListViewItemElement: {
+        prototype: HTMLScoutListViewItemElement;
+        new (): HTMLScoutListViewItemElement;
+    };
     interface HTMLElementTagNameMap {
         "scout-bottom-bar": HTMLScoutBottomBarElement;
         "scout-bottom-bar-item": HTMLScoutBottomBarItemElement;
         "scout-button": HTMLScoutButtonElement;
         "scout-card": HTMLScoutCardElement;
+        "scout-divider": HTMLScoutDividerElement;
         "scout-field": HTMLScoutFieldElement;
         "scout-input": HTMLScoutInputElement;
+        "scout-list-view": HTMLScoutListViewElement;
+        "scout-list-view-item": HTMLScoutListViewItemElement;
     }
 }
 declare namespace LocalJSX {
@@ -277,6 +313,8 @@ declare namespace LocalJSX {
      */
     interface ScoutCard {
     }
+    interface ScoutDivider {
+    }
     interface ScoutField {
         /**
           * Help text shown below the field.
@@ -325,13 +363,27 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface ScoutListView {
+    }
+    interface ScoutListViewItem {
+        "icon"?: string;
+        "primary"?: string;
+        "secondary"?: string;
+        /**
+          * @default "button"
+         */
+        "type"?: ItemType1;
+    }
     interface IntrinsicElements {
         "scout-bottom-bar": ScoutBottomBar;
         "scout-bottom-bar-item": ScoutBottomBarItem;
         "scout-button": ScoutButton;
         "scout-card": ScoutCard;
+        "scout-divider": ScoutDivider;
         "scout-field": ScoutField;
         "scout-input": ScoutInput;
+        "scout-list-view": ScoutListView;
+        "scout-list-view-item": ScoutListViewItem;
     }
 }
 export { LocalJSX as JSX };
@@ -356,8 +408,11 @@ declare module "@stencil/core" {
              * A general surface to hold various types of content.
              */
             "scout-card": LocalJSX.ScoutCard & JSXBase.HTMLAttributes<HTMLScoutCardElement>;
+            "scout-divider": LocalJSX.ScoutDivider & JSXBase.HTMLAttributes<HTMLScoutDividerElement>;
             "scout-field": LocalJSX.ScoutField & JSXBase.HTMLAttributes<HTMLScoutFieldElement>;
             "scout-input": LocalJSX.ScoutInput & JSXBase.HTMLAttributes<HTMLScoutInputElement>;
+            "scout-list-view": LocalJSX.ScoutListView & JSXBase.HTMLAttributes<HTMLScoutListViewElement>;
+            "scout-list-view-item": LocalJSX.ScoutListViewItem & JSXBase.HTMLAttributes<HTMLScoutListViewItemElement>;
         }
     }
 }
