@@ -25,6 +25,8 @@ export class ScoutBottomBarItem {
    * `type` is set to "link".
    */
   @Prop() href?: string;
+  @Prop() target?: string;
+  @Prop() rel?: string;
 
   /**
    * An icon to display above the label. Must be an SVG string.
@@ -51,6 +53,11 @@ export class ScoutBottomBarItem {
       this.type === "link"
         ? {
             href: this.href,
+            target: this.target,
+            // This might not be our job, but better safe than sorry.
+            rel:
+              this.rel ??
+              (this.target === "_blank" ? "noopener noreferrer" : undefined),
           }
         : {};
 

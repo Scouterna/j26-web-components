@@ -41,6 +41,8 @@ export namespace Components {
           * The label to display below the icon.
          */
         "label": string;
+        "rel"?: string;
+        "target"?: string;
         /**
           * The type of the bottom bar item, either a button or a link.
           * @default "button"
@@ -117,9 +119,12 @@ export namespace Components {
     interface ScoutListView {
     }
     interface ScoutListViewItem {
+        "href"?: string;
         "icon"?: string;
         "primary"?: string;
+        "rel"?: string;
         "secondary"?: string;
+        "target"?: string;
         /**
           * @default "button"
          */
@@ -286,6 +291,8 @@ declare namespace LocalJSX {
          */
         "label": string;
         "onScoutClick"?: (event: ScoutBottomBarItemCustomEvent<void>) => void;
+        "rel"?: string;
+        "target"?: string;
         /**
           * The type of the bottom bar item, either a button or a link.
           * @default "button"
@@ -372,9 +379,12 @@ declare namespace LocalJSX {
     interface ScoutListView {
     }
     interface ScoutListViewItem {
+        "href"?: string;
         "icon"?: string;
         "primary"?: string;
+        "rel"?: string;
         "secondary"?: string;
+        "target"?: string;
         /**
           * @default "button"
          */
