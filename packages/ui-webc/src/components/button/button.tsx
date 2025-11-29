@@ -44,11 +44,12 @@ export class ScoutButton {
               this.rel ??
               (this.target === "_blank" ? "noopener noreferrer" : undefined),
           }
-        : {};
+        : {
+            type: this.type,
+          };
 
     return (
       <Tag
-        type={this.type}
         class={`button ${this.variant}`}
         onClick={() => this.scoutClick.emit()}
         {...props}
