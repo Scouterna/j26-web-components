@@ -1,7 +1,6 @@
 @import '../../../design-tokens/dist/tokens.css';
 @import './modern-normalize.css';
 
-@import './button.css';
 @import './typography.css';
 
 :root {

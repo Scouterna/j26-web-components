@@ -13,7 +13,11 @@ export type Variant = "primary" | "outlined" | "text" | "caution" | "danger";
   },
 })
 export class ScoutButton {
-  @Prop() type: "button" | "submit" | "reset" = "button";
+  @Prop() type: "button" | "submit" | "reset" | "link" = "button";
+
+  @Prop() href?: string;
+  @Prop() target?: string;
+  @Prop() rel?: string;
 
   /**
    * The variant primarily affects the color of the button.
@@ -28,15 +32,30 @@ export class ScoutButton {
   @Event() scoutClick: EventEmitter<void>;
 
   render() {
+    const Tag = this.type === "link" ? "a" : "button";
+
+    const props =
+      this.type === "link"
+        ? {
+            href: this.href,
+            target: this.target,
+            // This might not be our job, but better safe than sorry.
+            rel:
+              this.rel ??
+              (this.target === "_blank" ? "noopener noreferrer" : undefined),
+          }
+        : {};
+
     return (
-      <button
+      <Tag
         type={this.type}
-        class={this.variant}
+        class={`button ${this.variant}`}
         onClick={() => this.scoutClick.emit()}
+        {...props}
       >
         <slot />
         {this.icon && <span class="icon" innerHTML={this.icon} />}
-      </button>
+      </Tag>
     );
   }
 }
