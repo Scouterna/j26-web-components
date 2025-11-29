@@ -13,8 +13,11 @@ A simple button component.
 
 | Property  | Attribute | Description                                                                   | Type                                                         | Default      |
 | --------- | --------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------ |
+| `href`    | `href`    |                                                                               | `string`                                                     | `undefined`  |
 | `icon`    | `icon`    | An optional icon to display alongside the button text. Must be an SVG string. | `string`                                                     | `undefined`  |
-| `type`    | `type`    |                                                                               | `"button" \| "reset" \| "submit"`                            | `"button"`   |
+| `rel`     | `rel`     |                                                                               | `string`                                                     | `undefined`  |
+| `target`  | `target`  |                                                                               | `string`                                                     | `undefined`  |
+| `type`    | `type`    |                                                                               | `"button" \| "link" \| "reset" \| "submit"`                  | `"button"`   |
 | `variant` | `variant` | The variant primarily affects the color of the button.                        | `"caution" \| "danger" \| "outlined" \| "primary" \| "text"` | `"outlined"` |
 
 

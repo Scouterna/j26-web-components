@@ -1,4 +1,5 @@
 import { ScoutButton } from "@scouterna/ui-react";
+import ExternalLinkIcon from "@tabler/icons/outline/external-link.svg?raw";
 import LockIcon from "@tabler/icons/outline/lock.svg?raw";
 import TrashIcon from "@tabler/icons/outline/trash.svg?raw";
 import preview from "#.storybook/preview";
@@ -51,4 +52,16 @@ export const Danger = meta.story({
     icon: TrashIcon,
   },
   render: (args) => <ScoutButton {...args}>Delete</ScoutButton>,
+});
+
+export const Link = meta.story({
+  args: {
+    type: "link",
+    variant: "primary",
+    icon: ExternalLinkIcon,
+    href: "https://www.google.com",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  render: (args) => <ScoutButton {...args}>Open Google</ScoutButton>,
 });
