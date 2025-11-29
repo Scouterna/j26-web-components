@@ -51,14 +51,17 @@ export namespace Components {
      * A simple button component.
      */
     interface ScoutButton {
+        "href"?: string;
         /**
           * An optional icon to display alongside the button text. Must be an SVG string.
          */
         "icon"?: string;
+        "rel"?: string;
+        "target"?: string;
         /**
           * @default "button"
          */
-        "type": "button" | "submit" | "reset";
+        "type": "button" | "submit" | "reset" | "link";
         /**
           * The variant primarily affects the color of the button.
           * @default "outlined"
@@ -376,15 +379,18 @@ declare namespace LocalJSX {
      * A simple button component.
      */
     interface ScoutButton {
+        "href"?: string;
         /**
           * An optional icon to display alongside the button text. Must be an SVG string.
          */
         "icon"?: string;
         "onScoutClick"?: (event: ScoutButtonCustomEvent<void>) => void;
+        "rel"?: string;
+        "target"?: string;
         /**
           * @default "button"
          */
-        "type"?: "button" | "submit" | "reset";
+        "type"?: "button" | "submit" | "reset" | "link";
         /**
           * The variant primarily affects the color of the button.
           * @default "outlined"
