@@ -1,4 +1,4 @@
-# scout-list-view-divider
+# scout-divider
 
 <!-- Auto Generated Below -->
 
