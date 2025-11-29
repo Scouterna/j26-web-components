@@ -18,6 +18,8 @@ used outside of a bottom bar.
 | `href`               | `href`    | An optional link to navigate to when the item is clicked. Only used when `type` is set to "link".      | `string`             | `undefined` |
 | `icon` _(required)_  | `icon`    | An icon to display above the label. Must be an SVG string.                                             | `string`             | `undefined` |
 | `label` _(required)_ | `label`   | The label to display below the icon.                                                                   | `string`             | `undefined` |
+| `rel`                | `rel`     |                                                                                                        | `string`             | `undefined` |
+| `target`             | `target`  |                                                                                                        | `string`             | `undefined` |
 | `type`               | `type`    | The type of the bottom bar item, either a button or a link.                                            | `"button" \| "link"` | `"button"`  |
 
 
