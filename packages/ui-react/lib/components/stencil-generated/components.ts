@@ -68,7 +68,7 @@ export type ScoutCheckboxEvents = {
         checked: boolean;
         element: HTMLInputElement;
     }>>,
-    on_checkboxId: EventName<CustomEvent<string>>
+    on_fieldId: EventName<CustomEvent<string>>
 };
 
 export const ScoutCheckbox: StencilReactComponent<ScoutCheckboxElement, ScoutCheckboxEvents> = /*@__PURE__*/ createComponent<ScoutCheckboxElement, ScoutCheckboxEvents>({
@@ -78,7 +78,7 @@ export const ScoutCheckbox: StencilReactComponent<ScoutCheckboxElement, ScoutChe
     react: React,
     events: {
         onScoutCheckboxChecked: 'scoutCheckboxChecked',
-        on_checkboxId: '_checkboxId'
+        on_fieldId: '_fieldId'
     } as ScoutCheckboxEvents,
     defineCustomElement: defineScoutCheckbox
 });

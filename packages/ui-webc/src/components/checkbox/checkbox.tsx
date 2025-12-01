@@ -18,8 +18,14 @@ export class ScoutCheckbox {
 
   @Prop() disabled: boolean = false;
 
+  /**
+   * Use this prop if you need to connect your checkbox with another element describing its use, other than the property label.
+   */
+  @Prop() ariaLabelledby: string;
+
+  @Prop() label: string;
+
   @State() ariaId: string;
-  @State() ariaLabelledBy: string;
 
   @Event() scoutCheckboxChecked: EventEmitter<{
     checked: boolean;
@@ -28,11 +34,11 @@ export class ScoutCheckbox {
   /**
    * Internal event used for form field association.
    */
-  @Event() _checkboxId: EventEmitter<string>;
+  @Event() _fieldId: EventEmitter<string>;
 
   componentWillLoad(): Promise<void> | void {
     this.ariaId = `_${Math.random().toString(36).substring(2, 9)}`;
-    this._checkboxId.emit(this.ariaId);
+    this._fieldId.emit(this.ariaId);
   }
 
   onClick(event: Event) {
@@ -42,22 +48,30 @@ export class ScoutCheckbox {
       element: checkbox,
     });
   }
+  /*
+  todo:
+  - Wrap checkbox with label if used.
+  - make sure it works with field nicely with label.
+  */
 
   render() {
+    const Tag = this.label && this.label.length ? "label" : "div";
     return (
-      <div class="wrapper">
+      <Tag>
+        {this.label}
+        <span class="inlineDivider"></span>
         <input
-          class={`checkbox ${this.disabled ? "disabled" : ""}`}
+          class="checkbox"
           onChange={(event) => this.onClick(event)}
           style={{ "--icon-checkbox": `url(${checkIcon})` }}
           type="checkbox"
           id={this.ariaId}
-          aria-labelledby={this.ariaLabelledBy}
+          aria-labelledby={this.ariaLabelledby}
           aria-disabled={this.disabled}
           disabled={this.disabled}
           checked={this.checked}
         />
-      </div>
+      </Tag>
     );
   }
 }

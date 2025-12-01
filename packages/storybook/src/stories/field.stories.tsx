@@ -1,4 +1,4 @@
-import { ScoutField, ScoutInput } from "@scouterna/ui-react";
+import { ScoutCheckbox, ScoutField, ScoutInput } from "@scouterna/ui-react";
 import preview from "#.storybook/preview";
 
 const meta = preview.meta({
@@ -44,6 +44,15 @@ export const WithCustomValidation = WithInput.extend({
           return null;
         }}
       />
+    </ScoutField>
+  ),
+});
+
+export const WithCheckbox = WithInput.extend({
+  args: {},
+  render: (args) => (
+    <ScoutField {...args}>
+      <ScoutCheckbox />
     </ScoutField>
   ),
 });

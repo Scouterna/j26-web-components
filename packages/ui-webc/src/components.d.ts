@@ -70,6 +70,10 @@ export namespace Components {
     }
     interface ScoutCheckbox {
         /**
+          * Use this prop if you need to connect your checkbox with another element describing its use, other than the property label.
+         */
+        "ariaLabelledby": string;
+        /**
           * @default false
          */
         "checked": boolean;
@@ -77,6 +81,7 @@ export namespace Components {
           * @default false
          */
         "disabled": boolean;
+        "label": string;
     }
     interface ScoutField {
         /**
@@ -200,7 +205,7 @@ declare global {
     checked: boolean;
     element: HTMLInputElement;
   };
-        "_checkboxId": string;
+        "_fieldId": string;
     }
     interface HTMLScoutCheckboxElement extends Components.ScoutCheckbox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLScoutCheckboxElementEventMap>(type: K, listener: (this: HTMLScoutCheckboxElement, ev: ScoutCheckboxCustomEvent<HTMLScoutCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -315,6 +320,10 @@ declare namespace LocalJSX {
     }
     interface ScoutCheckbox {
         /**
+          * Use this prop if you need to connect your checkbox with another element describing its use, other than the property label.
+         */
+        "ariaLabelledby"?: string;
+        /**
           * @default false
          */
         "checked"?: boolean;
@@ -322,6 +331,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
+        "label"?: string;
         "onScoutCheckboxChecked"?: (event: ScoutCheckboxCustomEvent<{
     checked: boolean;
     element: HTMLInputElement;
@@ -329,7 +339,7 @@ declare namespace LocalJSX {
         /**
           * Internal event used for form field association.
          */
-        "on_checkboxId"?: (event: ScoutCheckboxCustomEvent<string>) => void;
+        "on_fieldId"?: (event: ScoutCheckboxCustomEvent<string>) => void;
     }
     interface ScoutField {
         /**
