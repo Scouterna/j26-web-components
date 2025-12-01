@@ -1,5 +1,11 @@
-import { Component, Host, h, Prop } from "@stencil/core";
-// import ChevronRightIcon from "@tabler/icons/outline/chevron-right.svg";
+import {
+  Component,
+  Event,
+  type EventEmitter,
+  Host,
+  h,
+  Prop,
+} from "@stencil/core";
 
 export type ItemType = "button" | "link";
 
@@ -20,6 +26,8 @@ export class ScoutListViewItem {
   @Prop() target?: string;
   @Prop() rel?: string;
 
+  @Event() scoutClick: EventEmitter<void>;
+
   render() {
     const Tag = this.type === "link" ? "a" : "button";
 
@@ -38,7 +46,11 @@ export class ScoutListViewItem {
     return (
       // biome-ignore lint/a11y/useSemanticElements: We can't use <li> because we're using shadow DOM.
       <Host role="listitem">
-        <Tag class="button" {...linkProps}>
+        <Tag
+          class="button"
+          {...linkProps}
+          onClick={() => this.scoutClick.emit()}
+        >
           {this.getPrefix()}
           {this.getContent()}
           {this.getSuffix()}

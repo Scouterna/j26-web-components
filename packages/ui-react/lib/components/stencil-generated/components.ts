@@ -142,14 +142,14 @@ export const ScoutListView: StencilReactComponent<ScoutListViewElement, ScoutLis
     defineCustomElement: defineScoutListView
 });
 
-export type ScoutListViewItemEvents = NonNullable<unknown>;
+export type ScoutListViewItemEvents = { onScoutClick: EventName<CustomEvent<void>> };
 
 export const ScoutListViewItem: StencilReactComponent<ScoutListViewItemElement, ScoutListViewItemEvents> = /*@__PURE__*/ createComponent<ScoutListViewItemElement, ScoutListViewItemEvents>({
     tagName: 'scout-list-view-item',
     elementClass: ScoutListViewItemElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as ScoutListViewItemEvents,
+    events: { onScoutClick: 'scoutClick' } as ScoutListViewItemEvents,
     defineCustomElement: defineScoutListViewItem
 });
 
