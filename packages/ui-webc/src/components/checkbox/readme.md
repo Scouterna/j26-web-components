@@ -13,9 +13,10 @@
 
 ## Events
 
-| Event                  | Description | Type                                                            |
-| ---------------------- | ----------- | --------------------------------------------------------------- |
-| `scoutCheckboxChecked` |             | `CustomEvent<{ checked: boolean; element: HTMLInputElement; }>` |
+| Event                  | Description                                     | Type                                                            |
+| ---------------------- | ----------------------------------------------- | --------------------------------------------------------------- |
+| `_checkboxId`          | Internal event used for form field association. | `CustomEvent<string>`                                           |
+| `scoutCheckboxChecked` |                                                 | `CustomEvent<{ checked: boolean; element: HTMLInputElement; }>` |
 
 
 ----------------------------------------------

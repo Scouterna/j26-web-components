@@ -200,6 +200,7 @@ declare global {
     checked: boolean;
     element: HTMLInputElement;
   };
+        "_checkboxId": string;
     }
     interface HTMLScoutCheckboxElement extends Components.ScoutCheckbox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLScoutCheckboxElementEventMap>(type: K, listener: (this: HTMLScoutCheckboxElement, ev: ScoutCheckboxCustomEvent<HTMLScoutCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -325,6 +326,10 @@ declare namespace LocalJSX {
     checked: boolean;
     element: HTMLInputElement;
   }>) => void;
+        /**
+          * Internal event used for form field association.
+         */
+        "on_checkboxId"?: (event: ScoutCheckboxCustomEvent<string>) => void;
     }
     interface ScoutField {
         /**

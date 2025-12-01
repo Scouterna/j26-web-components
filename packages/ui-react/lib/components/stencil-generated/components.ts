@@ -67,7 +67,8 @@ export type ScoutCheckboxEvents = {
     onScoutCheckboxChecked: EventName<ScoutCheckboxCustomEvent<{
         checked: boolean;
         element: HTMLInputElement;
-    }>>
+    }>>,
+    on_checkboxId: EventName<CustomEvent<string>>
 };
 
 export const ScoutCheckbox: StencilReactComponent<ScoutCheckboxElement, ScoutCheckboxEvents> = /*@__PURE__*/ createComponent<ScoutCheckboxElement, ScoutCheckboxEvents>({
@@ -75,7 +76,10 @@ export const ScoutCheckbox: StencilReactComponent<ScoutCheckboxElement, ScoutChe
     elementClass: ScoutCheckboxElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: { onScoutCheckboxChecked: 'scoutCheckboxChecked' } as ScoutCheckboxEvents,
+    events: {
+        onScoutCheckboxChecked: 'scoutCheckboxChecked',
+        on_checkboxId: '_checkboxId'
+    } as ScoutCheckboxEvents,
     defineCustomElement: defineScoutCheckbox
 });
 

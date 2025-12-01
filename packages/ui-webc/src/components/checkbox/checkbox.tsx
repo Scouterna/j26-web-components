@@ -25,6 +25,15 @@ export class ScoutCheckbox {
     checked: boolean;
     element: HTMLInputElement;
   }>;
+  /**
+   * Internal event used for form field association.
+   */
+  @Event() _checkboxId: EventEmitter<string>;
+
+  componentWillLoad(): Promise<void> | void {
+    this.ariaId = `_${Math.random().toString(36).substring(2, 9)}`;
+    this._checkboxId.emit(this.ariaId);
+  }
 
   onClick(event: Event) {
     const checkbox = event.target as HTMLInputElement;
