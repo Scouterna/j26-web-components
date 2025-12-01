@@ -73,6 +73,10 @@ export namespace Components {
           * @default false
          */
         "checked": boolean;
+        /**
+          * @default false
+         */
+        "disabled": boolean;
     }
     interface ScoutField {
         /**
@@ -313,6 +317,10 @@ declare namespace LocalJSX {
           * @default false
          */
         "checked"?: boolean;
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
         "onScoutCheckboxChecked"?: (event: ScoutCheckboxCustomEvent<{
     checked: boolean;
     element: HTMLInputElement;
