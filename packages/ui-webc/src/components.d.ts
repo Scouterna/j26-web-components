@@ -178,6 +178,10 @@ export interface ScoutInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutInputElement;
 }
+export interface ScoutListViewItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutListViewItemElement;
+}
 export interface ScoutSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutSwitchElement;
@@ -304,7 +308,18 @@ declare global {
         prototype: HTMLScoutListViewElement;
         new (): HTMLScoutListViewElement;
     };
+    interface HTMLScoutListViewItemElementEventMap {
+        "scoutClick": void;
+    }
     interface HTMLScoutListViewItemElement extends Components.ScoutListViewItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutListViewItemElementEventMap>(type: K, listener: (this: HTMLScoutListViewItemElement, ev: ScoutListViewItemCustomEvent<HTMLScoutListViewItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutListViewItemElementEventMap>(type: K, listener: (this: HTMLScoutListViewItemElement, ev: ScoutListViewItemCustomEvent<HTMLScoutListViewItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLScoutListViewItemElement: {
         prototype: HTMLScoutListViewItemElement;
@@ -487,6 +502,7 @@ declare namespace LocalJSX {
     interface ScoutListViewItem {
         "href"?: string;
         "icon"?: string;
+        "onScoutClick"?: (event: ScoutListViewItemCustomEvent<void>) => void;
         "primary"?: string;
         "rel"?: string;
         "secondary"?: string;

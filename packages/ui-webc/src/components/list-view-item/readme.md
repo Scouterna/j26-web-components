@@ -16,6 +16,13 @@
 | `type`      | `type`      |             | `"button" \| "link"` | `"button"`  |
 
 
+## Events
+
+| Event        | Description | Type                |
+| ------------ | ----------- | ------------------- |
+| `scoutClick` |             | `CustomEvent<void>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
