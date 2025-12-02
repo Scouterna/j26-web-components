@@ -61,7 +61,6 @@
 
 .checkbox:disabled {
   pointer-events: none;
-  cursor: pointer;
   background-color: var(--color-gray-100);
   border-color: var(--color-gray-100);
 }
