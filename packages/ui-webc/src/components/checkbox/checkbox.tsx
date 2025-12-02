@@ -43,8 +43,10 @@ export class ScoutCheckbox {
 
   onClick(event: Event) {
     const checkbox = event.target as HTMLInputElement;
+    console.log("checkbox", checkbox.checked);
+
     this.scoutCheckboxChecked.emit({
-      checked: !!this.checked,
+      checked: checkbox.checked,
       element: checkbox,
     });
   }
