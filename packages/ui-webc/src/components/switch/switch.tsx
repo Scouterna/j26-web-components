@@ -23,7 +23,7 @@ export class ScoutSwitch {
   @Prop() disabled: boolean = false;
 
   /**
-   * Use this prop if you need to connect your checkbox with another element describing its use, other than the property label.
+   * Use this prop if you need to connect your switch with another element describing its use, other than the property label.
    */
   @Prop() ariaLabelledby: string;
 
