@@ -68,6 +68,21 @@ export namespace Components {
      */
     interface ScoutCard {
     }
+    interface ScoutCheckbox {
+        /**
+          * Use this prop if you need to connect your checkbox with another element describing its use, other than the property label.
+         */
+        "ariaLabelledby": string;
+        /**
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        "label": string;
+    }
     interface ScoutField {
         /**
           * Help text shown below the field.
@@ -131,6 +146,10 @@ export interface ScoutBottomBarItemCustomEvent<T> extends CustomEvent<T> {
 export interface ScoutButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutButtonElement;
+}
+export interface ScoutCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutCheckboxElement;
 }
 export interface ScoutInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -201,6 +220,27 @@ declare global {
         prototype: HTMLScoutCardElement;
         new (): HTMLScoutCardElement;
     };
+    interface HTMLScoutCheckboxElementEventMap {
+        "scoutCheckboxChecked": {
+    checked: boolean;
+    element: HTMLInputElement;
+  };
+        "_fieldId": string;
+    }
+    interface HTMLScoutCheckboxElement extends Components.ScoutCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutCheckboxElementEventMap>(type: K, listener: (this: HTMLScoutCheckboxElement, ev: ScoutCheckboxCustomEvent<HTMLScoutCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutCheckboxElementEventMap>(type: K, listener: (this: HTMLScoutCheckboxElement, ev: ScoutCheckboxCustomEvent<HTMLScoutCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLScoutCheckboxElement: {
+        prototype: HTMLScoutCheckboxElement;
+        new (): HTMLScoutCheckboxElement;
+    };
     interface HTMLScoutFieldElement extends Components.ScoutField, HTMLStencilElement {
     }
     var HTMLScoutFieldElement: {
@@ -255,6 +295,7 @@ declare global {
         "scout-bottom-bar-item": HTMLScoutBottomBarItemElement;
         "scout-button": HTMLScoutButtonElement;
         "scout-card": HTMLScoutCardElement;
+        "scout-checkbox": HTMLScoutCheckboxElement;
         "scout-field": HTMLScoutFieldElement;
         "scout-input": HTMLScoutInputElement;
         "scout-switch": HTMLScoutSwitchElement;
@@ -318,6 +359,29 @@ declare namespace LocalJSX {
      * A general surface to hold various types of content.
      */
     interface ScoutCard {
+    }
+    interface ScoutCheckbox {
+        /**
+          * Use this prop if you need to connect your checkbox with another element describing its use, other than the property label.
+         */
+        "ariaLabelledby"?: string;
+        /**
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "label"?: string;
+        "onScoutCheckboxChecked"?: (event: ScoutCheckboxCustomEvent<{
+    checked: boolean;
+    element: HTMLInputElement;
+  }>) => void;
+        /**
+          * Internal event used for form field association.
+         */
+        "on_fieldId"?: (event: ScoutCheckboxCustomEvent<string>) => void;
     }
     interface ScoutField {
         /**
@@ -396,6 +460,7 @@ declare namespace LocalJSX {
         "scout-bottom-bar-item": ScoutBottomBarItem;
         "scout-button": ScoutButton;
         "scout-card": ScoutCard;
+        "scout-checkbox": ScoutCheckbox;
         "scout-field": ScoutField;
         "scout-input": ScoutInput;
         "scout-switch": ScoutSwitch;
@@ -423,6 +488,7 @@ declare module "@stencil/core" {
              * A general surface to hold various types of content.
              */
             "scout-card": LocalJSX.ScoutCard & JSXBase.HTMLAttributes<HTMLScoutCardElement>;
+            "scout-checkbox": LocalJSX.ScoutCheckbox & JSXBase.HTMLAttributes<HTMLScoutCheckboxElement>;
             "scout-field": LocalJSX.ScoutField & JSXBase.HTMLAttributes<HTMLScoutFieldElement>;
             "scout-input": LocalJSX.ScoutInput & JSXBase.HTMLAttributes<HTMLScoutInputElement>;
             "scout-switch": LocalJSX.ScoutSwitch & JSXBase.HTMLAttributes<HTMLScoutSwitchElement>;
