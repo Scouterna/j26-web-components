@@ -1,5 +1,18 @@
 # @scouterna/ui-react
 
+## 2.0.0
+
+### Minor Changes
+
+- [#64](https://github.com/Scouterna/j26-web-components/pull/64) [`9a9e32f`](https://github.com/Scouterna/j26-web-components/commit/9a9e32f5d55f086165020edd4fa4bc9a17bd5612) Thanks [@daBack](https://github.com/daBack)! - Added Switch component
+
+- [#62](https://github.com/Scouterna/j26-web-components/pull/62) [`e98d70a`](https://github.com/Scouterna/j26-web-components/commit/e98d70a22fe94418862299c22374c99d48831b1b) Thanks [@daBack](https://github.com/daBack)! - Added Checkbox Component
+
+### Patch Changes
+
+- Updated dependencies [[`9a9e32f`](https://github.com/Scouterna/j26-web-components/commit/9a9e32f5d55f086165020edd4fa4bc9a17bd5612), [`e98d70a`](https://github.com/Scouterna/j26-web-components/commit/e98d70a22fe94418862299c22374c99d48831b1b)]:
+  - @scouterna/ui-webc@2.0.0
+
 ## 1.0.0
 
 ### Patch Changes
