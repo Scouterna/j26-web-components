@@ -18,6 +18,7 @@ import { ScoutField as ScoutFieldElement, defineCustomElement as defineScoutFiel
 import { ScoutInput as ScoutInputElement, defineCustomElement as defineScoutInput } from "@scouterna/ui-webc/dist/components/scout-input.js";
 import { ScoutListViewItem as ScoutListViewItemElement, defineCustomElement as defineScoutListViewItem } from "@scouterna/ui-webc/dist/components/scout-list-view-item.js";
 import { ScoutListView as ScoutListViewElement, defineCustomElement as defineScoutListView } from "@scouterna/ui-webc/dist/components/scout-list-view.js";
+import { ScoutLoader as ScoutLoaderElement, defineCustomElement as defineScoutLoader } from "@scouterna/ui-webc/dist/components/scout-loader.js";
 import { ScoutSwitch as ScoutSwitchElement, defineCustomElement as defineScoutSwitch } from "@scouterna/ui-webc/dist/components/scout-switch.js";
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
@@ -151,6 +152,17 @@ export const ScoutListViewItem: StencilReactComponent<ScoutListViewItemElement, 
     react: React,
     events: { onScoutClick: 'scoutClick' } as ScoutListViewItemEvents,
     defineCustomElement: defineScoutListViewItem
+});
+
+export type ScoutLoaderEvents = NonNullable<unknown>;
+
+export const ScoutLoader: StencilReactComponent<ScoutLoaderElement, ScoutLoaderEvents> = /*@__PURE__*/ createComponent<ScoutLoaderElement, ScoutLoaderEvents>({
+    tagName: 'scout-loader',
+    elementClass: ScoutLoaderElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as ScoutLoaderEvents,
+    defineCustomElement: defineScoutLoader
 });
 
 export type ScoutSwitchEvents = {
