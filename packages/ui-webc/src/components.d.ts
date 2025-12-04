@@ -109,7 +109,7 @@ export namespace Components {
     }
     interface ScoutSwitch {
         /**
-          * Use this prop if you need to connect your checkbox with another element describing its use, other than the property label.
+          * Use this prop if you need to connect your switch with another element describing its use, other than the property label.
          */
         "ariaLabelledby": string;
         /**
@@ -369,7 +369,7 @@ declare namespace LocalJSX {
     }
     interface ScoutSwitch {
         /**
-          * Use this prop if you need to connect your checkbox with another element describing its use, other than the property label.
+          * Use this prop if you need to connect your switch with another element describing its use, other than the property label.
          */
         "ariaLabelledby"?: string;
         /**
