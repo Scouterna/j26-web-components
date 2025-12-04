@@ -1,0 +1,76 @@
+.switch {
+  width: var(--spacing-12);
+  height: var(--spacing-6);
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: var(--spacing-8);
+  background-color: var(--color-text-brand-inverse);
+  border: 1px solid var(--color-gray-300);
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  transition-property: border-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+  --switch-ball-size: calc((var(--spacing-6) - var(--spacing-1) / 2) + 1px);
+}
+
+.switch:hover {
+  transition-property: none;
+  border-color: var(--color-gray-400);
+  background-color: var(--color-background-brand-subtle-hovered);
+}
+
+.switch:active {
+  background-color: var(--color-background-brand-subtle-pressed);
+}
+
+.switch:checked {
+  border-color: var(--color-background-brand-base);
+}
+
+.switch:hover::before {
+  background-color: var(--color-gray-400);
+}
+
+.switch::before {
+  content: "";
+  background-color: var(--color-gray-300);
+  width: var(--switch-ball-size);
+  height: var(--switch-ball-size);
+  border-radius: 50%;
+  position: absolute;
+  left: -1px;
+  right: 0;
+  transition-duration: 0.3s;
+  transition-property: left, right;
+}
+.switch:checked::before {
+  content: "";
+  background-color: var(--color-background-brand-base);
+  left: calc(100% - calc(var(--spacing-6) - var(--spacing-1) / 2) + 1px);
+}
+
+.switch:disabled {
+  pointer-events: none;
+  background-color: var(--color-gray-100);
+  border-color: var(--color-gray-100);
+}
+
+.switch:disabled::before {
+  background-color: var(--color-gray-300);
+}
+
+label {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  font: var(--type-label-base);
+  color: var(--color-text-base);
+}
+
+.inlineDivider {
+  width: var(--spacing-2);
+}
