@@ -14,9 +14,7 @@ const LoaderSymbol = ({ url }: { url: string }) => (
 @Component({
   tag: "scout-loader",
   styleUrl: "loader.css",
-  shadow: {
-    delegatesFocus: true,
-  },
+  shadow: true,
 })
 export class ScoutLoader {
   private symbols = [
