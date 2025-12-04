@@ -41,12 +41,12 @@ export class ScoutLoader {
             (this.currentSymbolIndex + 1) % this.symbols.length;
         }}
       >
-        {this.getSymbols()}
+        {this.getCurrentSymbolPair()}
       </div>
     );
   }
 
-  getSymbols() {
+  getCurrentSymbolPair() {
     const totalSymbols = this.symbols.length;
 
     const prevIndex =
