@@ -7,7 +7,7 @@
 
 /* eslint-disable */
 
-import { type ScoutCheckboxCustomEvent, type ScoutInputCustomEvent } from "@scouterna/ui-webc";
+import { type ScoutCheckboxCustomEvent, type ScoutInputCustomEvent, type ScoutSwitchCustomEvent } from "@scouterna/ui-webc";
 import { ScoutBottomBarItem as ScoutBottomBarItemElement, defineCustomElement as defineScoutBottomBarItem } from "@scouterna/ui-webc/dist/components/scout-bottom-bar-item.js";
 import { ScoutBottomBar as ScoutBottomBarElement, defineCustomElement as defineScoutBottomBar } from "@scouterna/ui-webc/dist/components/scout-bottom-bar.js";
 import { ScoutButton as ScoutButtonElement, defineCustomElement as defineScoutButton } from "@scouterna/ui-webc/dist/components/scout-button.js";
@@ -15,6 +15,7 @@ import { ScoutCard as ScoutCardElement, defineCustomElement as defineScoutCard }
 import { ScoutCheckbox as ScoutCheckboxElement, defineCustomElement as defineScoutCheckbox } from "@scouterna/ui-webc/dist/components/scout-checkbox.js";
 import { ScoutField as ScoutFieldElement, defineCustomElement as defineScoutField } from "@scouterna/ui-webc/dist/components/scout-field.js";
 import { ScoutInput as ScoutInputElement, defineCustomElement as defineScoutInput } from "@scouterna/ui-webc/dist/components/scout-input.js";
+import { ScoutSwitch as ScoutSwitchElement, defineCustomElement as defineScoutSwitch } from "@scouterna/ui-webc/dist/components/scout-switch.js";
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
 import React from 'react';
@@ -114,4 +115,24 @@ export const ScoutInput: StencilReactComponent<ScoutInputElement, ScoutInputEven
         on_fieldId: '_fieldId'
     } as ScoutInputEvents,
     defineCustomElement: defineScoutInput
+});
+
+export type ScoutSwitchEvents = {
+    onScoutSwitchToggled: EventName<ScoutSwitchCustomEvent<{
+        toggled: boolean;
+        element: HTMLInputElement;
+    }>>,
+    on_fieldId: EventName<CustomEvent<string>>
+};
+
+export const ScoutSwitch: StencilReactComponent<ScoutSwitchElement, ScoutSwitchEvents> = /*@__PURE__*/ createComponent<ScoutSwitchElement, ScoutSwitchEvents>({
+    tagName: 'scout-switch',
+    elementClass: ScoutSwitchElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {
+        onScoutSwitchToggled: 'scoutSwitchToggled',
+        on_fieldId: '_fieldId'
+    } as ScoutSwitchEvents,
+    defineCustomElement: defineScoutSwitch
 });

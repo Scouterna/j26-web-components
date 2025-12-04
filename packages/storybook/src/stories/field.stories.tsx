@@ -1,4 +1,9 @@
-import { ScoutCheckbox, ScoutField, ScoutInput } from "@scouterna/ui-react";
+import {
+  ScoutCheckbox,
+  ScoutField,
+  ScoutInput,
+  ScoutSwitch,
+} from "@scouterna/ui-react";
 import preview from "#.storybook/preview";
 
 const meta = preview.meta({
@@ -53,6 +58,17 @@ export const WithCheckbox = WithInput.extend({
   render: (args) => (
     <ScoutField {...args}>
       <ScoutCheckbox />
+    </ScoutField>
+  ),
+});
+
+export const WithSwitch = WithInput.extend({
+  args: {
+    label: "Do you like it on or off?",
+  },
+  render: (args) => (
+    <ScoutField {...args}>
+      <ScoutSwitch />
     </ScoutField>
   ),
 });

@@ -122,6 +122,22 @@ export namespace Components {
          */
         "value": string;
     }
+    interface ScoutSwitch {
+        /**
+          * Use this prop if you need to connect your switch with another element describing its use, other than the property label.
+         */
+        "ariaLabelledby": string;
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        "label": string;
+        /**
+          * Indicates whether the switch is toggled on or off.
+          * @default false
+         */
+        "toggled": boolean;
+    }
 }
 export interface ScoutBottomBarItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -138,6 +154,10 @@ export interface ScoutCheckboxCustomEvent<T> extends CustomEvent<T> {
 export interface ScoutInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutInputElement;
+}
+export interface ScoutSwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutSwitchElement;
 }
 declare global {
     /**
@@ -249,6 +269,27 @@ declare global {
         prototype: HTMLScoutInputElement;
         new (): HTMLScoutInputElement;
     };
+    interface HTMLScoutSwitchElementEventMap {
+        "scoutSwitchToggled": {
+    toggled: boolean;
+    element: HTMLInputElement;
+  };
+        "_fieldId": string;
+    }
+    interface HTMLScoutSwitchElement extends Components.ScoutSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutSwitchElementEventMap>(type: K, listener: (this: HTMLScoutSwitchElement, ev: ScoutSwitchCustomEvent<HTMLScoutSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutSwitchElementEventMap>(type: K, listener: (this: HTMLScoutSwitchElement, ev: ScoutSwitchCustomEvent<HTMLScoutSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLScoutSwitchElement: {
+        prototype: HTMLScoutSwitchElement;
+        new (): HTMLScoutSwitchElement;
+    };
     interface HTMLElementTagNameMap {
         "scout-bottom-bar": HTMLScoutBottomBarElement;
         "scout-bottom-bar-item": HTMLScoutBottomBarItemElement;
@@ -257,6 +298,7 @@ declare global {
         "scout-checkbox": HTMLScoutCheckboxElement;
         "scout-field": HTMLScoutFieldElement;
         "scout-input": HTMLScoutInputElement;
+        "scout-switch": HTMLScoutSwitchElement;
     }
 }
 declare namespace LocalJSX {
@@ -389,6 +431,30 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface ScoutSwitch {
+        /**
+          * Use this prop if you need to connect your switch with another element describing its use, other than the property label.
+         */
+        "ariaLabelledby"?: string;
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "label"?: string;
+        "onScoutSwitchToggled"?: (event: ScoutSwitchCustomEvent<{
+    toggled: boolean;
+    element: HTMLInputElement;
+  }>) => void;
+        /**
+          * Internal event used for form field association.
+         */
+        "on_fieldId"?: (event: ScoutSwitchCustomEvent<string>) => void;
+        /**
+          * Indicates whether the switch is toggled on or off.
+          * @default false
+         */
+        "toggled"?: boolean;
+    }
     interface IntrinsicElements {
         "scout-bottom-bar": ScoutBottomBar;
         "scout-bottom-bar-item": ScoutBottomBarItem;
@@ -397,6 +463,7 @@ declare namespace LocalJSX {
         "scout-checkbox": ScoutCheckbox;
         "scout-field": ScoutField;
         "scout-input": ScoutInput;
+        "scout-switch": ScoutSwitch;
     }
 }
 export { LocalJSX as JSX };
@@ -424,6 +491,7 @@ declare module "@stencil/core" {
             "scout-checkbox": LocalJSX.ScoutCheckbox & JSXBase.HTMLAttributes<HTMLScoutCheckboxElement>;
             "scout-field": LocalJSX.ScoutField & JSXBase.HTMLAttributes<HTMLScoutFieldElement>;
             "scout-input": LocalJSX.ScoutInput & JSXBase.HTMLAttributes<HTMLScoutInputElement>;
+            "scout-switch": LocalJSX.ScoutSwitch & JSXBase.HTMLAttributes<HTMLScoutSwitchElement>;
         }
     }
 }
