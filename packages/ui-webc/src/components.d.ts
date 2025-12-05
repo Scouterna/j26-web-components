@@ -146,6 +146,7 @@ export namespace Components {
         "type": ItemType1;
     }
     interface ScoutLoader {
+        "text"?: string;
     }
     interface ScoutSwitch {
         /**
@@ -522,6 +523,7 @@ declare namespace LocalJSX {
         "type"?: ItemType1;
     }
     interface ScoutLoader {
+        "text"?: string;
     }
     interface ScoutSwitch {
         /**

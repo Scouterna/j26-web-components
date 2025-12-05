@@ -1,4 +1,10 @@
-import { Component, type ComponentInterface, h } from "@stencil/core";
+import {
+  Component,
+  type ComponentInterface,
+  h,
+  Host,
+  Prop,
+} from "@stencil/core";
 
 import SymbolAdventurer from "./symbols/adventurer.svg";
 import SymbolChallenger from "./symbols/challenger.svg";
@@ -13,6 +19,8 @@ import SymbolTracker from "./symbols/tracker.svg";
   shadow: true,
 })
 export class ScoutLoader implements ComponentInterface {
+  @Prop() text?: string;
+
   private symbols = [
     SymbolRover,
     SymbolChallenger,
@@ -31,7 +39,12 @@ export class ScoutLoader implements ComponentInterface {
   }
 
   render() {
-    return this.getSymbols();
+    return (
+      <Host>
+        <div class="frame">{this.getSymbols()}</div>
+        {this.text && <div class="text">{this.text}</div>}
+      </Host>
+    );
   }
 
   showElement(el: HTMLDivElement) {
