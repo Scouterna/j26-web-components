@@ -13,7 +13,12 @@ export default meta;
 
 export const BasicExample = meta.story({
   args: {},
-  render: (args) => (
-    <ScoutLoader {...args} />
-  ),
+  render: (args) => <ScoutLoader {...args} />,
+});
+
+export const WithText = meta.story({
+  args: {
+    text: "Loading app...",
+  },
+  render: (args) => <ScoutLoader {...args} />,
 });
