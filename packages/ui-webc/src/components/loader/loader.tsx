@@ -1,8 +1,8 @@
 import {
   Component,
   type ComponentInterface,
-  h,
   Host,
+  h,
   Prop,
 } from "@stencil/core";
 
@@ -22,12 +22,12 @@ export class ScoutLoader implements ComponentInterface {
   @Prop() text?: string;
 
   private symbols = [
-    SymbolRover,
-    SymbolChallenger,
-    SymbolAdventurer,
-    SymbolDiscoverer,
-    SymbolTracker,
     SymbolFamilyScout,
+    SymbolTracker,
+    SymbolDiscoverer,
+    SymbolAdventurer,
+    SymbolChallenger,
+    SymbolRover,
   ];
 
   private symbolElements: HTMLDivElement[] = new Array(this.symbols.length);
