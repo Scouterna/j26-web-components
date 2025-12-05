@@ -1,4 +1,4 @@
-import { Component, h, State } from "@stencil/core";
+import { Component, type ComponentInterface, h } from "@stencil/core";
 
 import SymbolAdventurer from "./symbols/adventurer.svg";
 import SymbolChallenger from "./symbols/challenger.svg";
@@ -7,54 +7,73 @@ import SymbolFamilyScout from "./symbols/family-scout.svg";
 import SymbolRover from "./symbols/rover.svg";
 import SymbolTracker from "./symbols/tracker.svg";
 
-const LoaderSymbol = ({ url }: { url: string }) => (
-  <div class="symbol" style={{ "--symbol": `url(${url})` }} />
-);
-
 @Component({
   tag: "scout-loader",
   styleUrl: "loader.css",
-  shadow: {
-    delegatesFocus: true,
-  },
+  shadow: true,
 })
-export class ScoutLoader {
+export class ScoutLoader implements ComponentInterface {
   private symbols = [
-    SymbolFamilyScout,
-    SymbolTracker,
-    SymbolDiscoverer,
-    SymbolAdventurer,
-    SymbolChallenger,
     SymbolRover,
+    SymbolChallenger,
+    SymbolAdventurer,
+    SymbolDiscoverer,
+    SymbolTracker,
+    SymbolFamilyScout,
   ];
 
-  @State() private currentSymbolIndex = 0;
+  private symbolElements: HTMLDivElement[] = new Array(this.symbols.length);
+
+  private currentSymbolIndex = 1;
+
+  componentDidLoad(): void {
+    this.showElement(this.symbolElements[0]);
+  }
 
   render() {
-    return (
-      <div
-        class="track"
-        onAnimationIteration={(e) => {
-          if (e.animationName !== "slide") return;
+    return this.getSymbols();
+  }
 
-          this.currentSymbolIndex =
-            (this.currentSymbolIndex + 1) % this.symbols.length;
-        }}
-      >
-        {this.getSymbols()}
-      </div>
-    );
+  showElement(el: HTMLDivElement) {
+    el.classList.remove("animate-out");
+    el.classList.add("animate-in");
+  }
+
+  hideElement(el: HTMLDivElement) {
+    el.classList.remove("animate-in");
+    el.classList.add("animate-out");
+  }
+
+  next() {
+    const currIndex = this.currentSymbolIndex;
+    const prevIndex =
+      (currIndex - 1 + this.symbols.length) % this.symbols.length;
+
+    this.showElement(this.symbolElements[currIndex]);
+    this.hideElement(this.symbolElements[prevIndex]);
+
+    this.currentSymbolIndex += 1;
+    if (this.currentSymbolIndex >= this.symbols.length) {
+      this.currentSymbolIndex = 0;
+    }
+  }
+
+  tickDone(event: AnimationEvent) {
+    if (event.animationName === "slide-in") {
+      this.next();
+    }
   }
 
   getSymbols() {
-    const totalSymbols = this.symbols.length;
-
-    const prevIndex =
-      (this.currentSymbolIndex - 1 + totalSymbols) % totalSymbols;
-
-    return [
-      <LoaderSymbol url={this.symbols[this.currentSymbolIndex]} />,
-      <LoaderSymbol url={this.symbols[prevIndex]} />,
-    ];
+    return this.symbols.map((symbol, index) => (
+      <div
+        ref={(el) => {
+          this.symbolElements[index] = el;
+        }}
+        class="symbol"
+        style={{ "--symbol": `url(${symbol})` }}
+        onAnimationEnd={(event) => this.tickDone(event)}
+      />
+    ));
   }
 }
