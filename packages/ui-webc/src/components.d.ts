@@ -146,6 +146,10 @@ export namespace Components {
         "type": ItemType1;
     }
     interface ScoutLoader {
+        /**
+          * @default "base"
+         */
+        "size"?: "xs" | "sm" | "base" | "lg" | "xl";
         "text"?: string;
     }
     interface ScoutSwitch {
@@ -523,6 +527,10 @@ declare namespace LocalJSX {
         "type"?: ItemType1;
     }
     interface ScoutLoader {
+        /**
+          * @default "base"
+         */
+        "size"?: "xs" | "sm" | "base" | "lg" | "xl";
         "text"?: string;
     }
     interface ScoutSwitch {

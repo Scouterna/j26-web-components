@@ -20,6 +20,7 @@ import SymbolTracker from "./symbols/tracker.svg";
 })
 export class ScoutLoader implements ComponentInterface {
   @Prop() text?: string;
+  @Prop() size?: "xs" | "sm" | "base" | "lg" | "xl" = "base";
 
   private symbols = [
     SymbolFamilyScout,
@@ -40,7 +41,9 @@ export class ScoutLoader implements ComponentInterface {
 
   render() {
     return (
-      <Host>
+      <Host
+        class={this.size === 'base' ? '' : this.size}
+      >
         <div class="frame">{this.getSymbols()}</div>
         {this.text && <div class="text">{this.text}</div>}
       </Host>
