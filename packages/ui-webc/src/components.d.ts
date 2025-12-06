@@ -145,6 +145,13 @@ export namespace Components {
          */
         "type": ItemType1;
     }
+    interface ScoutLoader {
+        /**
+          * @default "base"
+         */
+        "size"?: "xs" | "sm" | "base" | "lg" | "xl";
+        "text"?: string;
+    }
     interface ScoutSwitch {
         /**
           * Use this prop if you need to connect your switch with another element describing its use, other than the property label.
@@ -325,6 +332,12 @@ declare global {
         prototype: HTMLScoutListViewItemElement;
         new (): HTMLScoutListViewItemElement;
     };
+    interface HTMLScoutLoaderElement extends Components.ScoutLoader, HTMLStencilElement {
+    }
+    var HTMLScoutLoaderElement: {
+        prototype: HTMLScoutLoaderElement;
+        new (): HTMLScoutLoaderElement;
+    };
     interface HTMLScoutSwitchElementEventMap {
         "scoutSwitchToggled": {
     toggled: boolean;
@@ -357,6 +370,7 @@ declare global {
         "scout-input": HTMLScoutInputElement;
         "scout-list-view": HTMLScoutListViewElement;
         "scout-list-view-item": HTMLScoutListViewItemElement;
+        "scout-loader": HTMLScoutLoaderElement;
         "scout-switch": HTMLScoutSwitchElement;
     }
 }
@@ -512,6 +526,13 @@ declare namespace LocalJSX {
          */
         "type"?: ItemType1;
     }
+    interface ScoutLoader {
+        /**
+          * @default "base"
+         */
+        "size"?: "xs" | "sm" | "base" | "lg" | "xl";
+        "text"?: string;
+    }
     interface ScoutSwitch {
         /**
           * Use this prop if you need to connect your switch with another element describing its use, other than the property label.
@@ -547,6 +568,7 @@ declare namespace LocalJSX {
         "scout-input": ScoutInput;
         "scout-list-view": ScoutListView;
         "scout-list-view-item": ScoutListViewItem;
+        "scout-loader": ScoutLoader;
         "scout-switch": ScoutSwitch;
     }
 }
@@ -578,6 +600,7 @@ declare module "@stencil/core" {
             "scout-input": LocalJSX.ScoutInput & JSXBase.HTMLAttributes<HTMLScoutInputElement>;
             "scout-list-view": LocalJSX.ScoutListView & JSXBase.HTMLAttributes<HTMLScoutListViewElement>;
             "scout-list-view-item": LocalJSX.ScoutListViewItem & JSXBase.HTMLAttributes<HTMLScoutListViewItemElement>;
+            "scout-loader": LocalJSX.ScoutLoader & JSXBase.HTMLAttributes<HTMLScoutLoaderElement>;
             "scout-switch": LocalJSX.ScoutSwitch & JSXBase.HTMLAttributes<HTMLScoutSwitchElement>;
         }
     }
