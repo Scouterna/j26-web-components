@@ -1,5 +1,20 @@
 # @scouterna/ui-react
 
+## 2.1.0
+
+### Minor Changes
+
+- [#63](https://github.com/Scouterna/j26-components/pull/63) [`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Added List View component.
+
+### Patch Changes
+
+- [#63](https://github.com/Scouterna/j26-components/pull/63) [`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Added link support to Button and Bottom Bar Item.
+
+- [#63](https://github.com/Scouterna/j26-components/pull/63) [`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Removed global button styles in favor of Button component.
+
+- Updated dependencies [[`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52), [`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52), [`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52)]:
+  - @scouterna/ui-webc@2.1.0
+
 ## 2.0.0
 
 ### Minor Changes
