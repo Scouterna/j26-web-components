@@ -7,6 +7,12 @@ const meta = preview.meta({
   parameters: {
     layout: "centered",
   },
+  argTypes: {
+    size: {
+      // Make sure the order makes sense
+      options: ['xs', 'sm', 'base', 'lg', 'xl'],
+    }
+  }
 });
 
 export default meta;

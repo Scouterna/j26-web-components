@@ -5,9 +5,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `text`   | `text`    |             | `string` | `undefined` |
+| Property | Attribute | Description | Type                                     | Default     |
+| -------- | --------- | ----------- | ---------------------------------------- | ----------- |
+| `size`   | `size`    |             | `"base" \| "lg" \| "sm" \| "xl" \| "xs"` | `"base"`    |
+| `text`   | `text`    |             | `string`                                 | `undefined` |
 
 
 ----------------------------------------------
