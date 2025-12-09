@@ -152,6 +152,22 @@ export namespace Components {
         "size"?: "xs" | "sm" | "base" | "lg" | "xl";
         "text"?: string;
     }
+    interface ScoutSelect {
+        /**
+          * Whether the select is disabled. Disabled selects are not editable, excluded from tab order and are not validated.
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Custom validation function run on top of the implicit validation performed by the browser. Return a string with the validation message to mark the select as invalid, or null to mark it as valid.
+         */
+        "validate"?: (value: string) => string | null;
+        /**
+          * Value of the select element, in case you want to control it yourself.
+          * @default ""
+         */
+        "value": string;
+    }
     interface ScoutSwitch {
         /**
           * Use this prop if you need to connect your switch with another element describing its use, other than the property label.
@@ -188,6 +204,10 @@ export interface ScoutInputCustomEvent<T> extends CustomEvent<T> {
 export interface ScoutListViewItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutListViewItemElement;
+}
+export interface ScoutSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutSelectElement;
 }
 export interface ScoutSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -338,6 +358,28 @@ declare global {
         prototype: HTMLScoutLoaderElement;
         new (): HTMLScoutLoaderElement;
     };
+    interface HTMLScoutSelectElementEventMap {
+        "scoutSelectChange": {
+    value: string;
+    element: HTMLSelectElement;
+  };
+        "scoutBlur": void;
+        "_fieldId": string;
+    }
+    interface HTMLScoutSelectElement extends Components.ScoutSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutSelectElementEventMap>(type: K, listener: (this: HTMLScoutSelectElement, ev: ScoutSelectCustomEvent<HTMLScoutSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutSelectElementEventMap>(type: K, listener: (this: HTMLScoutSelectElement, ev: ScoutSelectCustomEvent<HTMLScoutSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLScoutSelectElement: {
+        prototype: HTMLScoutSelectElement;
+        new (): HTMLScoutSelectElement;
+    };
     interface HTMLScoutSwitchElementEventMap {
         "scoutSwitchToggled": {
     toggled: boolean;
@@ -371,6 +413,7 @@ declare global {
         "scout-list-view": HTMLScoutListViewElement;
         "scout-list-view-item": HTMLScoutListViewItemElement;
         "scout-loader": HTMLScoutLoaderElement;
+        "scout-select": HTMLScoutSelectElement;
         "scout-switch": HTMLScoutSwitchElement;
     }
 }
@@ -533,6 +576,31 @@ declare namespace LocalJSX {
         "size"?: "xs" | "sm" | "base" | "lg" | "xl";
         "text"?: string;
     }
+    interface ScoutSelect {
+        /**
+          * Whether the select is disabled. Disabled selects are not editable, excluded from tab order and are not validated.
+          * @default false
+         */
+        "disabled"?: boolean;
+        "onScoutBlur"?: (event: ScoutSelectCustomEvent<void>) => void;
+        "onScoutSelectChange"?: (event: ScoutSelectCustomEvent<{
+    value: string;
+    element: HTMLSelectElement;
+  }>) => void;
+        /**
+          * Internal event used for form field association.
+         */
+        "on_fieldId"?: (event: ScoutSelectCustomEvent<string>) => void;
+        /**
+          * Custom validation function run on top of the implicit validation performed by the browser. Return a string with the validation message to mark the select as invalid, or null to mark it as valid.
+         */
+        "validate"?: (value: string) => string | null;
+        /**
+          * Value of the select element, in case you want to control it yourself.
+          * @default ""
+         */
+        "value"?: string;
+    }
     interface ScoutSwitch {
         /**
           * Use this prop if you need to connect your switch with another element describing its use, other than the property label.
@@ -569,6 +637,7 @@ declare namespace LocalJSX {
         "scout-list-view": ScoutListView;
         "scout-list-view-item": ScoutListViewItem;
         "scout-loader": ScoutLoader;
+        "scout-select": ScoutSelect;
         "scout-switch": ScoutSwitch;
     }
 }
@@ -601,6 +670,7 @@ declare module "@stencil/core" {
             "scout-list-view": LocalJSX.ScoutListView & JSXBase.HTMLAttributes<HTMLScoutListViewElement>;
             "scout-list-view-item": LocalJSX.ScoutListViewItem & JSXBase.HTMLAttributes<HTMLScoutListViewItemElement>;
             "scout-loader": LocalJSX.ScoutLoader & JSXBase.HTMLAttributes<HTMLScoutLoaderElement>;
+            "scout-select": LocalJSX.ScoutSelect & JSXBase.HTMLAttributes<HTMLScoutSelectElement>;
             "scout-switch": LocalJSX.ScoutSwitch & JSXBase.HTMLAttributes<HTMLScoutSwitchElement>;
         }
     }
