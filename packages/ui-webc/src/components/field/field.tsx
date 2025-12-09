@@ -37,6 +37,7 @@ export class ScoutField {
   }
 
   @Listen("scoutInputChange")
+  @Listen("scoutSelectChange")
   handleInputChange(
     event: CustomEvent<{
       value: string;
