@@ -8,9 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 import { Variant } from "./components/button/button";
 import { InputMode, InputType } from "./components/input/input";
+import { Direction, GapSize } from "./components/stack/stack";
 export { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 export { Variant } from "./components/button/button";
 export { InputMode, InputType } from "./components/input/input";
+export { Direction, GapSize } from "./components/stack/stack";
 export namespace Components {
     /**
      * The bottom bar component is used in the Jamboree26 app to provide
@@ -106,6 +108,18 @@ export namespace Components {
           * @default ""
          */
         "value": string;
+    }
+    interface ScoutStack {
+        /**
+          * The direction of the stack.
+          * @default "row"
+         */
+        "direction": Direction;
+        /**
+          * Gap size. If more sizes are needed, we can expand.
+          * @default "m"
+         */
+        "gapSize": GapSize;
     }
     interface ScoutSwitch {
         /**
@@ -229,6 +243,12 @@ declare global {
         prototype: HTMLScoutInputElement;
         new (): HTMLScoutInputElement;
     };
+    interface HTMLScoutStackElement extends Components.ScoutStack, HTMLStencilElement {
+    }
+    var HTMLScoutStackElement: {
+        prototype: HTMLScoutStackElement;
+        new (): HTMLScoutStackElement;
+    };
     interface HTMLScoutSwitchElementEventMap {
         "scoutSwitchToggled": {
     toggled: boolean;
@@ -257,6 +277,7 @@ declare global {
         "scout-card": HTMLScoutCardElement;
         "scout-field": HTMLScoutFieldElement;
         "scout-input": HTMLScoutInputElement;
+        "scout-stack": HTMLScoutStackElement;
         "scout-switch": HTMLScoutSwitchElement;
     }
 }
@@ -367,6 +388,18 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface ScoutStack {
+        /**
+          * The direction of the stack.
+          * @default "row"
+         */
+        "direction"?: Direction;
+        /**
+          * Gap size. If more sizes are needed, we can expand.
+          * @default "m"
+         */
+        "gapSize"?: GapSize;
+    }
     interface ScoutSwitch {
         /**
           * Use this prop if you need to connect your switch with another element describing its use, other than the property label.
@@ -398,6 +431,7 @@ declare namespace LocalJSX {
         "scout-card": ScoutCard;
         "scout-field": ScoutField;
         "scout-input": ScoutInput;
+        "scout-stack": ScoutStack;
         "scout-switch": ScoutSwitch;
     }
 }
@@ -425,6 +459,7 @@ declare module "@stencil/core" {
             "scout-card": LocalJSX.ScoutCard & JSXBase.HTMLAttributes<HTMLScoutCardElement>;
             "scout-field": LocalJSX.ScoutField & JSXBase.HTMLAttributes<HTMLScoutFieldElement>;
             "scout-input": LocalJSX.ScoutInput & JSXBase.HTMLAttributes<HTMLScoutInputElement>;
+            "scout-stack": LocalJSX.ScoutStack & JSXBase.HTMLAttributes<HTMLScoutStackElement>;
             "scout-switch": LocalJSX.ScoutSwitch & JSXBase.HTMLAttributes<HTMLScoutSwitchElement>;
         }
     }

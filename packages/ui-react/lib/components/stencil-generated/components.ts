@@ -14,6 +14,7 @@ import { ScoutButton as ScoutButtonElement, defineCustomElement as defineScoutBu
 import { ScoutCard as ScoutCardElement, defineCustomElement as defineScoutCard } from "@scouterna/ui-webc/dist/components/scout-card.js";
 import { ScoutField as ScoutFieldElement, defineCustomElement as defineScoutField } from "@scouterna/ui-webc/dist/components/scout-field.js";
 import { ScoutInput as ScoutInputElement, defineCustomElement as defineScoutInput } from "@scouterna/ui-webc/dist/components/scout-input.js";
+import { ScoutStack as ScoutStackElement, defineCustomElement as defineScoutStack } from "@scouterna/ui-webc/dist/components/scout-stack.js";
 import { ScoutSwitch as ScoutSwitchElement, defineCustomElement as defineScoutSwitch } from "@scouterna/ui-webc/dist/components/scout-switch.js";
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
@@ -94,6 +95,17 @@ export const ScoutInput: StencilReactComponent<ScoutInputElement, ScoutInputEven
         on_fieldId: '_fieldId'
     } as ScoutInputEvents,
     defineCustomElement: defineScoutInput
+});
+
+export type ScoutStackEvents = NonNullable<unknown>;
+
+export const ScoutStack: StencilReactComponent<ScoutStackElement, ScoutStackEvents> = /*@__PURE__*/ createComponent<ScoutStackElement, ScoutStackEvents>({
+    tagName: 'scout-stack',
+    elementClass: ScoutStackElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as ScoutStackEvents,
+    defineCustomElement: defineScoutStack
 });
 
 export type ScoutSwitchEvents = {
