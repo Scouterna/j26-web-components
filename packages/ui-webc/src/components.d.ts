@@ -131,6 +131,31 @@ export namespace Components {
          */
         "value": string;
     }
+    interface ScoutLink {
+        /**
+          * The URL that the link points to
+         */
+        "href"?: string;
+        /**
+          * Text to be displayed for the link
+         */
+        "label": string;
+        /**
+          * If the label property is not sufficient to describe its use, add an aria-label describing what happens when pressing the button or where the user navigates if it is a link.
+         */
+        "linkAriaLabel"?: string;
+        "rel"?: string;
+        /**
+          * _blank	Opens the linked document in a new window or tab  _self	Opens the linked document in the same frame as it was clicked (this is default)  _parent	Opens the linked document in the parent frame  _top	Opens the linked document in the full body of the window  _framename	Opens the linked document in the named iframe
+          * @default "_self"
+         */
+        "target"?: "_blank" | "_self" | "_parent" | "_top" | "framename";
+        /**
+          * There are two types. If you intend to use it as a button with onclick, a button is rendered, however if you want to you it as a normal link, a link with href is rendered.
+          * @default "button"
+         */
+        "type": "link" | "button";
+    }
     interface ScoutListView {
     }
     interface ScoutListViewItem {
@@ -184,6 +209,10 @@ export interface ScoutCheckboxCustomEvent<T> extends CustomEvent<T> {
 export interface ScoutInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutInputElement;
+}
+export interface ScoutLinkCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutLinkElement;
 }
 export interface ScoutListViewItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -309,6 +338,23 @@ declare global {
         prototype: HTMLScoutInputElement;
         new (): HTMLScoutInputElement;
     };
+    interface HTMLScoutLinkElementEventMap {
+        "scoutLinkClick": HTMLButtonElement;
+    }
+    interface HTMLScoutLinkElement extends Components.ScoutLink, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutLinkElementEventMap>(type: K, listener: (this: HTMLScoutLinkElement, ev: ScoutLinkCustomEvent<HTMLScoutLinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutLinkElementEventMap>(type: K, listener: (this: HTMLScoutLinkElement, ev: ScoutLinkCustomEvent<HTMLScoutLinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLScoutLinkElement: {
+        prototype: HTMLScoutLinkElement;
+        new (): HTMLScoutLinkElement;
+    };
     interface HTMLScoutListViewElement extends Components.ScoutListView, HTMLStencilElement {
     }
     var HTMLScoutListViewElement: {
@@ -368,6 +414,7 @@ declare global {
         "scout-divider": HTMLScoutDividerElement;
         "scout-field": HTMLScoutFieldElement;
         "scout-input": HTMLScoutInputElement;
+        "scout-link": HTMLScoutLinkElement;
         "scout-list-view": HTMLScoutListViewElement;
         "scout-list-view-item": HTMLScoutListViewItemElement;
         "scout-loader": HTMLScoutLoaderElement;
@@ -511,6 +558,35 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface ScoutLink {
+        /**
+          * The URL that the link points to
+         */
+        "href"?: string;
+        /**
+          * Text to be displayed for the link
+         */
+        "label"?: string;
+        /**
+          * If the label property is not sufficient to describe its use, add an aria-label describing what happens when pressing the button or where the user navigates if it is a link.
+         */
+        "linkAriaLabel"?: string;
+        /**
+          * Only sent if the link is a button.
+         */
+        "onScoutLinkClick"?: (event: ScoutLinkCustomEvent<HTMLButtonElement>) => void;
+        "rel"?: string;
+        /**
+          * _blank	Opens the linked document in a new window or tab  _self	Opens the linked document in the same frame as it was clicked (this is default)  _parent	Opens the linked document in the parent frame  _top	Opens the linked document in the full body of the window  _framename	Opens the linked document in the named iframe
+          * @default "_self"
+         */
+        "target"?: "_blank" | "_self" | "_parent" | "_top" | "framename";
+        /**
+          * There are two types. If you intend to use it as a button with onclick, a button is rendered, however if you want to you it as a normal link, a link with href is rendered.
+          * @default "button"
+         */
+        "type"?: "link" | "button";
+    }
     interface ScoutListView {
     }
     interface ScoutListViewItem {
@@ -566,6 +642,7 @@ declare namespace LocalJSX {
         "scout-divider": ScoutDivider;
         "scout-field": ScoutField;
         "scout-input": ScoutInput;
+        "scout-link": ScoutLink;
         "scout-list-view": ScoutListView;
         "scout-list-view-item": ScoutListViewItem;
         "scout-loader": ScoutLoader;
@@ -598,6 +675,7 @@ declare module "@stencil/core" {
             "scout-divider": LocalJSX.ScoutDivider & JSXBase.HTMLAttributes<HTMLScoutDividerElement>;
             "scout-field": LocalJSX.ScoutField & JSXBase.HTMLAttributes<HTMLScoutFieldElement>;
             "scout-input": LocalJSX.ScoutInput & JSXBase.HTMLAttributes<HTMLScoutInputElement>;
+            "scout-link": LocalJSX.ScoutLink & JSXBase.HTMLAttributes<HTMLScoutLinkElement>;
             "scout-list-view": LocalJSX.ScoutListView & JSXBase.HTMLAttributes<HTMLScoutListViewElement>;
             "scout-list-view-item": LocalJSX.ScoutListViewItem & JSXBase.HTMLAttributes<HTMLScoutListViewItemElement>;
             "scout-loader": LocalJSX.ScoutLoader & JSXBase.HTMLAttributes<HTMLScoutLoaderElement>;

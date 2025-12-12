@@ -7,7 +7,7 @@
 
 /* eslint-disable */
 
-import { type ScoutCheckboxCustomEvent, type ScoutInputCustomEvent, type ScoutSwitchCustomEvent } from "@scouterna/ui-webc";
+import { type ScoutCheckboxCustomEvent, type ScoutInputCustomEvent, type ScoutLinkCustomEvent, type ScoutSwitchCustomEvent } from "@scouterna/ui-webc";
 import { ScoutBottomBarItem as ScoutBottomBarItemElement, defineCustomElement as defineScoutBottomBarItem } from "@scouterna/ui-webc/dist/components/scout-bottom-bar-item.js";
 import { ScoutBottomBar as ScoutBottomBarElement, defineCustomElement as defineScoutBottomBar } from "@scouterna/ui-webc/dist/components/scout-bottom-bar.js";
 import { ScoutButton as ScoutButtonElement, defineCustomElement as defineScoutButton } from "@scouterna/ui-webc/dist/components/scout-button.js";
@@ -16,6 +16,7 @@ import { ScoutCheckbox as ScoutCheckboxElement, defineCustomElement as defineSco
 import { ScoutDivider as ScoutDividerElement, defineCustomElement as defineScoutDivider } from "@scouterna/ui-webc/dist/components/scout-divider.js";
 import { ScoutField as ScoutFieldElement, defineCustomElement as defineScoutField } from "@scouterna/ui-webc/dist/components/scout-field.js";
 import { ScoutInput as ScoutInputElement, defineCustomElement as defineScoutInput } from "@scouterna/ui-webc/dist/components/scout-input.js";
+import { ScoutLink as ScoutLinkElement, defineCustomElement as defineScoutLink } from "@scouterna/ui-webc/dist/components/scout-link.js";
 import { ScoutListViewItem as ScoutListViewItemElement, defineCustomElement as defineScoutListViewItem } from "@scouterna/ui-webc/dist/components/scout-list-view-item.js";
 import { ScoutListView as ScoutListViewElement, defineCustomElement as defineScoutListView } from "@scouterna/ui-webc/dist/components/scout-list-view.js";
 import { ScoutLoader as ScoutLoaderElement, defineCustomElement as defineScoutLoader } from "@scouterna/ui-webc/dist/components/scout-loader.js";
@@ -130,6 +131,17 @@ export const ScoutInput: StencilReactComponent<ScoutInputElement, ScoutInputEven
         on_fieldId: '_fieldId'
     } as ScoutInputEvents,
     defineCustomElement: defineScoutInput
+});
+
+export type ScoutLinkEvents = { onScoutLinkClick: EventName<ScoutLinkCustomEvent<HTMLButtonElement>> };
+
+export const ScoutLink: StencilReactComponent<ScoutLinkElement, ScoutLinkEvents> = /*@__PURE__*/ createComponent<ScoutLinkElement, ScoutLinkEvents>({
+    tagName: 'scout-link',
+    elementClass: ScoutLinkElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: { onScoutLinkClick: 'scoutLinkClick' } as ScoutLinkEvents,
+    defineCustomElement: defineScoutLink
 });
 
 export type ScoutListViewEvents = NonNullable<unknown>;
