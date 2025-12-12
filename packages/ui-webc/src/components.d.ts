@@ -152,7 +152,7 @@ export namespace Components {
         "target"?: "_blank" | "_self" | "_parent" | "_top" | "framename";
         /**
           * There are two types. If you intend to use it as a button with onclick, a button is rendered, however if you want to you it as a normal link, a link with href is rendered.
-          * @default "button"
+          * @default "link"
          */
         "type": "link" | "button";
     }
@@ -583,7 +583,7 @@ declare namespace LocalJSX {
         "target"?: "_blank" | "_self" | "_parent" | "_top" | "framename";
         /**
           * There are two types. If you intend to use it as a button with onclick, a button is rendered, however if you want to you it as a normal link, a link with href is rendered.
-          * @default "button"
+          * @default "link"
          */
         "type"?: "link" | "button";
     }

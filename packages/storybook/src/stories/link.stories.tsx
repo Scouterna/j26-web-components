@@ -1,4 +1,5 @@
 import { ScoutLink } from "@scouterna/ui-react";
+import { fn } from "storybook/test";
 import preview from "#.storybook/preview";
 
 const meta = preview.meta({
@@ -13,10 +14,11 @@ export default meta;
 
 export const HrefLink = meta.story({
   args: {
+    type: "link",
     label: "Scouterna",
     href: "https://scouterna.se",
     target: "_blank",
-    ariaLabel: "Go to the Scouterna website",
+    linkAriaLabel: "Go to the Scouterna website",
   },
   render: (args) => (
     <p>
@@ -28,22 +30,14 @@ export const HrefLink = meta.story({
 
 export const ButtonLink = meta.story({
   args: {
+    type: "button",
     label: "Button",
-    ariaLabel: "Triggers an alert",
+    linkAriaLabel: "Triggers an event",
   },
   render: (args) => (
     <p>
-      This is a{" "}
-      <ScoutLink
-        onScoutLinkClick={() => {
-          window.parent.alert("ButtonCLicked");
-          (
-            document.getElementById("targetFrame") as HTMLIFrameElement
-          )?.contentWindow?.alert("Button clicked!");
-        }}
-        {...args}
-      />{" "}
-      with an onClick event triggering an alert.
+      This is a <ScoutLink {...args} /> with an onClick event triggering an
+      event.
     </p>
   ),
 });
