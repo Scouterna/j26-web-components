@@ -2,6 +2,7 @@ import {
   ScoutCheckbox,
   ScoutField,
   ScoutInput,
+  ScoutSelect,
   ScoutSwitch,
 } from "@scouterna/ui-react";
 import preview from "#.storybook/preview";
@@ -69,6 +70,21 @@ export const WithSwitch = WithInput.extend({
   render: (args) => (
     <ScoutField {...args}>
       <ScoutSwitch />
+    </ScoutField>
+  ),
+});
+
+export const WithSelect = WithInput.extend({
+  args: {
+    label: "Favorite icecream",
+  },
+  render: (args) => (
+    <ScoutField {...args}>
+      <ScoutSelect>
+        <option value="vanilla">Vanilla</option>
+        <option value="chocolate">Chocolate</option>
+        <option value="strawberry">Strawberry</option>
+      </ScoutSelect>
     </ScoutField>
   ),
 });
