@@ -1,9 +1,11 @@
+/** biome-ignore-all lint/complexity/noImportantStyles: https://github.com/tailwindlabs/tailwindcss/discussions/18628#discussioncomment-13915195 */
+
 :host {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: var(--spacing-2) var(--spacing-2) var(--spacing-1);
-  border: none;
+  padding: var(--spacing-2) var(--spacing-4) var(--spacing-1) !important;
+  border: none !important;
   background-color: transparent;
   font: var(--type-body-sm);
   color: var(--color-text-base);
