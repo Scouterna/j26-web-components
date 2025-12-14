@@ -168,7 +168,7 @@ export const ScoutLoader: StencilReactComponent<ScoutLoaderElement, ScoutLoaderE
 });
 
 export type ScoutSelectEvents = {
-    onScoutSelectChange: EventName<ScoutSelectCustomEvent<{
+    onScoutInputChange: EventName<ScoutSelectCustomEvent<{
         value: string;
         element: HTMLSelectElement;
     }>>,
@@ -182,7 +182,7 @@ export const ScoutSelect: StencilReactComponent<ScoutSelectElement, ScoutSelectE
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
     events: {
-        onScoutSelectChange: 'scoutSelectChange',
+        onScoutInputChange: 'scoutInputChange',
         onScoutBlur: 'scoutBlur',
         on_fieldId: '_fieldId'
     } as ScoutSelectEvents,

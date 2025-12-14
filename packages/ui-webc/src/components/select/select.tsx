@@ -6,7 +6,6 @@ import {
   h,
   Prop,
   State,
-  Watch,
 } from "@stencil/core";
 import chevronIcon from "@tabler/icons/outline/chevron-down.svg";
 
@@ -16,8 +15,6 @@ import chevronIcon from "@tabler/icons/outline/chevron-down.svg";
   scoped: true,
 })
 export class ScoutSelect implements ComponentInterface {
-  private selectEl?: HTMLSelectElement;
-
   /**
    * Value of the select element, in case you want to control it yourself.
    */
@@ -36,7 +33,7 @@ export class ScoutSelect implements ComponentInterface {
    */
   @Prop() validate?: (value: string) => string | null;
 
-  @Event() scoutSelectChange: EventEmitter<{
+  @Event() scoutInputChange: EventEmitter<{
     value: string;
     element: HTMLSelectElement;
   }>;
@@ -49,22 +46,9 @@ export class ScoutSelect implements ComponentInterface {
 
   @State() ariaId: string;
 
-  @Watch("value")
-  valueChanged(newValue: string) {
-    if (this.selectEl && this.selectEl.value !== newValue) {
-      this.selectEl.value = newValue;
-    }
-  }
-
   componentWillLoad(): Promise<void> | void {
     this.ariaId = `_${Math.random().toString(36).substring(2, 9)}`;
     this._fieldId.emit(this.ariaId);
-  }
-
-  componentDidLoad() {
-    if (this.selectEl && this.value) {
-      this.selectEl.value = this.value;
-    }
   }
 
   onChange(event: Event) {
@@ -75,7 +59,7 @@ export class ScoutSelect implements ComponentInterface {
       select.setCustomValidity(validationMessage ?? "");
     }
 
-    this.scoutSelectChange.emit({
+    this.scoutInputChange.emit({
       value: select.value,
       element: select,
     });
@@ -90,7 +74,6 @@ export class ScoutSelect implements ComponentInterface {
           disabled={this.disabled}
           onChange={(e) => this.onChange(e)}
           onBlur={() => this.scoutBlur.emit()}
-          ref={(el) => (this.selectEl = el)}
         >
           <slot />
         </select>

@@ -39,11 +39,11 @@ A styled native select component for choosing from a list of options.
 
 ## Events
 
-| Event               | Description                                     | Type                                                          |
-| ------------------- | ----------------------------------------------- | ------------------------------------------------------------- |
-| `_fieldId`          | Internal event used for form field association. | `CustomEvent<string>`                                         |
-| `scoutBlur`         |                                                 | `CustomEvent<void>`                                           |
-| `scoutSelectChange` |                                                 | `CustomEvent<{ value: string; element: HTMLSelectElement; }>` |
+| Event              | Description                                     | Type                                                          |
+| ------------------ | ----------------------------------------------- | ------------------------------------------------------------- |
+| `_fieldId`         | Internal event used for form field association. | `CustomEvent<string>`                                         |
+| `scoutBlur`        |                                                 | `CustomEvent<void>`                                           |
+| `scoutInputChange` |                                                 | `CustomEvent<{ value: string; element: HTMLSelectElement; }>` |
 
 
 ----------------------------------------------

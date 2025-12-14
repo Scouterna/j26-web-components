@@ -373,7 +373,7 @@ declare global {
         new (): HTMLScoutLoaderElement;
     };
     interface HTMLScoutSelectElementEventMap {
-        "scoutSelectChange": {
+        "scoutInputChange": {
     value: string;
     element: HTMLSelectElement;
   };
@@ -604,7 +604,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "onScoutBlur"?: (event: ScoutSelectCustomEvent<void>) => void;
-        "onScoutSelectChange"?: (event: ScoutSelectCustomEvent<{
+        "onScoutInputChange"?: (event: ScoutSelectCustomEvent<{
     value: string;
     element: HTMLSelectElement;
   }>) => void;
