@@ -1,5 +1,28 @@
 # @scouterna/ui-react
 
+## 2.1.0
+
+### Minor Changes
+
+- [#67](https://github.com/Scouterna/j26-components/pull/67) [`1dbe174`](https://github.com/Scouterna/j26-components/commit/1dbe17458173884ed1376f9d4009c2aa6522b19a) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Added loader component.
+
+- [#70](https://github.com/Scouterna/j26-components/pull/70) [`5260616`](https://github.com/Scouterna/j26-components/commit/5260616570c355027284f417e5ab9f01b9690906) Thanks [@itsmedardan](https://github.com/itsmedardan)! - Add select component
+
+- [#72](https://github.com/Scouterna/j26-components/pull/72) [`ef75313`](https://github.com/Scouterna/j26-components/commit/ef75313af1db7190a5a3ff5c1627de4c084dd44b) Thanks [@daBack](https://github.com/daBack)! - New component Link
+
+- [#71](https://github.com/Scouterna/j26-components/pull/71) [`2c1f18c`](https://github.com/Scouterna/j26-components/commit/2c1f18c6991a79e1d4ad13faceada6b639f2ab5a) Thanks [@daBack](https://github.com/daBack)! - New component stack
+
+- [#63](https://github.com/Scouterna/j26-components/pull/63) [`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Added List View component.
+
+### Patch Changes
+
+- [#63](https://github.com/Scouterna/j26-components/pull/63) [`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Added link support to Button and Bottom Bar Item.
+
+- [#63](https://github.com/Scouterna/j26-components/pull/63) [`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Removed global button styles in favor of Button component.
+
+- Updated dependencies [[`1dbe174`](https://github.com/Scouterna/j26-components/commit/1dbe17458173884ed1376f9d4009c2aa6522b19a), [`5260616`](https://github.com/Scouterna/j26-components/commit/5260616570c355027284f417e5ab9f01b9690906), [`ef75313`](https://github.com/Scouterna/j26-components/commit/ef75313af1db7190a5a3ff5c1627de4c084dd44b), [`2c1f18c`](https://github.com/Scouterna/j26-components/commit/2c1f18c6991a79e1d4ad13faceada6b639f2ab5a), [`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52), [`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52), [`eb05d26`](https://github.com/Scouterna/j26-components/commit/eb05d260a4999342109eb83687c9ad2c56246a52)]:
+  - @scouterna/ui-webc@2.1.0
+
 ## 2.0.0
 
 ### Minor Changes
