@@ -7,6 +7,11 @@
   padding: var(--spacing-2) var(--spacing-4) var(--spacing-1) !important;
   border: none !important;
   background-color: transparent;
+}
+
+.heading {
+  margin: 0;
+  padding: 0;
   font: var(--type-body-sm);
   color: var(--color-text-base);
   font-weight: 500;
