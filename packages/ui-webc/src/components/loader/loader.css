@@ -90,12 +90,10 @@
 }
 
 @keyframes fade-in {
-
   0%,
   50% {
     opacity: 0;
   }
-
 
   80%,
   100% {
@@ -104,7 +102,6 @@
 }
 
 @keyframes fade-out {
-
   0%,
   40% {
     opacity: 1;

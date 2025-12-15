@@ -41,9 +41,7 @@ export class ScoutLoader implements ComponentInterface {
 
   render() {
     return (
-      <Host
-        class={this.size === 'base' ? '' : this.size}
-      >
+      <Host class={this.size === "base" ? "" : this.size}>
         <div class="frame">{this.getSymbols()}</div>
         {this.text && <div class="text">{this.text}</div>}
       </Host>

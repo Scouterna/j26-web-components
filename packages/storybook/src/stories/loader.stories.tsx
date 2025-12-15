@@ -10,9 +10,9 @@ const meta = preview.meta({
   argTypes: {
     size: {
       // Make sure the order makes sense
-      options: ['xs', 'sm', 'base', 'lg', 'xl'],
-    }
-  }
+      options: ["xs", "sm", "base", "lg", "xl"],
+    },
+  },
 });
 
 export default meta;
