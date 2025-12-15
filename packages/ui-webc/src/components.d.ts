@@ -173,6 +173,10 @@ export namespace Components {
         "type": ItemType1;
     }
     interface ScoutListViewSubheading {
+        /**
+          * @default "h2"
+         */
+        "headingLevel": "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
         "text": string;
     }
     interface ScoutLoader {
@@ -677,6 +681,10 @@ declare namespace LocalJSX {
         "type"?: ItemType1;
     }
     interface ScoutListViewSubheading {
+        /**
+          * @default "h2"
+         */
+        "headingLevel"?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
         "text"?: string;
     }
     interface ScoutLoader {
