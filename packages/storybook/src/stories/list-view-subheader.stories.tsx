@@ -2,7 +2,7 @@ import { ScoutListViewSubheader } from "@scouterna/ui-react";
 import preview from "#.storybook/preview";
 
 const meta = preview.meta({
-  title: "Uncategorized/List-View-Subheader",
+  title: "Interaction/List View Subheader",
   component: ScoutListViewSubheader,
   parameters: {
     layout: "centered",
