@@ -53,4 +53,3 @@ export const Disabled = meta.story({
     </ScoutSelect>
   ),
 });
-

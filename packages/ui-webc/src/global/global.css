@@ -1,7 +1,7 @@
-@import '../../../design-tokens/dist/tokens.css';
-@import './modern-normalize.css';
+@import "../../../design-tokens/dist/tokens.css";
+@import "./modern-normalize.css";
 
-@import './typography.css';
+@import "./typography.css";
 
 :root {
   font-family: "Source Sans 3 Variable", sans-serif;

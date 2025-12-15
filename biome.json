@@ -6,7 +6,13 @@
     "useIgnoreFile": false
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!packages/design-tokens/tokens/**/*",
+      "!packages/ui-webc/src/components.d.ts",
+      "!packages/ui-react/lib/components/stencil-generated/**/*"
+    ]
   },
   "formatter": {
     "enabled": true,

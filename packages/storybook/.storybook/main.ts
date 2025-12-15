@@ -29,8 +29,8 @@ export default defineMain({
       ],
       esbuild: {
         minifyIdentifiers: false,
-        keepNames: true
-      }
+        keepNames: true,
+      },
     } satisfies UserConfig);
   },
   staticDirs: ["../public"],
