@@ -133,7 +133,7 @@ export namespace Components {
     }
     interface ScoutLink {
         /**
-          * The URL that the link points to
+          * The URL that the link points to. Required when type is set to link
          */
         "href"?: string;
         /**
@@ -560,7 +560,7 @@ declare namespace LocalJSX {
     }
     interface ScoutLink {
         /**
-          * The URL that the link points to
+          * The URL that the link points to. Required when type is set to link
          */
         "href"?: string;
         /**

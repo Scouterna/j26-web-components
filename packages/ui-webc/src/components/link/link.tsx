@@ -9,7 +9,7 @@ import { Component, Event, type EventEmitter, h, Prop } from "@stencil/core";
 })
 export class ScoutLink {
   /**
-   * The URL that the link points to
+   * The URL that the link points to. Required when type is set to link
    */
   @Prop() href?: string;
 
@@ -62,6 +62,10 @@ export class ScoutLink {
           {this.label}
         </button>
       );
+    }
+
+    if (!this.href) {
+      throw new Error("Href is requied when type is set to link");
     }
 
     return (

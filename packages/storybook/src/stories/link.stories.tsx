@@ -1,5 +1,4 @@
 import { ScoutLink } from "@scouterna/ui-react";
-import { fn } from "storybook/test";
 import preview from "#.storybook/preview";
 
 const meta = preview.meta({
