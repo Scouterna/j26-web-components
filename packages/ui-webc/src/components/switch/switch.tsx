@@ -55,7 +55,7 @@ export class ScoutSwitch {
   }
 
   render() {
-    const Tag = this.label && this.label.length ? "label" : "div";
+    const Tag = this.label?.length ? "label" : "div";
     return (
       <Tag>
         {this.label}

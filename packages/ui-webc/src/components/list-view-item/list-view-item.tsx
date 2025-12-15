@@ -44,7 +44,6 @@ export class ScoutListViewItem {
         : {};
 
     return (
-      // biome-ignore lint/a11y/useSemanticElements: We can't use <li> because we're using shadow DOM.
       <Host role="listitem">
         <Tag
           class="button"

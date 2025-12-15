@@ -10,7 +10,6 @@ import { Component, Host, h } from "@stencil/core";
 export class ScoutListView {
   render() {
     return (
-      // biome-ignore lint/a11y/useSemanticElements: We can't use <ul> because we're using shadow DOM.
       <Host role="list">
         <slot />
       </Host>
