@@ -172,7 +172,7 @@ export namespace Components {
          */
         "type": ItemType1;
     }
-    interface ScoutListViewSubheading {
+    interface ScoutListViewSubheader {
         /**
           * @default "h2"
          */
@@ -419,11 +419,11 @@ declare global {
         prototype: HTMLScoutListViewItemElement;
         new (): HTMLScoutListViewItemElement;
     };
-    interface HTMLScoutListViewSubheadingElement extends Components.ScoutListViewSubheading, HTMLStencilElement {
+    interface HTMLScoutListViewSubheaderElement extends Components.ScoutListViewSubheader, HTMLStencilElement {
     }
-    var HTMLScoutListViewSubheadingElement: {
-        prototype: HTMLScoutListViewSubheadingElement;
-        new (): HTMLScoutListViewSubheadingElement;
+    var HTMLScoutListViewSubheaderElement: {
+        prototype: HTMLScoutListViewSubheaderElement;
+        new (): HTMLScoutListViewSubheaderElement;
     };
     interface HTMLScoutLoaderElement extends Components.ScoutLoader, HTMLStencilElement {
     }
@@ -492,7 +492,7 @@ declare global {
         "scout-link": HTMLScoutLinkElement;
         "scout-list-view": HTMLScoutListViewElement;
         "scout-list-view-item": HTMLScoutListViewItemElement;
-        "scout-list-view-subheading": HTMLScoutListViewSubheadingElement;
+        "scout-list-view-subheader": HTMLScoutListViewSubheaderElement;
         "scout-loader": HTMLScoutLoaderElement;
         "scout-select": HTMLScoutSelectElement;
         "scout-stack": HTMLScoutStackElement;
@@ -680,7 +680,7 @@ declare namespace LocalJSX {
          */
         "type"?: ItemType1;
     }
-    interface ScoutListViewSubheading {
+    interface ScoutListViewSubheader {
         /**
           * @default "h2"
          */
@@ -767,7 +767,7 @@ declare namespace LocalJSX {
         "scout-link": ScoutLink;
         "scout-list-view": ScoutListView;
         "scout-list-view-item": ScoutListViewItem;
-        "scout-list-view-subheading": ScoutListViewSubheading;
+        "scout-list-view-subheader": ScoutListViewSubheader;
         "scout-loader": ScoutLoader;
         "scout-select": ScoutSelect;
         "scout-stack": ScoutStack;
@@ -803,7 +803,7 @@ declare module "@stencil/core" {
             "scout-link": LocalJSX.ScoutLink & JSXBase.HTMLAttributes<HTMLScoutLinkElement>;
             "scout-list-view": LocalJSX.ScoutListView & JSXBase.HTMLAttributes<HTMLScoutListViewElement>;
             "scout-list-view-item": LocalJSX.ScoutListViewItem & JSXBase.HTMLAttributes<HTMLScoutListViewItemElement>;
-            "scout-list-view-subheading": LocalJSX.ScoutListViewSubheading & JSXBase.HTMLAttributes<HTMLScoutListViewSubheadingElement>;
+            "scout-list-view-subheader": LocalJSX.ScoutListViewSubheader & JSXBase.HTMLAttributes<HTMLScoutListViewSubheaderElement>;
             "scout-loader": LocalJSX.ScoutLoader & JSXBase.HTMLAttributes<HTMLScoutLoaderElement>;
             "scout-select": LocalJSX.ScoutSelect & JSXBase.HTMLAttributes<HTMLScoutSelectElement>;
             "scout-stack": LocalJSX.ScoutStack & JSXBase.HTMLAttributes<HTMLScoutStackElement>;

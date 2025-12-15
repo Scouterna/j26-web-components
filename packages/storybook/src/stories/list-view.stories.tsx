@@ -2,7 +2,7 @@ import {
   ScoutDivider,
   ScoutListView,
   ScoutListViewItem,
-  ScoutListViewSubheading,
+  ScoutListViewSubheader,
 } from "@scouterna/ui-react";
 import BoxIcon from "@tabler/icons/outline/box.svg?raw";
 import ClipboardDataIcon from "@tabler/icons/outline/clipboard-data.svg?raw";
@@ -53,14 +53,14 @@ export const WithSections = meta.story({
   render: (args) => (
     <div style={{ maxWidth: "20rem", width: "100vw" }}>
       <ScoutListView {...args}>
-        <ScoutListViewSubheading text="First section" />
+        <ScoutListViewSubheader text="First section" />
         <ScoutListViewItem icon={BoxIcon} primary="First item" />
         <ScoutListViewItem icon={BoxIcon} primary="Second item" />
-        <ScoutListViewSubheading text="Second section" />
+        <ScoutListViewSubheader text="Second section" />
         <ScoutListViewItem icon={BoxIcon} primary="Third item" />
         <ScoutListViewItem icon={BoxIcon} primary="Fourth item" />
         <ScoutListViewItem icon={BoxIcon} primary="Fifth item" />
-        <ScoutListViewSubheading text="Third section" />
+        <ScoutListViewSubheader text="Third section" />
         <ScoutListViewItem icon={BoxIcon} primary="Sixth item" />
         <ScoutListViewItem icon={BoxIcon} primary="Seventh item" />
       </ScoutListView>
