@@ -1,13 +1,13 @@
 import { Component, Host, h, Prop } from "@stencil/core";
 
 @Component({
-  tag: "scout-list-view-subheading",
-  styleUrl: "list-view-subheading.css",
+  tag: "scout-list-view-subheader",
+  styleUrl: "list-view-subheader.css",
   shadow: {
     delegatesFocus: true,
   },
 })
-export class ScoutListViewSubheading {
+export class ScoutListViewSubheader {
   @Prop() text: string;
   @Prop() headingLevel: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" = "h2";
 

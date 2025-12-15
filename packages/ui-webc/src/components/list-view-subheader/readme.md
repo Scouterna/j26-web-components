@@ -1,4 +1,4 @@
-# scout-list-view-subheading
+# scout-list-view-subheader
 
 <!-- Auto Generated Below -->
 

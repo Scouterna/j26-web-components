@@ -18,7 +18,7 @@ import { ScoutField as ScoutFieldElement, defineCustomElement as defineScoutFiel
 import { ScoutInput as ScoutInputElement, defineCustomElement as defineScoutInput } from "@scouterna/ui-webc/dist/components/scout-input.js";
 import { ScoutLink as ScoutLinkElement, defineCustomElement as defineScoutLink } from "@scouterna/ui-webc/dist/components/scout-link.js";
 import { ScoutListViewItem as ScoutListViewItemElement, defineCustomElement as defineScoutListViewItem } from "@scouterna/ui-webc/dist/components/scout-list-view-item.js";
-import { ScoutListViewSubheading as ScoutListViewSubheadingElement, defineCustomElement as defineScoutListViewSubheading } from "@scouterna/ui-webc/dist/components/scout-list-view-subheading.js";
+import { ScoutListViewSubheader as ScoutListViewSubheaderElement, defineCustomElement as defineScoutListViewSubheader } from "@scouterna/ui-webc/dist/components/scout-list-view-subheader.js";
 import { ScoutListView as ScoutListViewElement, defineCustomElement as defineScoutListView } from "@scouterna/ui-webc/dist/components/scout-list-view.js";
 import { ScoutLoader as ScoutLoaderElement, defineCustomElement as defineScoutLoader } from "@scouterna/ui-webc/dist/components/scout-loader.js";
 import { ScoutSelect as ScoutSelectElement, defineCustomElement as defineScoutSelect } from "@scouterna/ui-webc/dist/components/scout-select.js";
@@ -169,15 +169,15 @@ export const ScoutListViewItem: StencilReactComponent<ScoutListViewItemElement, 
     defineCustomElement: defineScoutListViewItem
 });
 
-export type ScoutListViewSubheadingEvents = NonNullable<unknown>;
+export type ScoutListViewSubheaderEvents = NonNullable<unknown>;
 
-export const ScoutListViewSubheading: StencilReactComponent<ScoutListViewSubheadingElement, ScoutListViewSubheadingEvents> = /*@__PURE__*/ createComponent<ScoutListViewSubheadingElement, ScoutListViewSubheadingEvents>({
-    tagName: 'scout-list-view-subheading',
-    elementClass: ScoutListViewSubheadingElement,
+export const ScoutListViewSubheader: StencilReactComponent<ScoutListViewSubheaderElement, ScoutListViewSubheaderEvents> = /*@__PURE__*/ createComponent<ScoutListViewSubheaderElement, ScoutListViewSubheaderEvents>({
+    tagName: 'scout-list-view-subheader',
+    elementClass: ScoutListViewSubheaderElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as ScoutListViewSubheadingEvents,
-    defineCustomElement: defineScoutListViewSubheading
+    events: {} as ScoutListViewSubheaderEvents,
+    defineCustomElement: defineScoutListViewSubheader
 });
 
 export type ScoutLoaderEvents = NonNullable<unknown>;
