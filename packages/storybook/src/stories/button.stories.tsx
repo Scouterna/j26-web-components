@@ -1,5 +1,6 @@
 import { ScoutButton } from "@scouterna/ui-react";
 import ExternalLinkIcon from "@tabler/icons/outline/external-link.svg?raw";
+import ArrowLeftIcon from "@tabler/icons/outline/arrow-left.svg?raw";
 import LockIcon from "@tabler/icons/outline/lock.svg?raw";
 import TrashIcon from "@tabler/icons/outline/trash.svg?raw";
 import preview from "#.storybook/preview";
@@ -64,4 +65,12 @@ export const Link = meta.story({
     rel: "noopener noreferrer",
   },
   render: (args) => <ScoutButton {...args}>Open Google</ScoutButton>,
+});
+
+export const IconOnly = meta.story({
+  args: {
+    icon: ArrowLeftIcon,
+    iconOnly: true,
+  },
+  render: (args) => <ScoutButton {...args}>Go back</ScoutButton>,
 });
