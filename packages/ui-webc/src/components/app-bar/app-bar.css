@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  width: 100%;
+}
+
+::slotted(scout-button) {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  height: var(--spacing-14);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-100);
+  color: var(--color-text-brand-base);
+  padding: var(--spacing-1);
+}
+
+.title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font: var(--type-body-lg);
+  font-weight: 500;
+  padding: 0 var(--spacing-2);
+}

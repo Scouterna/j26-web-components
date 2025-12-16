@@ -28,6 +28,7 @@ export class ScoutButton {
    * An optional icon to display alongside the button text. Must be an SVG string.
    */
   @Prop() icon?: string;
+  @Prop() iconOnly: boolean = false;
 
   @Event() scoutClick: EventEmitter<void>;
 
@@ -50,11 +51,13 @@ export class ScoutButton {
 
     return (
       <Tag
-        class={`button ${this.variant}`}
+        class={`button ${this.variant} ${this.iconOnly ? "icon-only" : ""}`}
         onClick={() => this.scoutClick.emit()}
         {...props}
       >
-        <slot />
+        <span class="content">
+          <slot />
+        </span>
         {this.icon && <span class="icon" innerHTML={this.icon} />}
       </Tag>
     );
