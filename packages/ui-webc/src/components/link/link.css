@@ -1,0 +1,26 @@
+:host {
+  display: inline;
+}
+
+a,
+button {
+  color: var(--color-text-brand-base);
+  text-decoration: none;
+}
+a:hover,
+button:hover {
+  text-decoration: underline;
+  color: var(--color-background-brand-hover);
+}
+a:active,
+button:active {
+  color: var(--color-background-brand-pressed);
+}
+
+button {
+  display: inline;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}

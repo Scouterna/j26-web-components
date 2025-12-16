@@ -9,10 +9,12 @@ import { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 import { Variant } from "./components/button/button";
 import { InputMode, InputType } from "./components/input/input";
 import { ItemType as ItemType1 } from "./components/list-view-item/list-view-item";
+import { Direction, GapSize } from "./components/stack/stack";
 export { ItemType } from "./components/bottom-bar-item/bottom-bar-item";
 export { Variant } from "./components/button/button";
 export { InputMode, InputType } from "./components/input/input";
 export { ItemType as ItemType1 } from "./components/list-view-item/list-view-item";
+export { Direction, GapSize } from "./components/stack/stack";
 export namespace Components {
     /**
      * The bottom bar component is used in the Jamboree26 app to provide
@@ -131,6 +133,31 @@ export namespace Components {
          */
         "value": string;
     }
+    interface ScoutLink {
+        /**
+          * The URL that the link points to. Required when type is set to link
+         */
+        "href"?: string;
+        /**
+          * Text to be displayed for the link
+         */
+        "label": string;
+        /**
+          * If the label property is not sufficient to describe its use, add an aria-label describing what happens when pressing the button or where the user navigates if it is a link.
+         */
+        "linkAriaLabel"?: string;
+        "rel"?: string;
+        /**
+          * _blank	Opens the linked document in a new window or tab  _self	Opens the linked document in the same frame as it was clicked (this is default)  _parent	Opens the linked document in the parent frame  _top	Opens the linked document in the full body of the window  _framename	Opens the linked document in the named iframe
+          * @default "_self"
+         */
+        "target"?: "_blank" | "_self" | "_parent" | "_top" | "framename";
+        /**
+          * There are two types. If you intend to use it as a button with onclick, a button is rendered, however if you want to you it as a normal link, a link with href is rendered.
+          * @default "link"
+         */
+        "type": "link" | "button";
+    }
     interface ScoutListView {
     }
     interface ScoutListViewItem {
@@ -144,6 +171,48 @@ export namespace Components {
           * @default "button"
          */
         "type": ItemType1;
+    }
+    interface ScoutListViewSubheader {
+        /**
+          * @default "h2"
+         */
+        "headingLevel": "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+        "text": string;
+    }
+    interface ScoutLoader {
+        /**
+          * @default "base"
+         */
+        "size"?: "xs" | "sm" | "base" | "lg" | "xl";
+        "text"?: string;
+    }
+    interface ScoutSelect {
+        /**
+          * Whether the select is disabled. Disabled selects are not editable, excluded from tab order and are not validated.
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Custom validation function run on top of the implicit validation performed by the browser. Return a string with the validation message to mark the select as invalid, or null to mark it as valid.
+         */
+        "validate"?: (value: string) => string | null;
+        /**
+          * Value of the select element, in case you want to control it yourself.
+          * @default ""
+         */
+        "value": string;
+    }
+    interface ScoutStack {
+        /**
+          * The direction of the stack.
+          * @default "row"
+         */
+        "direction": Direction;
+        /**
+          * Gap size. If more sizes are needed, we can expand.
+          * @default "m"
+         */
+        "gapSize": GapSize;
     }
     interface ScoutSwitch {
         /**
@@ -192,9 +261,17 @@ export interface ScoutInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutInputElement;
 }
+export interface ScoutLinkCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutLinkElement;
+}
 export interface ScoutListViewItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutListViewItemElement;
+}
+export interface ScoutSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutSelectElement;
 }
 export interface ScoutSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -316,6 +393,23 @@ declare global {
         prototype: HTMLScoutInputElement;
         new (): HTMLScoutInputElement;
     };
+    interface HTMLScoutLinkElementEventMap {
+        "scoutLinkClick": HTMLButtonElement;
+    }
+    interface HTMLScoutLinkElement extends Components.ScoutLink, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutLinkElementEventMap>(type: K, listener: (this: HTMLScoutLinkElement, ev: ScoutLinkCustomEvent<HTMLScoutLinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutLinkElementEventMap>(type: K, listener: (this: HTMLScoutLinkElement, ev: ScoutLinkCustomEvent<HTMLScoutLinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLScoutLinkElement: {
+        prototype: HTMLScoutLinkElement;
+        new (): HTMLScoutLinkElement;
+    };
     interface HTMLScoutListViewElement extends Components.ScoutListView, HTMLStencilElement {
     }
     var HTMLScoutListViewElement: {
@@ -338,6 +432,46 @@ declare global {
     var HTMLScoutListViewItemElement: {
         prototype: HTMLScoutListViewItemElement;
         new (): HTMLScoutListViewItemElement;
+    };
+    interface HTMLScoutListViewSubheaderElement extends Components.ScoutListViewSubheader, HTMLStencilElement {
+    }
+    var HTMLScoutListViewSubheaderElement: {
+        prototype: HTMLScoutListViewSubheaderElement;
+        new (): HTMLScoutListViewSubheaderElement;
+    };
+    interface HTMLScoutLoaderElement extends Components.ScoutLoader, HTMLStencilElement {
+    }
+    var HTMLScoutLoaderElement: {
+        prototype: HTMLScoutLoaderElement;
+        new (): HTMLScoutLoaderElement;
+    };
+    interface HTMLScoutSelectElementEventMap {
+        "scoutInputChange": {
+    value: string;
+    element: HTMLSelectElement;
+  };
+        "scoutBlur": void;
+        "_fieldId": string;
+    }
+    interface HTMLScoutSelectElement extends Components.ScoutSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutSelectElementEventMap>(type: K, listener: (this: HTMLScoutSelectElement, ev: ScoutSelectCustomEvent<HTMLScoutSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutSelectElementEventMap>(type: K, listener: (this: HTMLScoutSelectElement, ev: ScoutSelectCustomEvent<HTMLScoutSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLScoutSelectElement: {
+        prototype: HTMLScoutSelectElement;
+        new (): HTMLScoutSelectElement;
+    };
+    interface HTMLScoutStackElement extends Components.ScoutStack, HTMLStencilElement {
+    }
+    var HTMLScoutStackElement: {
+        prototype: HTMLScoutStackElement;
+        new (): HTMLScoutStackElement;
     };
     interface HTMLScoutSwitchElementEventMap {
         "scoutSwitchToggled": {
@@ -375,8 +509,13 @@ declare global {
         "scout-divider": HTMLScoutDividerElement;
         "scout-field": HTMLScoutFieldElement;
         "scout-input": HTMLScoutInputElement;
+        "scout-link": HTMLScoutLinkElement;
         "scout-list-view": HTMLScoutListViewElement;
         "scout-list-view-item": HTMLScoutListViewItemElement;
+        "scout-list-view-subheader": HTMLScoutListViewSubheaderElement;
+        "scout-loader": HTMLScoutLoaderElement;
+        "scout-select": HTMLScoutSelectElement;
+        "scout-stack": HTMLScoutStackElement;
         "scout-switch": HTMLScoutSwitchElement;
         "scout-text-area": HTMLScoutTextAreaElement;
     }
@@ -518,6 +657,35 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface ScoutLink {
+        /**
+          * The URL that the link points to. Required when type is set to link
+         */
+        "href"?: string;
+        /**
+          * Text to be displayed for the link
+         */
+        "label"?: string;
+        /**
+          * If the label property is not sufficient to describe its use, add an aria-label describing what happens when pressing the button or where the user navigates if it is a link.
+         */
+        "linkAriaLabel"?: string;
+        /**
+          * Only sent if the link is a button.
+         */
+        "onScoutLinkClick"?: (event: ScoutLinkCustomEvent<HTMLButtonElement>) => void;
+        "rel"?: string;
+        /**
+          * _blank	Opens the linked document in a new window or tab  _self	Opens the linked document in the same frame as it was clicked (this is default)  _parent	Opens the linked document in the parent frame  _top	Opens the linked document in the full body of the window  _framename	Opens the linked document in the named iframe
+          * @default "_self"
+         */
+        "target"?: "_blank" | "_self" | "_parent" | "_top" | "framename";
+        /**
+          * There are two types. If you intend to use it as a button with onclick, a button is rendered, however if you want to you it as a normal link, a link with href is rendered.
+          * @default "link"
+         */
+        "type"?: "link" | "button";
+    }
     interface ScoutListView {
     }
     interface ScoutListViewItem {
@@ -532,6 +700,57 @@ declare namespace LocalJSX {
           * @default "button"
          */
         "type"?: ItemType1;
+    }
+    interface ScoutListViewSubheader {
+        /**
+          * @default "h2"
+         */
+        "headingLevel"?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+        "text"?: string;
+    }
+    interface ScoutLoader {
+        /**
+          * @default "base"
+         */
+        "size"?: "xs" | "sm" | "base" | "lg" | "xl";
+        "text"?: string;
+    }
+    interface ScoutSelect {
+        /**
+          * Whether the select is disabled. Disabled selects are not editable, excluded from tab order and are not validated.
+          * @default false
+         */
+        "disabled"?: boolean;
+        "onScoutBlur"?: (event: ScoutSelectCustomEvent<void>) => void;
+        "onScoutInputChange"?: (event: ScoutSelectCustomEvent<{
+    value: string;
+    element: HTMLSelectElement;
+  }>) => void;
+        /**
+          * Internal event used for form field association.
+         */
+        "on_fieldId"?: (event: ScoutSelectCustomEvent<string>) => void;
+        /**
+          * Custom validation function run on top of the implicit validation performed by the browser. Return a string with the validation message to mark the select as invalid, or null to mark it as valid.
+         */
+        "validate"?: (value: string) => string | null;
+        /**
+          * Value of the select element, in case you want to control it yourself.
+          * @default ""
+         */
+        "value"?: string;
+    }
+    interface ScoutStack {
+        /**
+          * The direction of the stack.
+          * @default "row"
+         */
+        "direction"?: Direction;
+        /**
+          * Gap size. If more sizes are needed, we can expand.
+          * @default "m"
+         */
+        "gapSize"?: GapSize;
     }
     interface ScoutSwitch {
         /**
@@ -580,8 +799,13 @@ declare namespace LocalJSX {
         "scout-divider": ScoutDivider;
         "scout-field": ScoutField;
         "scout-input": ScoutInput;
+        "scout-link": ScoutLink;
         "scout-list-view": ScoutListView;
         "scout-list-view-item": ScoutListViewItem;
+        "scout-list-view-subheader": ScoutListViewSubheader;
+        "scout-loader": ScoutLoader;
+        "scout-select": ScoutSelect;
+        "scout-stack": ScoutStack;
         "scout-switch": ScoutSwitch;
         "scout-text-area": ScoutTextArea;
     }
@@ -612,8 +836,13 @@ declare module "@stencil/core" {
             "scout-divider": LocalJSX.ScoutDivider & JSXBase.HTMLAttributes<HTMLScoutDividerElement>;
             "scout-field": LocalJSX.ScoutField & JSXBase.HTMLAttributes<HTMLScoutFieldElement>;
             "scout-input": LocalJSX.ScoutInput & JSXBase.HTMLAttributes<HTMLScoutInputElement>;
+            "scout-link": LocalJSX.ScoutLink & JSXBase.HTMLAttributes<HTMLScoutLinkElement>;
             "scout-list-view": LocalJSX.ScoutListView & JSXBase.HTMLAttributes<HTMLScoutListViewElement>;
             "scout-list-view-item": LocalJSX.ScoutListViewItem & JSXBase.HTMLAttributes<HTMLScoutListViewItemElement>;
+            "scout-list-view-subheader": LocalJSX.ScoutListViewSubheader & JSXBase.HTMLAttributes<HTMLScoutListViewSubheaderElement>;
+            "scout-loader": LocalJSX.ScoutLoader & JSXBase.HTMLAttributes<HTMLScoutLoaderElement>;
+            "scout-select": LocalJSX.ScoutSelect & JSXBase.HTMLAttributes<HTMLScoutSelectElement>;
+            "scout-stack": LocalJSX.ScoutStack & JSXBase.HTMLAttributes<HTMLScoutStackElement>;
             "scout-switch": LocalJSX.ScoutSwitch & JSXBase.HTMLAttributes<HTMLScoutSwitchElement>;
             "scout-text-area": LocalJSX.ScoutTextArea & JSXBase.HTMLAttributes<HTMLScoutTextAreaElement>;
         }

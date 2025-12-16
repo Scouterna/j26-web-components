@@ -1,0 +1,45 @@
+<script>
+  const root = document.getElementById('root');
+  root.outerHTML = `
+  <div class="dev-warning-banner">
+    <p class="dev-warning-banner-text">
+      Preview build.&nbsp;<a href="https://scouterna.github.io/j26-components/?path=/docs/home--docs">Go to latest version.</a>
+    </p>
+  </div>
+  ${root.outerHTML}`
+</script>
+<style>
+  .dev-warning-banner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 1.75rem;
+    text-align: center;
+    background: repeating-linear-gradient(
+      45deg,
+      black,
+      black 10px,
+      yellow 10px,
+      yellow 20px
+    );
+  }
+
+  .dev-warning-banner-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0 8rem;
+    background-color: yellow;
+    color: black;
+  }
+
+  .dev-warning-banner-text a {
+    color: rgb(0, 50, 180);
+  }
+
+  /* Fix so that the mobile nav doesn't end up outside the screen. */
+  #root > div {
+    height: calc(100dvh - 1.75rem);
+  }
+</style>

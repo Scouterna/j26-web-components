@@ -3,4 +3,4 @@
 "@scouterna/ui-webc": minor
 ---
 
-Added List View component.
+Added list view subheader

@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Scouterna/j26-web-components.git"
+    "url": "https://github.com/Scouterna/j26-components.git"
   },
   "type": "module",
   "scripts": {
@@ -20,11 +20,11 @@
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
-  "packageManager": "pnpm@10.7.0",
+  "packageManager": "pnpm@10.24.0",
   "devDependencies": {
-    "style-dictionary": "^5.0.4"
+    "style-dictionary": "^5.1.1"
   },
   "dependencies": {
-    "glob": "^11.0.3"
+    "glob": "^13.0.0"
   }
 }

@@ -2,7 +2,9 @@ import {
   ScoutDivider,
   ScoutListView,
   ScoutListViewItem,
+  ScoutListViewSubheader,
 } from "@scouterna/ui-react";
+import BoxIcon from "@tabler/icons/outline/box.svg?raw";
 import ClipboardDataIcon from "@tabler/icons/outline/clipboard-data.svg?raw";
 import LogoutIcon from "@tabler/icons/outline/logout.svg?raw";
 import WorldIcon from "@tabler/icons/outline/world.svg?raw";
@@ -41,6 +43,26 @@ export const BasicExample = meta.story({
       <ScoutDivider />
       <ScoutListView {...args}>
         <ScoutListViewItem icon={LogoutIcon} primary="Logout" type="button" />
+      </ScoutListView>
+    </div>
+  ),
+});
+
+export const WithSections = meta.story({
+  args: {},
+  render: (args) => (
+    <div style={{ maxWidth: "20rem", width: "100vw" }}>
+      <ScoutListView {...args}>
+        <ScoutListViewSubheader text="First section" />
+        <ScoutListViewItem icon={BoxIcon} primary="First item" />
+        <ScoutListViewItem icon={BoxIcon} primary="Second item" />
+        <ScoutListViewSubheader text="Second section" />
+        <ScoutListViewItem icon={BoxIcon} primary="Third item" />
+        <ScoutListViewItem icon={BoxIcon} primary="Fourth item" />
+        <ScoutListViewItem icon={BoxIcon} primary="Fifth item" />
+        <ScoutListViewSubheader text="Third section" />
+        <ScoutListViewItem icon={BoxIcon} primary="Sixth item" />
+        <ScoutListViewItem icon={BoxIcon} primary="Seventh item" />
       </ScoutListView>
     </div>
   ),

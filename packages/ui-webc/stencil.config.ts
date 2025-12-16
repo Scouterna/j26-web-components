@@ -40,7 +40,14 @@ export const config: Config = {
   },
   plugins: [
     postcss({
-      plugins: [postcssImport(), postcssPresetEnv()],
+      plugins: [
+        postcssImport(),
+        postcssPresetEnv({
+          features: {
+            "cascade-layers": false,
+          },
+        }),
+      ],
     }),
   ],
   devServer: {

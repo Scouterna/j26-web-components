@@ -1,0 +1,51 @@
+# scout-select
+
+A styled native select component for choosing from a list of options.
+
+## Usage
+
+```html
+<scout-select>
+  <option value="">Select an option</option>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</scout-select>
+```
+
+### With Field
+
+```html
+<scout-field label="Choose your option">
+  <scout-select>
+    <option value="">Select an option</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+  </scout-select>
+</scout-field>
+```
+
+<!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property   | Attribute  | Description                                                                                                                                                                                        | Type                        | Default     |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ----------- |
+| `disabled` | `disabled` | Whether the select is disabled. Disabled selects are not editable, excluded from tab order and are not validated.                                                                                  | `boolean`                   | `false`     |
+| `validate` | --         | Custom validation function run on top of the implicit validation performed by the browser. Return a string with the validation message to mark the select as invalid, or null to mark it as valid. | `(value: string) => string` | `undefined` |
+| `value`    | `value`    | Value of the select element, in case you want to control it yourself.                                                                                                                              | `string`                    | `""`        |
+
+
+## Events
+
+| Event              | Description                                     | Type                                                          |
+| ------------------ | ----------------------------------------------- | ------------------------------------------------------------- |
+| `_fieldId`         | Internal event used for form field association. | `CustomEvent<string>`                                         |
+| `scoutBlur`        |                                                 | `CustomEvent<void>`                                           |
+| `scoutInputChange` |                                                 | `CustomEvent<{ value: string; element: HTMLSelectElement; }>` |
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*
