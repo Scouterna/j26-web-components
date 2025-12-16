@@ -7,6 +7,7 @@
 
 | Property    | Attribute   | Description | Type                                          | Default     |
 | ----------- | ----------- | ----------- | --------------------------------------------- | ----------- |
+| `checked`   | `checked`   |             | `boolean`                                     | `undefined` |
 | `href`      | `href`      |             | `string`                                      | `undefined` |
 | `icon`      | `icon`      |             | `string`                                      | `undefined` |
 | `name`      | `name`      |             | `string`                                      | `undefined` |

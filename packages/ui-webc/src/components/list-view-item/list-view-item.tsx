@@ -28,6 +28,7 @@ export class ScoutListViewItem {
 
   @Prop() name?: string;
   @Prop() value?: string;
+  @Prop() checked?: boolean;
 
   @Event() scoutClick: EventEmitter<void>;
 
@@ -85,11 +86,23 @@ export class ScoutListViewItem {
 
   private getSuffix() {
     if (this.type === "radio") {
-      return <scout-radio-button name={this.name} value={this.value} />;
+      return (
+        <scout-radio-button
+          name={this.name}
+          value={this.value}
+          checked={this.checked}
+        />
+      );
     }
 
     if (this.type === "checkbox") {
-      return <scout-checkbox name={this.name} value={this.value} />;
+      return (
+        <scout-checkbox
+          name={this.name}
+          value={this.value}
+          checked={this.checked}
+        />
+      );
     }
 
     return null;
