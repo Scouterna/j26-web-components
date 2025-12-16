@@ -7,7 +7,7 @@
 
 /* eslint-disable */
 
-import { type ScoutCheckboxCustomEvent, type ScoutInputCustomEvent, type ScoutLinkCustomEvent, type ScoutSelectCustomEvent, type ScoutSwitchCustomEvent } from "@scouterna/ui-webc";
+import { type ScoutCheckboxCustomEvent, type ScoutInputCustomEvent, type ScoutLinkCustomEvent, type ScoutRadioButtonCustomEvent, type ScoutSelectCustomEvent, type ScoutSwitchCustomEvent } from "@scouterna/ui-webc";
 import { ScoutBottomBarItem as ScoutBottomBarItemElement, defineCustomElement as defineScoutBottomBarItem } from "@scouterna/ui-webc/dist/components/scout-bottom-bar-item.js";
 import { ScoutBottomBar as ScoutBottomBarElement, defineCustomElement as defineScoutBottomBar } from "@scouterna/ui-webc/dist/components/scout-bottom-bar.js";
 import { ScoutButton as ScoutButtonElement, defineCustomElement as defineScoutButton } from "@scouterna/ui-webc/dist/components/scout-button.js";
@@ -21,6 +21,7 @@ import { ScoutListViewItem as ScoutListViewItemElement, defineCustomElement as d
 import { ScoutListViewSubheader as ScoutListViewSubheaderElement, defineCustomElement as defineScoutListViewSubheader } from "@scouterna/ui-webc/dist/components/scout-list-view-subheader.js";
 import { ScoutListView as ScoutListViewElement, defineCustomElement as defineScoutListView } from "@scouterna/ui-webc/dist/components/scout-list-view.js";
 import { ScoutLoader as ScoutLoaderElement, defineCustomElement as defineScoutLoader } from "@scouterna/ui-webc/dist/components/scout-loader.js";
+import { ScoutRadioButton as ScoutRadioButtonElement, defineCustomElement as defineScoutRadioButton } from "@scouterna/ui-webc/dist/components/scout-radio-button.js";
 import { ScoutSelect as ScoutSelectElement, defineCustomElement as defineScoutSelect } from "@scouterna/ui-webc/dist/components/scout-select.js";
 import { ScoutStack as ScoutStackElement, defineCustomElement as defineScoutStack } from "@scouterna/ui-webc/dist/components/scout-stack.js";
 import { ScoutSwitch as ScoutSwitchElement, defineCustomElement as defineScoutSwitch } from "@scouterna/ui-webc/dist/components/scout-switch.js";
@@ -73,7 +74,7 @@ export const ScoutCard: StencilReactComponent<ScoutCardElement, ScoutCardEvents>
 });
 
 export type ScoutCheckboxEvents = {
-    onScoutCheckboxChecked: EventName<ScoutCheckboxCustomEvent<{
+    onScoutChecked: EventName<ScoutCheckboxCustomEvent<{
         checked: boolean;
         element: HTMLInputElement;
     }>>,
@@ -86,7 +87,7 @@ export const ScoutCheckbox: StencilReactComponent<ScoutCheckboxElement, ScoutChe
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
     events: {
-        onScoutCheckboxChecked: 'scoutCheckboxChecked',
+        onScoutChecked: 'scoutChecked',
         on_fieldId: '_fieldId'
     } as ScoutCheckboxEvents,
     defineCustomElement: defineScoutCheckbox
@@ -189,6 +190,26 @@ export const ScoutLoader: StencilReactComponent<ScoutLoaderElement, ScoutLoaderE
     react: React,
     events: {} as ScoutLoaderEvents,
     defineCustomElement: defineScoutLoader
+});
+
+export type ScoutRadioButtonEvents = {
+    onScoutChecked: EventName<ScoutRadioButtonCustomEvent<{
+        checked: boolean;
+        element: HTMLInputElement;
+    }>>,
+    on_fieldId: EventName<CustomEvent<string>>
+};
+
+export const ScoutRadioButton: StencilReactComponent<ScoutRadioButtonElement, ScoutRadioButtonEvents> = /*@__PURE__*/ createComponent<ScoutRadioButtonElement, ScoutRadioButtonEvents>({
+    tagName: 'scout-radio-button',
+    elementClass: ScoutRadioButtonElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {
+        onScoutChecked: 'scoutChecked',
+        on_fieldId: '_fieldId'
+    } as ScoutRadioButtonEvents,
+    defineCustomElement: defineScoutRadioButton
 });
 
 export type ScoutSelectEvents = {

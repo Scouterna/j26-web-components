@@ -91,6 +91,8 @@ export namespace Components {
          */
         "disabled": boolean;
         "label": string;
+        "name": string;
+        "value": string;
     }
     interface ScoutDivider {
     }
@@ -114,6 +116,7 @@ export namespace Components {
           * Input mode hints for devices with dynamic keyboards.
          */
         "inputmode"?: InputMode;
+        "name": string;
         /**
           * Regex pattern for input validation.
          */
@@ -186,12 +189,30 @@ export namespace Components {
         "size"?: "xs" | "sm" | "base" | "lg" | "xl";
         "text"?: string;
     }
+    interface ScoutRadioButton {
+        /**
+          * Use this prop if you need to connect your radio button with another element describing its use, other than the property label.
+         */
+        "ariaLabelledby": string;
+        /**
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        "label": string;
+        "name": string;
+        "value": string;
+    }
     interface ScoutSelect {
         /**
           * Whether the select is disabled. Disabled selects are not editable, excluded from tab order and are not validated.
           * @default false
          */
         "disabled": boolean;
+        "name": string;
         /**
           * Custom validation function run on top of the implicit validation performed by the browser. Return a string with the validation message to mark the select as invalid, or null to mark it as valid.
          */
@@ -254,6 +275,10 @@ export interface ScoutLinkCustomEvent<T> extends CustomEvent<T> {
 export interface ScoutListViewItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutListViewItemElement;
+}
+export interface ScoutRadioButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutRadioButtonElement;
 }
 export interface ScoutSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -325,7 +350,7 @@ declare global {
         new (): HTMLScoutCardElement;
     };
     interface HTMLScoutCheckboxElementEventMap {
-        "scoutCheckboxChecked": {
+        "scoutChecked": {
     checked: boolean;
     element: HTMLInputElement;
   };
@@ -431,6 +456,27 @@ declare global {
         prototype: HTMLScoutLoaderElement;
         new (): HTMLScoutLoaderElement;
     };
+    interface HTMLScoutRadioButtonElementEventMap {
+        "scoutChecked": {
+    checked: boolean;
+    element: HTMLInputElement;
+  };
+        "_fieldId": string;
+    }
+    interface HTMLScoutRadioButtonElement extends Components.ScoutRadioButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutRadioButtonElementEventMap>(type: K, listener: (this: HTMLScoutRadioButtonElement, ev: ScoutRadioButtonCustomEvent<HTMLScoutRadioButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutRadioButtonElementEventMap>(type: K, listener: (this: HTMLScoutRadioButtonElement, ev: ScoutRadioButtonCustomEvent<HTMLScoutRadioButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLScoutRadioButtonElement: {
+        prototype: HTMLScoutRadioButtonElement;
+        new (): HTMLScoutRadioButtonElement;
+    };
     interface HTMLScoutSelectElementEventMap {
         "scoutInputChange": {
     value: string;
@@ -494,6 +540,7 @@ declare global {
         "scout-list-view-item": HTMLScoutListViewItemElement;
         "scout-list-view-subheader": HTMLScoutListViewSubheaderElement;
         "scout-loader": HTMLScoutLoaderElement;
+        "scout-radio-button": HTMLScoutRadioButtonElement;
         "scout-select": HTMLScoutSelectElement;
         "scout-stack": HTMLScoutStackElement;
         "scout-switch": HTMLScoutSwitchElement;
@@ -577,7 +624,8 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "label"?: string;
-        "onScoutCheckboxChecked"?: (event: ScoutCheckboxCustomEvent<{
+        "name"?: string;
+        "onScoutChecked"?: (event: ScoutCheckboxCustomEvent<{
     checked: boolean;
     element: HTMLInputElement;
   }>) => void;
@@ -585,6 +633,7 @@ declare namespace LocalJSX {
           * Internal event used for form field association.
          */
         "on_fieldId"?: (event: ScoutCheckboxCustomEvent<string>) => void;
+        "value"?: string;
     }
     interface ScoutDivider {
     }
@@ -608,6 +657,7 @@ declare namespace LocalJSX {
           * Input mode hints for devices with dynamic keyboards.
          */
         "inputmode"?: InputMode;
+        "name"?: string;
         "onScoutBlur"?: (event: ScoutInputCustomEvent<void>) => void;
         "onScoutInputChange"?: (event: ScoutInputCustomEvent<{
     value: string;
@@ -694,12 +744,38 @@ declare namespace LocalJSX {
         "size"?: "xs" | "sm" | "base" | "lg" | "xl";
         "text"?: string;
     }
+    interface ScoutRadioButton {
+        /**
+          * Use this prop if you need to connect your radio button with another element describing its use, other than the property label.
+         */
+        "ariaLabelledby"?: string;
+        /**
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "label"?: string;
+        "name"?: string;
+        "onScoutChecked"?: (event: ScoutRadioButtonCustomEvent<{
+    checked: boolean;
+    element: HTMLInputElement;
+  }>) => void;
+        /**
+          * Internal event used for form field association.
+         */
+        "on_fieldId"?: (event: ScoutRadioButtonCustomEvent<string>) => void;
+        "value"?: string;
+    }
     interface ScoutSelect {
         /**
           * Whether the select is disabled. Disabled selects are not editable, excluded from tab order and are not validated.
           * @default false
          */
         "disabled"?: boolean;
+        "name"?: string;
         "onScoutBlur"?: (event: ScoutSelectCustomEvent<void>) => void;
         "onScoutInputChange"?: (event: ScoutSelectCustomEvent<{
     value: string;
@@ -769,6 +845,7 @@ declare namespace LocalJSX {
         "scout-list-view-item": ScoutListViewItem;
         "scout-list-view-subheader": ScoutListViewSubheader;
         "scout-loader": ScoutLoader;
+        "scout-radio-button": ScoutRadioButton;
         "scout-select": ScoutSelect;
         "scout-stack": ScoutStack;
         "scout-switch": ScoutSwitch;
@@ -805,6 +882,7 @@ declare module "@stencil/core" {
             "scout-list-view-item": LocalJSX.ScoutListViewItem & JSXBase.HTMLAttributes<HTMLScoutListViewItemElement>;
             "scout-list-view-subheader": LocalJSX.ScoutListViewSubheader & JSXBase.HTMLAttributes<HTMLScoutListViewSubheaderElement>;
             "scout-loader": LocalJSX.ScoutLoader & JSXBase.HTMLAttributes<HTMLScoutLoaderElement>;
+            "scout-radio-button": LocalJSX.ScoutRadioButton & JSXBase.HTMLAttributes<HTMLScoutRadioButtonElement>;
             "scout-select": LocalJSX.ScoutSelect & JSXBase.HTMLAttributes<HTMLScoutSelectElement>;
             "scout-stack": LocalJSX.ScoutStack & JSXBase.HTMLAttributes<HTMLScoutStackElement>;
             "scout-switch": LocalJSX.ScoutSwitch & JSXBase.HTMLAttributes<HTMLScoutSwitchElement>;

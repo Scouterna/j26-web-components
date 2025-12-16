@@ -6,20 +6,19 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import checkIcon from "@tabler/icons/outline/check.svg";
 
 @Component({
-  tag: "scout-checkbox",
-  styleUrl: "checkbox.css",
+  tag: "scout-radio-button",
+  styleUrl: "radio-button.css",
   scoped: true,
 })
-export class ScoutCheckbox {
+export class ScoutRadioButton {
   @Prop() checked: boolean = false;
 
   @Prop() disabled: boolean = false;
 
   /**
-   * Use this prop if you need to connect your checkbox with another element describing its use, other than the property label.
+   * Use this prop if you need to connect your radio button with another element describing its use, other than the property label.
    */
   @Prop() ariaLabelledby: string;
 
@@ -46,11 +45,11 @@ export class ScoutCheckbox {
   }
 
   onChange(event: Event) {
-    const checkbox = event.target as HTMLInputElement;
+    const radio = event.target as HTMLInputElement;
 
     this.scoutChecked.emit({
-      checked: checkbox.checked,
-      element: checkbox,
+      checked: radio.checked,
+      element: radio,
     });
   }
 
@@ -60,11 +59,10 @@ export class ScoutCheckbox {
       <Tag>
         <input
           id={this.ariaId}
-          type="checkbox"
+          type="radio"
           value={this.value}
           name={this.name}
-          class="checkbox"
-          style={{ "--icon-checkbox": `url(${checkIcon})` }}
+          class="radio"
           aria-labelledby={this.ariaLabelledby}
           aria-disabled={this.disabled}
           disabled={this.disabled}

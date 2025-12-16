@@ -58,6 +58,8 @@ export class ScoutInput implements ComponentInterface {
    */
   @Prop() value: string = "";
 
+  @Prop() name: string;
+
   /**
    * Whether the input is disabled. Disabled inputs are not editable, excluded
    * from tab order and are not validated.
@@ -108,6 +110,7 @@ export class ScoutInput implements ComponentInterface {
       <input
         id={this.ariaId}
         type={this.type}
+        name={this.name}
         inputMode={this.inputmode}
         pattern={this.pattern}
         class="input"

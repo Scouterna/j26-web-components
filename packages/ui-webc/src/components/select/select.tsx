@@ -26,6 +26,8 @@ export class ScoutSelect implements ComponentInterface {
    */
   @Prop() disabled: boolean = false;
 
+  @Prop() name: string;
+
   /**
    * Custom validation function run on top of the implicit validation performed
    * by the browser. Return a string with the validation message to mark the
@@ -70,6 +72,7 @@ export class ScoutSelect implements ComponentInterface {
       <div class="select-wrapper">
         <select
           id={this.ariaId}
+          name={this.name}
           class="select"
           disabled={this.disabled}
           onChange={(e) => this.onChange(e)}
