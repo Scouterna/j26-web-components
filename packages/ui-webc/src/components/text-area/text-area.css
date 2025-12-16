@@ -3,19 +3,19 @@
 }
 
 .flexbox{
-    display: inline-flex;
-    flex-direction: column;
-    padding: 0.5rem;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.5rem;
 }
 
 .textarea{
-    resize: none;
-    height: var(--spacing-24);
-    width: var(--spacing-50);
-    padding: var(--spacing-2);
-    font: var(--type-body-base);
-    border: 1px solid var(--color-gray-300);
-    border-radius: var(--spacing-2);
-    background-color: var(--color-white);
-    color: var(--color-text-base);
+  resize: none;
+  height: var(--spacing-24);
+  width: var(--spacing-50);
+  padding: var(--spacing-2);
+  font: var(--type-body-base);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--spacing-2);
+  background-color: var(--color-white);
+  color: var(--color-text-base);
 }

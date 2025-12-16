@@ -22,7 +22,7 @@ export class ScoutTextArea {
   @Prop() readOnly?: boolean;
 
   @Prop() required?: boolean;
-  
+
   @Prop() value?: string;
 
   @Prop() label?: string;
@@ -30,19 +30,19 @@ export class ScoutTextArea {
   render() {
     return (
       <div class="flexbox">
-      <label>
-        {this.label}
-      </label>
-      <textarea 
-        class="textarea"
-        autofocus={this.autofocus}
-        disabled={this.disabled}
-        form={this.form}
-        maxLength={this.maxLength}
-        placeholder={this.placeholder}
-        readOnly={this.readOnly}
-        required={this.required}
-        value={this.value}
+        <div>
+          {this.label}
+        </div>
+        <textarea 
+          class="textarea"
+          autofocus={this.autofocus}
+          disabled={this.disabled}
+          form={this.form}
+          maxLength={this.maxLength}
+          placeholder={this.placeholder}
+          readOnly={this.readOnly}
+          required={this.required}
+          value={this.value}
         />
       </div>
     );
