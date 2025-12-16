@@ -23,6 +23,19 @@
 | `scoutChecked` |                                                 | `CustomEvent<{ checked: boolean; element: HTMLInputElement; }>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [scout-list-view-item](../list-view-item)
+
+### Graph
+```mermaid
+graph TD;
+  scout-list-view-item --> scout-checkbox
+  style scout-checkbox fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

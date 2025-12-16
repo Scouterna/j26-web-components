@@ -1,4 +1,4 @@
-import { Component, Host, h } from "@stencil/core";
+import { Component, Element, Host, h, Listen } from "@stencil/core";
 
 @Component({
   tag: "scout-list-view",
@@ -8,6 +8,39 @@ import { Component, Host, h } from "@stencil/core";
   },
 })
 export class ScoutListView {
+  @Element() el: HTMLElement;
+
+  @Listen("scoutChecked")
+  onScoutChecked(
+    event: CustomEvent<{ checked: boolean; element: HTMLInputElement }>,
+  ) {
+    const { checked, element } = event.detail;
+
+    if (element.type !== "radio" || !element.name || !checked) {
+      return;
+    }
+
+    const listItems = this.el.querySelectorAll("scout-list-view-item");
+
+    const otherRadios: HTMLInputElement[] = [];
+
+    listItems.forEach((item) => {
+      const radios = item.shadowRoot.querySelectorAll<HTMLInputElement>(
+        `input[type="radio"][name="${element.name}"]`,
+      );
+
+      radios.forEach((r) => {
+        if (r !== element) {
+          otherRadios.push(r);
+        }
+      });
+    });
+
+    for (const radio of otherRadios) {
+      radio.checked = false;
+    }
+  }
+
   render() {
     return (
       <Host role="list">

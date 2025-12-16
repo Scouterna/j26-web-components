@@ -7,7 +7,7 @@ import {
   Prop,
 } from "@stencil/core";
 
-export type ItemType = "button" | "link";
+export type ItemType = "button" | "link" | "radio" | "checkbox";
 
 @Component({
   tag: "scout-list-view-item",
@@ -26,10 +26,18 @@ export class ScoutListViewItem {
   @Prop() target?: string;
   @Prop() rel?: string;
 
+  @Prop() name?: string;
+  @Prop() value?: string;
+
   @Event() scoutClick: EventEmitter<void>;
 
   render() {
-    const Tag = this.type === "link" ? "a" : "button";
+    const Tag =
+      this.type === "link"
+        ? "a"
+        : this.type === "radio" || this.type === "checkbox"
+          ? "label"
+          : "button";
 
     const linkProps =
       this.type === "link"
@@ -76,18 +84,13 @@ export class ScoutListViewItem {
   }
 
   private getSuffix() {
-    // if (this.type === "link") {
-    //   return (
-    //     <div class="suffix-icon">
-    //       <span
-    //         class="icon"
-    //         style={{
-    //           "--icon": `url(${ChevronRightIcon})`,
-    //         }}
-    //       />
-    //     </div>
-    //   );
-    // }
+    if (this.type === "radio") {
+      return <scout-radio-button name={this.name} value={this.value} />;
+    }
+
+    if (this.type === "checkbox") {
+      return <scout-checkbox name={this.name} value={this.value} />;
+    }
 
     return null;
   }

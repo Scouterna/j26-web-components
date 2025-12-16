@@ -67,3 +67,43 @@ export const WithSections = meta.story({
     </div>
   ),
 });
+
+export const WithRadioButtons = meta.story({
+  args: {},
+  render: (args) => (
+    <div style={{ maxWidth: "20rem", width: "100vw" }}>
+      <ScoutListView {...args}>
+        <ScoutListViewItem
+          type="radio"
+          primary="First item"
+          value="first"
+          name="list-view-radio-group"
+        />
+        <ScoutListViewItem
+          type="radio"
+          primary="Second item"
+          value="second"
+          name="list-view-radio-group"
+        />
+        <ScoutListViewItem
+          type="radio"
+          primary="Third item"
+          value="third"
+          name="list-view-radio-group"
+        />
+      </ScoutListView>
+    </div>
+  ),
+});
+
+export const WithCheckboxes = meta.story({
+  render: (args) => (
+    <div style={{ maxWidth: "20rem", width: "100vw" }}>
+      <ScoutListView {...args}>
+        <ScoutListViewItem type="checkbox" primary="First item" />
+        <ScoutListViewItem type="checkbox" primary="Second item" />
+        <ScoutListViewItem type="checkbox" primary="Third item" />
+      </ScoutListView>
+    </div>
+  ),
+});
