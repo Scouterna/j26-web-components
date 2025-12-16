@@ -1,0 +1,2 @@
+lib/components/stencil-generated/*
+!lib/components/stencil-generated/.gitkeep
