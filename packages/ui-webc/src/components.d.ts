@@ -251,6 +251,20 @@ export namespace Components {
          */
         "toggled": boolean;
     }
+    interface ScoutTextArea {
+        /**
+          * @default false
+         */
+        "autofocus": boolean;
+        "disabled"?: boolean;
+        "form": string;
+        "label"?: string;
+        "maxLength"?: number;
+        "placeholder"?: string;
+        "readOnly"?: boolean;
+        "required"?: boolean;
+        "value"?: string;
+    }
 }
 export interface ScoutBottomBarItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -526,6 +540,12 @@ declare global {
         prototype: HTMLScoutSwitchElement;
         new (): HTMLScoutSwitchElement;
     };
+    interface HTMLScoutTextAreaElement extends Components.ScoutTextArea, HTMLStencilElement {
+    }
+    var HTMLScoutTextAreaElement: {
+        prototype: HTMLScoutTextAreaElement;
+        new (): HTMLScoutTextAreaElement;
+    };
     interface HTMLElementTagNameMap {
         "scout-bottom-bar": HTMLScoutBottomBarElement;
         "scout-bottom-bar-item": HTMLScoutBottomBarItemElement;
@@ -544,6 +564,7 @@ declare global {
         "scout-select": HTMLScoutSelectElement;
         "scout-stack": HTMLScoutStackElement;
         "scout-switch": HTMLScoutSwitchElement;
+        "scout-text-area": HTMLScoutTextAreaElement;
     }
 }
 declare namespace LocalJSX {
@@ -831,6 +852,20 @@ declare namespace LocalJSX {
          */
         "toggled"?: boolean;
     }
+    interface ScoutTextArea {
+        /**
+          * @default false
+         */
+        "autofocus"?: boolean;
+        "disabled"?: boolean;
+        "form"?: string;
+        "label"?: string;
+        "maxLength"?: number;
+        "placeholder"?: string;
+        "readOnly"?: boolean;
+        "required"?: boolean;
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "scout-bottom-bar": ScoutBottomBar;
         "scout-bottom-bar-item": ScoutBottomBarItem;
@@ -849,6 +884,7 @@ declare namespace LocalJSX {
         "scout-select": ScoutSelect;
         "scout-stack": ScoutStack;
         "scout-switch": ScoutSwitch;
+        "scout-text-area": ScoutTextArea;
     }
 }
 export { LocalJSX as JSX };
@@ -886,6 +922,7 @@ declare module "@stencil/core" {
             "scout-select": LocalJSX.ScoutSelect & JSXBase.HTMLAttributes<HTMLScoutSelectElement>;
             "scout-stack": LocalJSX.ScoutStack & JSXBase.HTMLAttributes<HTMLScoutStackElement>;
             "scout-switch": LocalJSX.ScoutSwitch & JSXBase.HTMLAttributes<HTMLScoutSwitchElement>;
+            "scout-text-area": LocalJSX.ScoutTextArea & JSXBase.HTMLAttributes<HTMLScoutTextAreaElement>;
         }
     }
 }

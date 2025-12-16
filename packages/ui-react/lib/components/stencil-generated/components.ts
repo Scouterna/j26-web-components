@@ -25,6 +25,7 @@ import { ScoutRadioButton as ScoutRadioButtonElement, defineCustomElement as def
 import { ScoutSelect as ScoutSelectElement, defineCustomElement as defineScoutSelect } from "@scouterna/ui-webc/dist/components/scout-select.js";
 import { ScoutStack as ScoutStackElement, defineCustomElement as defineScoutStack } from "@scouterna/ui-webc/dist/components/scout-stack.js";
 import { ScoutSwitch as ScoutSwitchElement, defineCustomElement as defineScoutSwitch } from "@scouterna/ui-webc/dist/components/scout-switch.js";
+import { ScoutTextArea as ScoutTextAreaElement, defineCustomElement as defineScoutTextArea } from "@scouterna/ui-webc/dist/components/scout-text-area.js";
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
 import React from 'react';
@@ -263,4 +264,15 @@ export const ScoutSwitch: StencilReactComponent<ScoutSwitchElement, ScoutSwitchE
         on_fieldId: '_fieldId'
     } as ScoutSwitchEvents,
     defineCustomElement: defineScoutSwitch
+});
+
+export type ScoutTextAreaEvents = NonNullable<unknown>;
+
+export const ScoutTextArea: StencilReactComponent<ScoutTextAreaElement, ScoutTextAreaEvents> = /*@__PURE__*/ createComponent<ScoutTextAreaElement, ScoutTextAreaEvents>({
+    tagName: 'scout-text-area',
+    elementClass: ScoutTextAreaElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as ScoutTextAreaEvents,
+    defineCustomElement: defineScoutTextArea
 });
