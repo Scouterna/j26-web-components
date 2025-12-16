@@ -1,6 +1,6 @@
 import { ScoutButton } from "@scouterna/ui-react";
-import ExternalLinkIcon from "@tabler/icons/outline/external-link.svg?raw";
 import ArrowLeftIcon from "@tabler/icons/outline/arrow-left.svg?raw";
+import ExternalLinkIcon from "@tabler/icons/outline/external-link.svg?raw";
 import LockIcon from "@tabler/icons/outline/lock.svg?raw";
 import TrashIcon from "@tabler/icons/outline/trash.svg?raw";
 import preview from "#.storybook/preview";
