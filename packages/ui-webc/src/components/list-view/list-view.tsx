@@ -26,7 +26,7 @@ export class ScoutListView {
 
     listItems.forEach((item) => {
       const radios = item.shadowRoot.querySelectorAll<HTMLInputElement>(
-        `input[type="radio"][name="${element.name}"]`,
+        `input[type="radio"][name="${CSS.escape(element.name)}"]`,
       );
 
       radios.forEach((r) => {
