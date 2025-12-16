@@ -1,4 +1,4 @@
-.checkbox {
+.radio {
   width: var(--spacing-6);
   height: var(--spacing-6);
   appearance: none;
@@ -6,34 +6,36 @@
   display: flex;
   align-content: center;
   justify-content: center;
-  border-radius: 3px;
-  background-color: var(--color-text-brand-inverse);
+  border-radius: 100%;
+  background-color: var(--color-white);
   border: 2px solid var(--color-gray-300);
   position: relative;
 }
 
-.checkbox:hover {
+.radio:hover {
   border: 2px solid var(--color-gray-400);
   box-shadow: inset 0px 0px 5px 5px var(--color-background-brand-subtle-hovered);
   cursor: pointer;
 }
 
-.checkbox:active {
+.radio:active {
   background-color: var(--color-background-brand-subtle-pressed);
 }
 
-.checkbox:checked:hover {
-  background-color: var(--color-background-brand-hovered);
+.radio:checked:hover {
   border-color: var(--color-background-brand-hovered);
   box-shadow: none;
 }
 
-.checkbox:checked {
-  background-color: var(--color-background-brand-base);
+.radio:checked:hover::before {
+  background-color: var(--color-background-brand-hovered);
+}
+
+.radio:checked {
   border-color: var(--color-background-brand-base);
 }
 
-.checkbox::after {
+.radio::after {
   content: "";
   position: absolute;
   width: var(--spacing-10);
@@ -43,23 +45,19 @@
   transform: translate(-50%, -50%);
 }
 
-.checkbox:checked::before {
+.radio:checked::before {
   content: "";
-  background-color: var(--color-text-brand-inverse);
-  width: var(--spacing-6);
-  height: var(--spacing-6);
+  background-color: var(--color-background-brand-base);
+  width: var(--spacing-4);
+  height: var(--spacing-4);
   position: absolute;
-  /* Needed because of the border */
   top: 50%;
   left: 50%;
-  right: 0;
-  bottom: 0;
   transform: translate(-50%, -50%);
-  mask-image: var(--icon-checkbox);
-  mask-repeat: no-repeat;
+  border-radius: 100%;
 }
 
-.checkbox:disabled {
+.radio:disabled {
   pointer-events: none;
   background-color: var(--color-gray-100);
   border-color: var(--color-gray-100);

@@ -11,14 +11,16 @@
 | `checked`        | `checked`         |                                                                                                                            | `boolean` | `false`     |
 | `disabled`       | `disabled`        |                                                                                                                            | `boolean` | `false`     |
 | `label`          | `label`           |                                                                                                                            | `string`  | `undefined` |
+| `name`           | `name`            |                                                                                                                            | `string`  | `undefined` |
+| `value`          | `value`           |                                                                                                                            | `string`  | `undefined` |
 
 
 ## Events
 
-| Event                  | Description                                     | Type                                                            |
-| ---------------------- | ----------------------------------------------- | --------------------------------------------------------------- |
-| `_fieldId`             | Internal event used for form field association. | `CustomEvent<string>`                                           |
-| `scoutCheckboxChecked` |                                                 | `CustomEvent<{ checked: boolean; element: HTMLInputElement; }>` |
+| Event          | Description                                     | Type                                                            |
+| -------------- | ----------------------------------------------- | --------------------------------------------------------------- |
+| `_fieldId`     | Internal event used for form field association. | `CustomEvent<string>`                                           |
+| `scoutChecked` |                                                 | `CustomEvent<{ checked: boolean; element: HTMLInputElement; }>` |
 
 
 ----------------------------------------------
