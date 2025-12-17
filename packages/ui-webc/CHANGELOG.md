@@ -1,5 +1,12 @@
 # @scouterna/ui-webc
 
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies [[`9eaf114`](https://github.com/Scouterna/j26-components/commit/9eaf1149f20a0a65196a303183d580b63a28180c)]:
+  - @scouterna/design-tokens@0.0.3
+
 ## 2.2.0
 
 ### Minor Changes
