@@ -1,6 +1,6 @@
 {
   "name": "@scouterna/design-tokens",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Scouterna Design System Design Tokens",
   "main": "index.js",
   "exports": {
