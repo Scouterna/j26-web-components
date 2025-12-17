@@ -1,5 +1,23 @@
 # @scouterna/ui-webc
 
+## 2.2.0
+
+### Minor Changes
+
+- [#82](https://github.com/Scouterna/j26-components/pull/82) [`d85c9e6`](https://github.com/Scouterna/j26-components/commit/d85c9e60588c9b35b0093eeccb08241c9f1e7924) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Add support for checkbox and radio button to list view item
+
+- [#73](https://github.com/Scouterna/j26-components/pull/73) [`6809433`](https://github.com/Scouterna/j26-components/commit/680943319672245a54532e3cc9010bac2a606994) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Added list view subheader
+
+- [#77](https://github.com/Scouterna/j26-components/pull/77) [`f2e4ab2`](https://github.com/Scouterna/j26-components/commit/f2e4ab23f967cdb86e9b4649b2ca0f057ba24060) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Add iconOnly option to button
+
+- [#77](https://github.com/Scouterna/j26-components/pull/77) [`f2e4ab2`](https://github.com/Scouterna/j26-components/commit/f2e4ab23f967cdb86e9b4649b2ca0f057ba24060) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Add app bar component
+
+- [#81](https://github.com/Scouterna/j26-components/pull/81) [`2fcac32`](https://github.com/Scouterna/j26-components/commit/2fcac325abb76033d03f65e470022d0c1f469a2f) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Add radio button component
+
+### Patch Changes
+
+- [#81](https://github.com/Scouterna/j26-components/pull/81) [`2fcac32`](https://github.com/Scouterna/j26-components/commit/2fcac325abb76033d03f65e470022d0c1f469a2f) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Align all input components
+
 ## 2.1.0
 
 ### Minor Changes
