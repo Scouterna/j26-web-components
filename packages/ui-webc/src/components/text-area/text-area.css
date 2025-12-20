@@ -1,4 +1,4 @@
-.textarea{
+.textarea {
   resize: none;
   padding: var(--spacing-2);
   font: var(--type-body-base);

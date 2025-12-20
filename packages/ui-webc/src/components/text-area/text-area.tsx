@@ -1,9 +1,16 @@
-import { Component, Event, type EventEmitter, h, Prop, State } from "@stencil/core";
+import { 
+  Component,
+  Event,
+  type EventEmitter,
+  h,
+  Prop,
+  State
+} from "@stencil/core";
 
 @Component({
   tag: "scout-text-area",
   styleUrl: "text-area.css",
-  scoped: true
+  scoped: true,
 })
 
 export class ScoutTextArea {
@@ -30,10 +37,10 @@ export class ScoutTextArea {
   @Prop() label?: string;
 
   /**
-  * Custom validation function run on top of the implicit validation performed
-  * by the browser. Return a string with the validation message to mark the
-  * input as invalid, or null to mark it as valid.
-  */
+   * Custom validation function run on top of the implicit validation performed
+   * by the browser. Return a string with the validation message to mark the
+   * input as invalid, or null to mark it as valid.
+   */
   @Prop() validate?: (value: string) => string | null;
 
   @Event() scoutInputChange: EventEmitter<{
@@ -44,8 +51,8 @@ export class ScoutTextArea {
   @Event() scoutBlur: EventEmitter<void>;
 
   /**
-  * Internal event used for form field association.
-  */
+   * Internal event used for form field association.
+   */
   @Event() _fieldId: EventEmitter<string>;
 
   @State() ariaId: string;
@@ -70,7 +77,7 @@ export class ScoutTextArea {
   }
   render() {
     return (
-      <textarea 
+      <textarea
         class="textarea"
         name={this.name}
         autofocus={this.autofocus}

@@ -4,7 +4,7 @@ import {
   ScoutInput,
   ScoutSelect,
   ScoutSwitch,
-  ScoutTextArea
+  ScoutTextArea,
 } from "@scouterna/ui-react";
 import preview from "#.storybook/preview";
 
@@ -36,7 +36,6 @@ export const WithTextArea = meta.story({
     </ScoutField>
   ),
 });
-
 
 export const WithFieldTypeValidation = WithInput.extend({
   args: {

@@ -15,9 +15,7 @@ export const BasicExample = meta.story({
   args: {
     name: "Name",
   },
-  render: (args) => (
-    <ScoutTextArea {...args} />
-  ),
+  render: (args) => <ScoutTextArea {...args} />,
 });
 
 export const Disabled = BasicExample.extend({
