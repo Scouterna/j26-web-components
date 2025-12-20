@@ -2,7 +2,7 @@ import { ScoutTextArea } from "@scouterna/ui-react";
 import preview from "#.storybook/preview";
 
 const meta = preview.meta({
-  title: "Uncategorized/Text-Area",
+  title: "Interaction/Text-Area",
   component: ScoutTextArea,
   parameters: {
     layout: "centered",
@@ -13,7 +13,15 @@ export default meta;
 
 export const BasicExample = meta.story({
   args: {
-    label: "",
+    name: "Name",
   },
-  render: (args) => <ScoutTextArea {...args} />,
+  render: (args) => (
+    <ScoutTextArea {...args} />
+  ),
+});
+
+export const Disabled = BasicExample.extend({
+  args: {
+    disabled: true,
+  },
 });

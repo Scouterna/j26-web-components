@@ -7,7 +7,7 @@
 
 /* eslint-disable */
 
-import { type ScoutCheckboxCustomEvent, type ScoutInputCustomEvent, type ScoutLinkCustomEvent, type ScoutSelectCustomEvent, type ScoutSwitchCustomEvent } from "@scouterna/ui-webc";
+import { type ScoutCheckboxCustomEvent, type ScoutInputCustomEvent, type ScoutLinkCustomEvent, type ScoutSelectCustomEvent, type ScoutSwitchCustomEvent, type ScoutTextAreaCustomEvent } from "@scouterna/ui-webc";
 import { ScoutBottomBarItem as ScoutBottomBarItemElement, defineCustomElement as defineScoutBottomBarItem } from "@scouterna/ui-webc/dist/components/scout-bottom-bar-item.js";
 import { ScoutBottomBar as ScoutBottomBarElement, defineCustomElement as defineScoutBottomBar } from "@scouterna/ui-webc/dist/components/scout-bottom-bar.js";
 import { ScoutButton as ScoutButtonElement, defineCustomElement as defineScoutButton } from "@scouterna/ui-webc/dist/components/scout-button.js";
@@ -245,13 +245,24 @@ export const ScoutSwitch: StencilReactComponent<ScoutSwitchElement, ScoutSwitchE
     defineCustomElement: defineScoutSwitch
 });
 
-export type ScoutTextAreaEvents = NonNullable<unknown>;
+export type ScoutTextAreaEvents = {
+    onScoutInputChange: EventName<ScoutTextAreaCustomEvent<{
+        value: string;
+        element: HTMLInputElement;
+    }>>,
+    onScoutBlur: EventName<CustomEvent<void>>,
+    on_fieldId: EventName<CustomEvent<string>>
+};
 
 export const ScoutTextArea: StencilReactComponent<ScoutTextAreaElement, ScoutTextAreaEvents> = /*@__PURE__*/ createComponent<ScoutTextAreaElement, ScoutTextAreaEvents>({
     tagName: 'scout-text-area',
     elementClass: ScoutTextAreaElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as ScoutTextAreaEvents,
+    events: {
+        onScoutInputChange: 'scoutInputChange',
+        onScoutBlur: 'scoutBlur',
+        on_fieldId: '_fieldId'
+    } as ScoutTextAreaEvents,
     defineCustomElement: defineScoutTextArea
 });

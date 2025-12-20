@@ -239,9 +239,18 @@ export namespace Components {
         "form": string;
         "label"?: string;
         "maxLength"?: number;
+        "name"?: string;
         "placeholder"?: string;
         "readOnly"?: boolean;
         "required"?: boolean;
+        /**
+          * @default 3
+         */
+        "rows"?: number;
+        /**
+          * Custom validation function run on top of the implicit validation performed by the browser. Return a string with the validation message to mark the input as invalid, or null to mark it as valid.
+         */
+        "validate"?: (value: string) => string | null;
         "value"?: string;
     }
 }
@@ -276,6 +285,10 @@ export interface ScoutSelectCustomEvent<T> extends CustomEvent<T> {
 export interface ScoutSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLScoutSwitchElement;
+}
+export interface ScoutTextAreaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLScoutTextAreaElement;
 }
 declare global {
     /**
@@ -494,7 +507,23 @@ declare global {
         prototype: HTMLScoutSwitchElement;
         new (): HTMLScoutSwitchElement;
     };
+    interface HTMLScoutTextAreaElementEventMap {
+        "scoutInputChange": {
+    value: string;
+    element: HTMLInputElement;
+  };
+        "scoutBlur": void;
+        "_fieldId": string;
+    }
     interface HTMLScoutTextAreaElement extends Components.ScoutTextArea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLScoutTextAreaElementEventMap>(type: K, listener: (this: HTMLScoutTextAreaElement, ev: ScoutTextAreaCustomEvent<HTMLScoutTextAreaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLScoutTextAreaElementEventMap>(type: K, listener: (this: HTMLScoutTextAreaElement, ev: ScoutTextAreaCustomEvent<HTMLScoutTextAreaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLScoutTextAreaElement: {
         prototype: HTMLScoutTextAreaElement;
@@ -785,9 +814,27 @@ declare namespace LocalJSX {
         "form"?: string;
         "label"?: string;
         "maxLength"?: number;
+        "name"?: string;
+        "onScoutBlur"?: (event: ScoutTextAreaCustomEvent<void>) => void;
+        "onScoutInputChange"?: (event: ScoutTextAreaCustomEvent<{
+    value: string;
+    element: HTMLInputElement;
+  }>) => void;
+        /**
+          * Internal event used for form field association.
+         */
+        "on_fieldId"?: (event: ScoutTextAreaCustomEvent<string>) => void;
         "placeholder"?: string;
         "readOnly"?: boolean;
         "required"?: boolean;
+        /**
+          * @default 3
+         */
+        "rows"?: number;
+        /**
+          * Custom validation function run on top of the implicit validation performed by the browser. Return a string with the validation message to mark the input as invalid, or null to mark it as valid.
+         */
+        "validate"?: (value: string) => string | null;
         "value"?: string;
     }
     interface IntrinsicElements {

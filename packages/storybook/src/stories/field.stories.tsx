@@ -4,6 +4,7 @@ import {
   ScoutInput,
   ScoutSelect,
   ScoutSwitch,
+  ScoutTextArea
 } from "@scouterna/ui-react";
 import preview from "#.storybook/preview";
 
@@ -24,6 +25,18 @@ export const WithInput = meta.story({
     </ScoutField>
   ),
 });
+
+export const WithTextArea = meta.story({
+  args: {
+    label: "Name",
+  },
+  render: (args) => (
+    <ScoutField {...args}>
+      <ScoutTextArea />
+    </ScoutField>
+  ),
+});
+
 
 export const WithFieldTypeValidation = WithInput.extend({
   args: {
