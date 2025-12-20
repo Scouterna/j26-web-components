@@ -1,10 +1,10 @@
-import { 
+import {
   Component,
   Event,
   type EventEmitter,
   h,
   Prop,
-  State
+  State,
 } from "@stencil/core";
 
 @Component({
@@ -12,7 +12,6 @@ import {
   styleUrl: "text-area.css",
   scoped: true,
 })
-
 export class ScoutTextArea {
   @Prop() name?: string;
 
