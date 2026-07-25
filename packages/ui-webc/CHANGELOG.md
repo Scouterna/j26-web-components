@@ -1,5 +1,11 @@
 # @scouterna/ui-webc
 
+## 4.5.2
+
+### Patch Changes
+
+- [`319ac28`](https://github.com/Scouterna/j26-components/commit/319ac281df409a08b2e40e901f4ffc21b8fa0834) Thanks [@scriptcoded](https://github.com/scriptcoded)! - Make drawer content scrollable when it overflows the drawer height.
+
 ## 4.5.1
 
 ### Patch Changes
