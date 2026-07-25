@@ -199,7 +199,9 @@ export class ScoutDrawer implements ComponentInterface {
               {this.heading && <h3 class="heading">{this.heading}</h3>}
             </div>
           )}
-          <div class={!this.disableContentPadding ? `content--wrapper` : ""}>
+          <div
+            class={`content--wrapper ${this.disableContentPadding ? "content--wrapper--no-padding" : ""}`}
+          >
             <slot
               ref={(el) => {
                 const slot = el as HTMLSlotElement | undefined;

@@ -31,3 +31,25 @@ export const BasicExample = meta.story({
     </div>
   ),
 });
+
+export const OverflowingContent = meta.story({
+  args: {
+    open: false,
+    heading: "Drawer Heading",
+    showBackButton: true,
+    showExitButton: true,
+    onBackButtonClicked: fn(),
+    onExitButtonClicked: fn(),
+  },
+  render: (args) => (
+    <div>
+      <p>some content within the page.</p>
+      <p>Make sure the Drawer is placed in the root.</p>
+      <ScoutDrawer {...args}>
+        {Array.from({ length: 100 }, (_, i) => `Line ${i + 1}`).map((line) => (
+          <p key={line}>{line}</p>
+        ))}
+      </ScoutDrawer>
+    </div>
+  ),
+});

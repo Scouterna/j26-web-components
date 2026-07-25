@@ -12,6 +12,8 @@
   height: 90%;
   width: 100%;
   transform: translateY(100%);
+  display: flex;
+  flex-direction: column;
   background-color: #fefefe;
   box-shadow: 0 0 12px 3px rgba(0, 0, 0, 0.15);
   border-top-left-radius: var(--spacing-5);
@@ -74,7 +76,6 @@
     height: 100%;
     max-height: 100%;
     max-width: 90%;
-    min-height: 600px;
     width: 430px;
     transform: translateX(100%);
     border-top-left-radius: var(--spacing-3);
@@ -119,6 +120,7 @@
   position: relative;
   width: 100%;
   height: var(--spacing-20);
+  flex: 0 0 auto;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -131,7 +133,17 @@
 }
 
 .content--wrapper {
+  /* min-height: 0 lets this flex item shrink below its content size so the
+     overflow happens here instead of pushing past the container. */
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 0 var(--spacing-7);
+}
+
+.content--wrapper--no-padding {
+  padding: 0;
 }
 
 button {
